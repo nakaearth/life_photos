@@ -1,0 +1,34 @@
+AllCops:
+  Includes:
+    - Gemfile
+    - Rakefile
+    - config.ru
+  Excludes:
+    - bin/*
+    - db/*
+    - config/*
+
+LineLength:
+  Max: 320
+
+MethodLength:
+  CountComments: false
+  Max: 40
+
+StringLiterals:
+  Enabled: false
+
+ParameterLists:
+  Max: 5
+
+FavorSprintf:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+ReduceArguments:
+  Enabled: false
+
+Documentation:
+  Enabled: false
