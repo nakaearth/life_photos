@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create 
     auth  = request.env["omniauth.auth"]
-    @user = User.where(provider: auth["provider"]).where(uid: auth["uid"]).first || User.create_with_account auth
+    @user = User.where(provider: auth["provider"]).where(uid: auth["uid"]).first || User.create_account(auth)
     session[:user_id] = @user.id
     redirect_to :root, notice:'login successfully.'
   end

@@ -2,6 +2,10 @@
 
 class User < ActiveRecord::Base
 
+  def self.create_account(auth)
+    create_twitter_account auth
+  end
+
   def self.create_twitter_account(auth)
     @user          = User.new
     @user.uid      = auth[:uid]

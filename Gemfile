@@ -44,6 +44,8 @@ gem 'kaminari'
 # login
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
 
 # s3
 gem  "paperclip"
@@ -60,6 +62,9 @@ group :test do
   gem 'rubocop-checkstyle_formatter', require: false
   gem 'spring'
 end
+
+# AngularsJS
+#gem 'angular-gem'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
