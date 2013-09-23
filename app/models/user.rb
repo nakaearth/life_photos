@@ -1,6 +1,7 @@
 # coding: utf-8
 
 class User < ActiveRecord::Base
+  has_many :photos  
 
   def self.create_account(auth)
     create_twitter_account auth

@@ -1,0 +1,19 @@
+<h1>写真一覧</h1>
+<%= paginate @photos %>
+<div class="photo_list">
+	<table>
+    <tr>
+      <th></th>
+			<th>タイトル</th>
+			<th></th>
+			<th></th>
+		</tr>
+<% @photos.each do |photo| %>
+   <tr>
+		 <td><%= image_tag photo.photo.url(:thumb) %></td>
+		 <td><%= photo.title %></td>
+		 <td>詳細</td>
+     <td></td>
+	 </tr>
+<% end %>
+</div>

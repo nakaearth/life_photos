@@ -1,6 +1,10 @@
 LifePhotos::Application.routes.draw do
   
-   #facebook login 
+#  namespace :lifephotos do
+   resources :photos
+#  end
+
+  #facebook login 
   get "/login"  => "sessions#new"
   get "/logout" => "sessions#destroy"
   post "/auth/:provider/callback" => "sessions#create"

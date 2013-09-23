@@ -1,0 +1,27 @@
+// Place all the styles related to the photos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.title {
+	font-weight: bold;
+	font-size: 15pt;
+}
+
+.label {
+   font-size: 10pt;
+   font-weight: bold;
+   background-color: #FFFFDB;
+}
+
+.photo_form {
+   font-weight: bold;
+   font-size: 12pt;
+   background-color: #FFFFDB;
+   border: 1px solid #333333;
+   width: 70%;
+   margin: 3px;
+}
+
+.photo_list {
+  margin: 4px;
+  background-color: #FFFFDB;
+}

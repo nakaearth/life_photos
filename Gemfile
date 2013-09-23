@@ -64,7 +64,7 @@ group :test do
 end
 
 # AngularsJS
-#gem 'angular-gem'
+# gem 'angular-gem'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

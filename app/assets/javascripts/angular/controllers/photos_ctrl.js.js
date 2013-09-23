@@ -5,3 +5,9 @@ App.controller('PhotosCtrl', [
     return $scope.message = "Angular Rocks!";
   }
 ]);
+
+App.controller('PhotosCtrl', [
+  '$scope', 'Photo', function($scope, Photo) {
+    return $scope.photos = Photo.query();
+  }
+]);

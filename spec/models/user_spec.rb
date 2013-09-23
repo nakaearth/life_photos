@@ -31,9 +31,25 @@ describe User do
       end
 
       it "attribute check" do
-        expect(@user.provider).should eql('twitter')
+        expect(@user.provider).to eql('twitter')
         expect(@user.uid).to  eql('aabbcc112233')
         expect(@user.name).to be_nil
+      end
+    end
+  end
+
+  describe "check user photos" do
+    fixtures :photos
+    
+    context "check user photo" do
+      before do
+        @user = User.find(1)
+      end
+      it "check photo" do
+        expect(@user.photos).not_to be_nil
+      end
+      it "photo count" do
+        expect(@user.photos.count).to eql(Photo.where(user_id: 1).count)
       end
     end
   end

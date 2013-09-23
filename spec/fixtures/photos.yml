@@ -1,0 +1,46 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  user_id: 1
+  description: MyText
+  photo_file_name: 
+  photo_content_type: MyString
+  photo_file_size: 1
+
+two:
+  title: test photo2
+  user_id: 1
+  description: MyText2
+  photo_file_name: 
+  photo_content_type: MyString
+  photo_file_size: 1
+
+three:
+  title: test phpto3
+  user_id: 1
+  description: MyText3
+  photo_file_name: 
+  photo_content_type: MyString
+  photo_file_size: 1
+
+four:
+  title: test phpto4
+  user_id: 1
+  description: MyText4
+  photo_file_name: 
+  photo_content_type: MyString
+  photo_file_size: 1
+
+five:
+  title: test phpto5
+  user_id: 1
+  description: MyText5
+  photo_file_name: 
+  photo_content_type: MyString
+  photo_file_size: 1
+
+
+
+
+
