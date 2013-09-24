@@ -2,8 +2,6 @@
 
 App.factory('Photo', [
   '$resource', function($resource) {
-    return $resource('/api/photos/:id', {
-      id: '@id'
-    });
+    return $resource('/photos/my_list');
   }
 ]);

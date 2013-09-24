@@ -1,11 +1,13 @@
 <h1>Wellcome!! </h1>
-  <div ng-controller="PhotosCtrl">
-    <h1>Message: {{message}}</h1>
-  </div>
 <% if current_user %>
-  <li><%= image_tag "/icon/#{current_user.id}", size: "40x40" %><%= current_user.screen_name %>さん</li>
-  <li><%= link_to "logout", logout_path %></li>
-<% else %>
-	<li><%= link_to "login", "/login", "data-no-turbolink" => true %></li>
+<div ng-controller="PhotosCtrl">
+  <div id="photo-list-container">
+    <ul>
+      <li ng-repeat="photo in photos">
+        <h3>{{photo.title}} <small>({{photo.description}})</small></h3>
+      </li>
+    </ul>
+  </div>
+</div>
 <% end %>
 

@@ -1,4 +1,4 @@
 App.factory 'Photo', ['$resource', ($resource) ->
-  $resource '/api/photos/:id', id: '@id'
+  $resource '/photos/my_list'
 ]
 
