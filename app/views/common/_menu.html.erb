@@ -1,5 +1,6 @@
 <menu class="menu_text">
-<%= link_to 'トップページへ', { action: 'index',  controller: 'top' } %>&nbsp;&nbsp;|&nbsp;&nbsp;
-<%= link_to 'My写真一覧へ', { action: 'index', controller: 'photos' } %>&nbsp;&nbsp;|&nbsp;&nbsp;
+<%= link_to_unless_current 'トップページへ', root_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
+<%= link_to_unless_current 'My写真一覧へ', photos_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
+<%= link_to_unless_current '写真投稿', new_photo_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
 </menu>
 <br>

@@ -4,16 +4,13 @@
 	<table>
     <tr>
       <th></th>
-			<th>タイトル</th>
-			<th></th>
-			<th></th>
 		</tr>
 <% @photos.each do |photo| %>
-   <tr>
-		 <td><%= image_tag photo.photo.url(:thumb) %></td>
-		 <td><%= photo.title %></td>
-		 <td>詳細</td>
-     <td></td>
-	 </tr>
+	<tr>
+    <div class="photo_div">
+	    <%= image_tag photo.photo.url(:thumb) %>
+	    <%= photo.title %>
+		</div>
+	</tr>
 <% end %>
 </div>

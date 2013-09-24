@@ -1,13 +1,23 @@
 <h1>Wellcome!! </h1>
 <% if current_user %>
 <div ng-controller="PhotosCtrl">
-  <div id="photo-list-container">
+<!--
+	<div id="photo-list-container">
     <ul>
       <li ng-repeat="photo in photos">
-        <h3>{{photo.title}} <small>({{photo.description}})</small></h3>
+        <h3><img src="" /><small>({{photo.title}})</small></h3>
       </li>
     </ul>
+	</div>
+  <div id="photo-view-container" ng-show="selectedPhotot">
+    <h2>{{selectedPhoto.title}}</h2>
+    <p>{{selectedPhoto.Description}}</p>
+    <p>
+      投稿日付 {{selectedPhoto.created_at | date: 'mediumDate'}}
+			- <a ng-href="{{selectedPhoto.photo.url(:origin)}}"><img src=""/></a>
+    </p>
   </div>
 </div>
+-->
 <% end %>
 
