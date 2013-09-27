@@ -9,18 +9,17 @@
 	<header>
   Life Photos
   </header>
-<% if current_user %>
-	<br>
+	<br/>
   <div class="login_user_info">
+<% if current_user %>
     <%= image_tag "/icon/#{current_user.id}", size: "40x40" %><%= current_user.screen_name %>さん
     <%= link_to "logout", logout_path %>
-	</div>
 	<%= render 'common/menu' %>
 <% else %>
-  <div class="login_btn">
-    <li><%= link_to "login", "/login", "data-no-turbolink" => true %></li>
-  </div>
+	<br>
+    <%= link_to "login", "/login", "data-no-turbolink" => true %>
 <% end %>
+	</div>
 <%= yield %>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
