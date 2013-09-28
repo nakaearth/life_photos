@@ -11,7 +11,8 @@ LifePhotos::Application.routes.draw do
   #facebook login 
   get "/:provider/login"  => "sessions#new"
   get "/logout" => "sessions#destroy"
-  post "/auth/:provider/callback" => "sessions#create"
+  get "/auth/:provider/callback" => "sessions#create"
+#  post "/auth/:provider/callback" => "sessions#create"
   get "/auth/failure" => "sessions#failuer"
   
   # The priority is based upon order of creation: first created -> highest priority.
