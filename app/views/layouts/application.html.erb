@@ -20,8 +20,8 @@
 	<%= render 'common/menu' %>
 <% else %>
 	<br>
-    <%= link_to "Facebook login", "/login", provider: 'facebook', "data-no-turbolink" => true %> &nbsp;&nbsp;|&nbsp;&nbsp;
-    <%= link_to "Twitter login", "/login",  provider: 'twitter', "data-no-turbolink" => true %>
+    <%= link_to "Facebook login", "/facebook/login", "data-no-turbolink" => true %> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to "Twitter login", "/twitter/login",  "data-no-turbolink" => true %>
 <% end %>
 	</div>
 <%= yield %>

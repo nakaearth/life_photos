@@ -9,7 +9,7 @@ LifePhotos::Application.routes.draw do
 #  end
 
   #facebook login 
-  get "/login"  => "sessions#new"
+  get "/:provider/login"  => "sessions#new"
   get "/logout" => "sessions#destroy"
   post "/auth/:provider/callback" => "sessions#create"
   get "/auth/failure" => "sessions#failuer"

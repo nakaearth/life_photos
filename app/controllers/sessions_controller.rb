@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
  def new
-    redirect_to '/auth/' + (Rails.env.production? ? params['provider'] : 'developer')
+    redirect_to '/auth/' + (Rails.env.production? ? params[:provider] : 'developer')
   end
 
   def create 
