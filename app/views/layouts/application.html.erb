@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="LifePhotos">
 <head>
-  <title>LifePhotos</title>
+	<title>LifePhotos</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">	
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -17,7 +20,8 @@
 	<%= render 'common/menu' %>
 <% else %>
 	<br>
-    <%= link_to "login", "/login", "data-no-turbolink" => true %>
+    <%= link_to "Facebook login", "/login", provider: 'facebook' "data-no-turbolink" => true %> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to "Twitter login", "/login",  provider: 'twitter', "data-no-turbolink" => true %>
 <% end %>
 	</div>
 <%= yield %>
