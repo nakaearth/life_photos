@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
  def new
-    redirect_to '/auth/' + (Rails.env.production? ? params[:provider] : 'developer')
+    #redirect_to '/auth/' + (Rails.env.production? ? params[:provider] : 'developer')
+    redirect_to '/auth/' + params[:provider]
   end
 
   def create 
@@ -13,6 +14,12 @@ class SessionsController < ApplicationController
   end
 
   def destroy 
-    session[:uid] = nil
+    session[:user_id] = nil
+    redirect_to controller: 'top', action: 'index', notice:'login successfully.'
+  end
+
+  def oauth_failure
+    flash[:notice] = "キャンセルしました。"
+    redirect_to "/"
   end
 end
