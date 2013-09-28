@@ -7,7 +7,9 @@ class SessionsController < ApplicationController
     auth  = request.env["omniauth.auth"]
     @user = User.where(provider: auth["provider"]).where(uid: auth["uid"]).first || User.create_account(auth)
     session[:user_id] = @user.id
-    redirect_to :root, notice:'login successfully.'
+    logger.info @user
+    #redirect_to :root, notice:'login successfully.'
+    redirect_to controller: 'top', action: 'index', notice:'login successfully.'
   end
 
   def destroy 

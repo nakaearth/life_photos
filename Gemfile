@@ -42,7 +42,6 @@ end
 gem 'kaminari'
 
 # login
-gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
