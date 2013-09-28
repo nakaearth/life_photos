@@ -1,2 +1,28 @@
-<h1>Photos#show</h1>
-<p>Find me in app/views/photos/show.html.erb</p>
+<div id="photo_viewer_<%=@photo.id %>" class="photo_detail">
+  <span id="close_photo_<%= @photo.id %>" >閉じる
+    <%=image_tag @photo.photo.url(:original) %>
+  </span>
+</div>
+
+<div id="photo_form" class="photo_form">
+  <div id="photo_form_div" class="photo_form_div">
+	  <span id="photo_<%= @photo.id %>">拡大
+	    <img src ='<%= @photo.photo.url(:thumb) %>' />
+      <%= @photo.created_at.strftime("%Y/%m/%d") %>
+    </span>
+    <script type="text/javascript" >
+      $( '#photo_<%=@photo.id %>' ).click(function (){
+        $( '#photo_viewer_<%=@photo.id %>' ).fadeIn("slow"); 
+      });
+    </script>
+    <script type="text/javascript" >
+      $( '#photo_viewer_<%=@photo.id %>' ).click(function (){
+        $( '#photo_viewer_<%=@photo.id %>' ).fadeOut("slow"); 
+      });
+    </script>
+    <br><br>
+    title:<%= @photo.title %><br/>
+    <%= @photo.description %>
+  </div>
+</div>
+
