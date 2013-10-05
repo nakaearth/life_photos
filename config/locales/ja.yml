@@ -184,4 +184,5 @@ ja:
       photo:
         title: タイトル 
         description: 説明
+        album_id: アルバム
 

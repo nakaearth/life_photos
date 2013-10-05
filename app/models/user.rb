@@ -2,6 +2,7 @@
 
 class User < ActiveRecord::Base
   has_many :photos  
+  has_many :albums  
 
   def self.create_account(auth)
     if auth[:provider] == 'facebook'

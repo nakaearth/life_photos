@@ -5,7 +5,8 @@
       画像:<%= f.file_field :photo %><br><br>
     </div>
     <%= f.label :title %>:<%= f.text_field :title %><br/>
-    <%= f.label :description %>:<%= f.text_area :description %>
+		<%= f.label :description %>:<%= f.text_area :description %><br/>
+		<%= f.label :album_id %>:<%=f.select "album_id", options_from_collection_for_select(@albums,"id","title") %>
     <div class="actions">
       <%= f.submit %>
     </div>

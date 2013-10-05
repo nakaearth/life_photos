@@ -1,11 +1,20 @@
 LifePhotos::Application.routes.draw do
   
+  get "albums/index"
+  get "albums/show"
+  get "albums/new"
+  get "albums/create"
+  get "albums/update"
+  get "albums/edit"
+  get "albums/destroy"
 #  namespace :lifephotos do
    resources :photos do
      collection do
        get 'my_list'
      end
    end
+   resources :albums 
+
 #  end
 
   #facebook login 
