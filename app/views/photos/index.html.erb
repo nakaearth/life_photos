@@ -10,7 +10,7 @@
 		<div class="photo_div">
 			<div id="photo_viewer_<%=photo.id %>" class="photo_detail">
         <span id="close_photo_<%= photo.id %>" >閉じる
-          <%=image_tag photo.photo.url(:original) %>
+          <%=image_tag photo.photo.path(:original) %>
         </span>
       </div>
 			<span id="photo_<%= photo.id %>">
