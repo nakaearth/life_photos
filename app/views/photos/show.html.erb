@@ -25,4 +25,8 @@
     <%= @photo.description %>
   </div>
 </div>
+<br/>
+<% if @album %>
+	<%= link_to 'アルバムへ',  album_path ,id: @album.id %>
+<% end %>
 

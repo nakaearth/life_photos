@@ -11,6 +11,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    @album = Album.find(@photo.album_id) if @photo.album_id
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @photo }
@@ -77,6 +78,6 @@ class PhotosController < ApplicationController
 
  private
   def photo_params
-    params.require(:photo).permit(:photo, :title, :description) 
+    params.require(:photo).permit(:photo, :title, :description, :album_id) 
   end
 end

@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Photo do
   fixtures :users
   fixtures :photos
+  fixtures :albums
 
   describe "save photo test" do
     context "photo 投稿" do
@@ -10,7 +11,7 @@ describe Photo do
         @file = File.new("spec/fixtures/test.png")
         @file.binmode
         @subject = Paperclip.io_adapters.for(@file)
-        @photo = Photo.new(title: 'test photo', description: "これはテストです", user_id: 1)
+        @photo = Photo.new(title: 'test photo', description: "これはテストです", user_id: 1, album_id: 1)
       end
 
       it "photo save success" do
@@ -22,6 +23,9 @@ describe Photo do
         saved_photo = Photo.where(title: 'test photo').first
         expect(saved_photo).not_to be_nil
         expect(saved_photo.title).to eql('test photo')
+        @album = Album.find(1)
+        expect(@album.photos).not_to be_nil
+        expect(@album.photos.size).to eql(1)
       end
     end
 

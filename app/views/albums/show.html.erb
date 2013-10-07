@@ -1,2 +1,46 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<h1>アルバム内の写真</h1>
+<div id="post_photo_form" class="post_poto_form">
+  <div id="post_photo_form_div" class="post_photo_form_div">
+    <%= form_for(@album) do |f| %>
+    <%= f.label :title %>:<%= @album.title %><br/>
+    <%= f.label :description %>:<%= @album.description %><br/>
+    <% end %>
+   </div>
+ </div>
+
+<%= paginate @photos %>
+  <div class="photo_list">
+    <table>
+      <tr>
+        <th></th>
+      </tr>
+ <% @photos.each do |photo| %>
+     <tr>
+       <div class="photo_div">
+         <div id="photo_viewer_<%=photo.id %>" class="photo_detail">
+           <span id="close_photo_<%= photo.id %>" >閉じる
+             <%=image_tag photo.photo.url(:original) %>
+           </span>
+         </div>
+         <span id="photo_<%= photo.id %>">
+           <%= image_tag photo.photo.url(:thumb) %>
+           <%= photo.created_at.strftime("%Y/%m/%d") %>
+         </span>
+         <script type="text/javascript" >
+           $( '#photo_<%=photo.id %>' ).click(function (){
+             $( '#photo_viewer_<%=photo.id %>' ).fadeIn("slow"); 
+           });
+         </script>
+         <script type="text/javascript" >
+           $( '#photo_viewer_<%=photo.id %>' ).click(function (){
+             $( '#photo_viewer_<%=photo.id %>' ).fadeOut("slow"); 
+           });
+         </script>
+         <%= photo.title %><br/>
+         <%= photo.description %>
+       </div>
+     </tr>
+ <% end %>
+  </div>
+
+

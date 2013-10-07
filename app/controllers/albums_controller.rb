@@ -4,7 +4,9 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id])
+    @album  = Album.where(id: params[:id]).where(user_id: current_user.id).first
+    @photos = Photo.where(album_id: @album.id).where(user_id: current_user.id).page(params[:page]).per(20)
+    p @photos
   end
 
   def new
@@ -22,6 +24,12 @@ class AlbumsController < ApplicationController
   end
 
   def update
+    @album = Album.new(album_params)
+    if @album.save
+      redirect_to @album , notice: 'album update success.'
+    else
+      render action: :edit
+    end
   end
 
   def edit

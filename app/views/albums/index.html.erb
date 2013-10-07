@@ -1,2 +1,16 @@
 <h1>Albums#index</h1>
-<p>Find me in app/views/albums/index.html.erb</p>
+
+<table >
+	<tr>
+		<th>アルバム名</th>
+		<th></th>
+	</tr>
+<% @albums.each do |album| %>
+	<tr>
+		<td> <%= album.title %></td>
+		<td> <%= link_to '詳細へ' , album %></td>
+	</tr>
+<% end %>
+
+</table>
+
