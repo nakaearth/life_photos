@@ -7,7 +7,7 @@ class Photo < ActiveRecord::Base
     (attachment.instance.user_id).to_s + "/" + (attachment.instance.id * 0.01).to_s 
   end 
 
-  S3_CREDENTIALS = { access_key_id: ENV['S3_ACCESS_KEY_ID'], secret_access_key: ENV['S3_SECRET_KEY'], bucket: "lifePhoto-bucket" }
+  S3_CREDENTIALS = { access_key_id: ENV['S3_ACCESS_KEY_ID'], secret_access_key: ENV['S3_SECRET_KEY'], bucket: "lifephot-bucket" }
 
   if Rails.env.production? 
     has_attached_file :photo,
