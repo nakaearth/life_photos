@@ -15,7 +15,8 @@
       </div>
 			<span id="photo_<%= photo.id %>">
 	      <%= image_tag photo.photo.url(:thumb) %>
-        <%= photo.created_at.strftime("%Y/%m/%d") %>
+	      タイトル:<%= photo.title %><br/>
+				投稿日付 <%= photo.created_at.strftime("%Y/%m/%d") %><br/>
       </span>
       <script type="text/javascript" >
         $( '#photo_<%=photo.id %>' ).click(function (){
@@ -27,9 +28,8 @@
           $( '#photo_viewer_<%=photo.id %>' ).fadeOut("slow"); 
         });
       </script>
-	    <%= photo.title %><br/>
-			<%= photo.description %>
-			<%= photo.album_id %>
+			コメント:<%= photo.description %><br/>
+		  <%= link_to '編集', action: 'edit', id: photo.id  %> &nbsp;&nbsp; | &nbsp;&nbsp; <%= link_to '削除', action: 'destroy', id: photo.id %>
 		</div>
 	</tr>
 <% end %>
