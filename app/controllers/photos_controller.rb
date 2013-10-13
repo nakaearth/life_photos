@@ -32,7 +32,7 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
-    # @albums = Album.where('user_id=?',session[:user_id])
+    @albums = Album.where('user_id=?',session[:user_id]).latest
   end
 
   # POST /photos

@@ -27,6 +27,6 @@
 </div>
 <br/>
 <% if @album %>
-	<%= link_to 'アルバムへ',  album_path ,id: @album.id %>
+	<%= link_to @album.title + 'へ',  action: :show, controller: :albums,  id: @album.id %>
 <% end %>
 
