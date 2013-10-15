@@ -53,4 +53,33 @@ describe User do
       end
     end
   end
+
+  describe "group member" do
+    fixtures :groups
+
+    context "user join the group" do
+      before do
+        @user = User.find(1)
+        @group = Group.find(1)
+      end
+      it "group " do
+        @user.groups << @group
+        expect(@user.save).to be_true
+        @user = User.find(1)
+        expect(@user.groups.size).to eql(1)
+      end
+    end
+  end
+
+  describe "group save test" do
+    context "group save error check" do
+      before do
+      end
+      it "save test" do
+        @group = Group.new
+        expect(@group).not_to be_valid
+        expect(@group).to have(1).errors_on(:name)
+      end
+    end
+  end
 end

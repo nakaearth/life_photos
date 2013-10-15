@@ -1,0 +1,17 @@
+<h1>グループ一覧</h1>
+ <div ng-controller="GroupsCtrl">
+   <div id="photo-list-container">
+     <ul>
+       <li ng-repeat="group in groups">
+         <h3><small>({{group.name}})</small></h3>
+       </li>
+     </ul>
+   </div>
+   <div id="photo-view-container" ng-show="selectedGroup">
+     <h2>{{selectedGroup.name}}</h2>
+       <p>
+       作成日付 {{selectedGroup.created_at | date: 'mediumDate'}}
+       </p>
+   </div>
+</div>
+

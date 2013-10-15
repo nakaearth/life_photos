@@ -8,6 +8,6 @@ App.controller('PhotosCtrl', [
 
 App.controller('PhotosCtrl', [
   '$scope', 'Photo', function($scope, Photo) {
-    return $scope.photos = Photo.query();
+    return $scope.groups = Photo.query();
   }
 ]);

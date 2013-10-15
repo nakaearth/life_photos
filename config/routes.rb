@@ -1,12 +1,13 @@
 LifePhotos::Application.routes.draw do
-#  namespace :lifephotos do
+
+  #  namespace :lifephotos do
    resources :photos do
      collection do
        get 'my_list'
      end
    end
    resources :albums 
-
+   resources :group 
 #  end
 
   #facebook login 

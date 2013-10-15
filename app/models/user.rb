@@ -3,6 +3,9 @@
 class User < ActiveRecord::Base
   has_many :photos  
   has_many :albums  
+  has_many :user_groups
+  has_many :groups, through: :user_groups
+  
 
   def self.create_account(auth)
     if auth[:provider] == 'facebook'

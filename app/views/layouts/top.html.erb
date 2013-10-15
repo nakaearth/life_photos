@@ -14,7 +14,7 @@
 	<br/>
   <div class="login_user_info">
 <% if current_user %>
-    <%= image_tag "/icon/#{current_user.id}", size: "40x40" %><%= current_user.screen_name %>さん
+    <%= image_tag "#{current_user.image_path}", size: "40x40" %><%= current_user.screen_name %>さん
     <%= link_to "logout", logout_path %>
 	<%= render 'common/menu' %>
 <% else %>
