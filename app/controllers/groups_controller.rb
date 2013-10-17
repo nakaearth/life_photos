@@ -3,6 +3,10 @@ class GroupsController < ApplicationController
   def index
     @groups = Group.all 
     @groups.to_json
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @groups }
+    end
   end
 
 
