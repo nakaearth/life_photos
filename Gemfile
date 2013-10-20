@@ -62,6 +62,11 @@ group :test do
   gem 'spring'
 end
 
+# jpmobile
+gem "jpmobile"
+
+gem 'fullcalendar-rails'
+
 # AngularsJS
 # gem 'angular-gem'
 
