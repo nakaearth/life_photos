@@ -1,6 +1,7 @@
 class Photo < ActiveRecord::Base
   belongs_to :user
   belongs_to :albums
+  has_one    :geo_map
   validates :title,  presence: true
 
   Paperclip.interpolates :img_dir_num do |attachment, style|

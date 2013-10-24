@@ -8,6 +8,7 @@ LifePhotos::Application.routes.draw do
    end
    resources :albums 
    resources :groups 
+   resources :maps ,only: [:index] do end
 #  end
 
   #facebook login 
