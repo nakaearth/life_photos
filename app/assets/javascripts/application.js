@@ -14,3 +14,4 @@
 //= require fullcalendar
 //= require calendar
 //= require gcal
+//= require map
