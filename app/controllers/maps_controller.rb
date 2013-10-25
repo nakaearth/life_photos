@@ -11,7 +11,7 @@ class MapsController < ApplicationController
     longitude = Range.new(*[params[:east], params[:west]].sort)
     exclude_ids = params[:excludes].to_s.split(',')
  
-    Marker.where(latitude: latitude, longitude: longitude).where.not(id: exclude_ids).each do |marker|
+    GeoMaps.where(latitude: latitude, longitude: longitude).where.not(id: exclude_ids).each do |marker|
       logger.debug(marker.inspect)
       response.stream.write("event: marker\n")
       response.stream.write("data: #{marker.attributes.to_json}\n\n")

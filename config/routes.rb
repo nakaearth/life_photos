@@ -9,7 +9,8 @@ LifePhotos::Application.routes.draw do
    resources :albums 
    resources :groups 
    resources :maps ,only: [:index] do end
-#  end
+   get :markers, to: 'maps#markers'
+ #  end
 
   #facebook login 
   get "/:provider/login"  => "sessions#new"
