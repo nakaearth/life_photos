@@ -2,6 +2,7 @@ class MapsController < ApplicationController
     include ActionController::Live
   
   def index
+    @albums = current_user.albums.page(params[:page]).per(10)
   end
 
   def markers
