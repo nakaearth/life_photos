@@ -7,8 +7,15 @@
         }
     });
 <% end %>
-<div class="content">
-  <div id ="map" >
-  </div>
+<div class="contents">
+	<div class="content_div">
+    <div id ="map" >
+		</div>
+	</div>
+	<div class="content_div">
+		<% @albums.each do|album| %>
+			<div class="album_div"><%= album.title %></div>
+		<% end %>
+	</div>
 </div>
 

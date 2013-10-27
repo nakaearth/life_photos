@@ -6,7 +6,11 @@ LifePhotos::Application.routes.draw do
        get 'my_list'
      end
    end
-   resources :albums 
+   resources :albums do
+      collection do
+        get 'calendar'
+      end
+   end
    resources :groups 
    resources :maps ,only: [:index] do end
    get :markers, to: 'maps#markers'

@@ -20,6 +20,7 @@
       <%= image_tag "#{current_user.image_path}", size: "40x40" %><%= current_user.screen_name %>さん
       <%= link_to "logout", logout_path %>
     <%= render 'common/menu' %>
+    <%= render 'common/album_menu' %>
   <% else %>
     <br>
       <%= link_to "Facebook login", "/facebook/login", "data-no-turbolink" => true %> &nbsp;&nbsp;|&nbsp;&nbsp;
