@@ -3,7 +3,7 @@ var casper, getLinks, links;
 
 getLinks = function() {
   var links;
-  links = document.querySelectorAll("h3.a");
+  links = document.querySelectorAll("h3.r a");
   return Array.prototype.map.call(links, function(e) {
     return e.getAttribute("href");
   });
@@ -25,5 +25,5 @@ casper.then(function() {
 
 casper.run(function() {
   this.echo(links.length + "links found:");
-  return this.echo("-" + links.join("/n-")).exit();
+  return this.echo("-" + links.join("\n-")).exit();
 });
