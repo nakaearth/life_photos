@@ -7,9 +7,7 @@ casper.start 'http://lifephoto.herokuapp.com', ->
 
 casper.then ->
     @capture "login.png"
-    @test.assertTitle 'LifePhotos', ' title is the one expected'
-//    @test.assertTextExists 'CasperJS', 'casperjs header exists'
-//    @test.assertTextExists 'ナビゲーションステップ', 'navigation step exists'
+    @test.assertTitle 'Facebook', ' title is the one expected'
 
 casper.run ->
     @test.done 3
