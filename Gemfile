@@ -76,9 +76,12 @@ end
 # model info 
 gem 'annotate', :git =>'https://github.com/ctran/annotate_models'
 
-#td
+# td
 gem 'td'
 gem 'td-logger'
+
+# newrelic
+gem 'newrelic_rpm'
 
 # AngularsJS
 # gem 'angular-gem'
