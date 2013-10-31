@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::RoutingError, ActiveRecord::RecordNotFound, with: :routing_error
 #  rescue_from Toeicfive::ExaminationError, with: :examination_error
 
+  before_action :record_logs
   helper_method :current_user
 
   def current_user
@@ -12,6 +13,11 @@ class ApplicationController < ActionController::Base
       logger.info "ユーザ情報がありません."
       session[:user_id] = nil
     end
+  end
+
+  def record_logs
+    table_name = Rails.env.production? ? 'lifephoto' : 'dev_lifephoto'
+    TD.event.post(table_name, {uid: current_user.try(:id) || 'unknown', action_date: Time.now.strftime("%Y%m%d") })
   end
 
   private

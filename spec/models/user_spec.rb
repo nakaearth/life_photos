@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id          :integer          not null, primary key
+#  provider    :string(255)      not null
+#  uid         :string(255)      not null
+#  name        :string(255)
+#  screen_name :string(255)
+#  image_path  :string(255)
+#  token       :string(255)
+#  secret      :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 require 'spec_helper'
 
 describe User do

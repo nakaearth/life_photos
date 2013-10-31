@@ -19,3 +19,21 @@ casper.thenOpen('http://phantomjs.org', function() {
 
 casper.run();
 --------------------
+
+
+■
+Gem
+https://github.com/pokonski/public_activity#setup
+
+https://github.com/amatsuda/active_decorator
+
+http://qiita.com/yusabana/items/8ce54577d959bb085b37?utm_source=Qiita+Newsletter+Users&utm_campaign=640328b4b9-Qiita_newsletter_76_29_10_2013&utm_medium=email&utm_term=0_e44feaa081-640328b4b9-10306285
+
+
+1) annotate
+http://yoshifumisato.jeez.jp/wordpress/post/rails/693
+
+gem 'annotate', :git => 'https://github.com/ctran/annotate_models'
+
+bundle exec annotate
+

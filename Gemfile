@@ -65,7 +65,20 @@ end
 # jpmobile
 gem "jpmobile"
 
+# google calendar
 gem 'fullcalendar-rails'
+
+# active record debug
+group :test, :development do
+  gem 'hirb-unicode'
+end
+
+# model info 
+gem 'annotate', :git =>'https://github.com/ctran/annotate_models'
+
+#td
+gem 'td'
+gem 'td-logger'
 
 # AngularsJS
 # gem 'angular-gem'
