@@ -13,5 +13,6 @@
 //= require jquery.min
 //= require fullcalendar
 //= require calendar
+//= require calendar_evnet
 //= require gcal
 //= require map

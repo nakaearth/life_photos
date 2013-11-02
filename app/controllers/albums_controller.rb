@@ -1,8 +1,17 @@
 class AlbumsController < ApplicationController
+
   def index
     @albums = current_user.albums.page(params[:page]).per(10)
   end
- 
+  
+  def my_list
+    @albums = current_user.albums.page(params[:page]).per(10)
+    respond_to do |format|
+      @albums.to_json
+      format.json
+    end
+  end
+
   def calendar
     @albums = current_user.albums.page(params[:page]).per(10)
   end

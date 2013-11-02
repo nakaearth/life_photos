@@ -1,5 +1,5 @@
 class MapsController < ApplicationController
-    include ActionController::Live
+  include ActionController::Live
   
   def index
     @albums = current_user.albums.page(params[:page]).per(10)

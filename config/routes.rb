@@ -9,6 +9,7 @@ LifePhotos::Application.routes.draw do
    resources :albums do
       collection do
         get 'calendar'
+        get 'my_list', defaults: { format: 'json' }
       end
    end
    resources :groups 
