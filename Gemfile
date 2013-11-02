@@ -10,7 +10,9 @@ end
 
 group :production do
   gem 'pg'
-  gem 'unicorn'
+#  gem 'unicorn'
+  gem 'foreman'
+  gem 'thin'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
