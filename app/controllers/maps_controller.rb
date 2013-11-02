@@ -3,6 +3,13 @@ class MapsController < ApplicationController
   
   def index
     @albums = current_user.albums.page(params[:page]).per(10)
+    GeoMaps.where(name: 'tokyo').first_create do|map|
+      geomap = GeoMaps.new
+      geomap.name = 'tokyo'
+      geomap.latitude = 35
+      geomap.longitude = 139
+      geomap.save
+    end
   end
 
   def markers
