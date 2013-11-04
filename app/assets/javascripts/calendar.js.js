@@ -2,44 +2,50 @@
 var addEvent, updateEvent;
 
 $(function() {
-  return $('#calendar').fullCalendar({
+  $('#calendar').fullCalendar({
     header: {
-      right: 'agendaDay agendaWeek month today prev next'
-    },
-    defaultView: 'month',
-    height: 500,
-    slotMinutes: 30,
-    selectable: true,
-    selectHelper: true,
-    editable: true,
-    titleFormat: {
-      month: 'yyyy年 MMMM'
-    },
-    monthNames: ['１月', '２月', '３月', '４月', '５月', '６月', '７月', '８月', '９月', '１０月', '１１月', '１２月'],
-    dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
-    buttonText: [
+      right: 'agendaDay agendaWeek month today prev next',
+      defaultView: 'agendaWeek',
+      height: 500,
+      slotMinutes: 30,
+      selectable: true,
+      selectHelper: true,
+      editable: true,
+      titleFormat: {
+        month: 'yyyy年 MMMM'
+      },
+      monthNames: ['１月', '２月', '３月', '４月', '５月', '６月', '７月', '８月', '９月', '１０月', '１１月', '１２月'],
+      dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+      buttonText: [
+        {
+          today: '今日',
+          month: '月',
+          week: '週',
+          day: '日'
+        }
+      ],
+      events: '/albums/my_list'
+    }
+  });
+  return {
+    eventSources: [
       {
-        today: '今日',
-        month: '月',
-        week: '週',
-        day: '日'
+        url: '/albums/my_list',
+        color: 'yellow',
+        textColor: 'black'
       }
-    ],
-    eventSource: [
-      {
-        title: '/albums'
+    ]({
+      dragOpacity: "0.5",
+      eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {
+        return updateEvent(event);
+      },
+      eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
+        return updateEvent(event);
+      },
+      select: function(start, end, allDay) {
+        return addEvent(start, end, allDay);
       }
-    ],
-    dragOpacity: "0.5",
-    eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {
-      return updateEvent(event);
-    },
-    eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
-      return updateEvent(event);
-    },
-    select: function(start, end, allDay) {
-      return addEvent(start, end, allDay);
-    },
+    }),
     eventDblClick: function(event, jsEvent) {
       var title;
       title = prompt('Event Title:');
@@ -50,10 +56,10 @@ $(function() {
           end: end,
           allDay: allDay
         }, true);
+        return $('#calendar').fullCalendar('unselect');
       }
-      return $('#calendar').fullCalendar('unselect');
     }
-  });
+  };
 });
 
 addEvent = function(start, end, allDay, the_event) {
