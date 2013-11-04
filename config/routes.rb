@@ -1,5 +1,7 @@
 LifePhotos::Application.routes.draw do
 
+  resources :events
+
   #  namespace :lifephotos do
    resources :photos do
      collection do

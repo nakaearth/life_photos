@@ -24,7 +24,7 @@ $(function() {
           day: '日'
         }
       ],
-      events: '/albums/my_list'
+      events: '/events?format=json'
     }
   });
   return {

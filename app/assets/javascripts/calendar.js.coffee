@@ -40,7 +40,7 @@ $ ->
       day: '日'
     ]
 
-    events: '/albums/my_list'
+    events: '/events?format=json'
 		eventSources: [
 			{
 				url: '/albums/my_list',
