@@ -11,6 +11,17 @@ $(function() {
       selectable: true,
       selectHelper: true,
       editable: true,
+      events: "/events?format=json"
+    }
+  });
+  return {
+    eventSources: [
+      {
+        url: "/events?format=json",
+        color: "yellow",
+        textColor: "black"
+      }
+    ]({
       titleFormat: {
         month: 'yyyy年 MMMM'
       },
@@ -24,17 +35,6 @@ $(function() {
           day: '日'
         }
       ],
-      events: '/events?format=json'
-    }
-  });
-  return {
-    eventSources: [
-      {
-        url: '/albums/my_list',
-        color: 'yellow',
-        textColor: 'black'
-      }
-    ]({
       dragOpacity: "0.5",
       eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {
         return updateEvent(event);

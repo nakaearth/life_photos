@@ -8,6 +8,14 @@ $ ->
     selectable: true
     selectHelper: true
     editable: true
+    events: "/events?format=json"
+		eventSources: [
+			{
+				url: "/events?format=json",
+				color: "yellow",
+				textColor: "black"
+			}
+		]
     titleFormat:
       month: 'yyyy年 MMMM'
     monthNames: [
@@ -40,14 +48,6 @@ $ ->
       day: '日'
     ]
 
-    events: '/events?format=json'
-		eventSources: [
-			{
-				url: '/albums/my_list',
-				color: 'yellow',
-				textColor: 'black'
-			}
-		]
     dragOpacity: "0.5",
     eventDrop: (event, dayDelta, minuteDelta, allDay, revertFunc) ->
       updateEvent(event);
