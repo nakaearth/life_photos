@@ -18,9 +18,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album  = Album.where(id: params[:id]).where(user_id: current_user.id).first
-    p @album
     @photos = Photo.where(album_id: @album.id).where(user_id: current_user.id).page(params[:page]).per(20)
-    p @photos
   end
 
   def new

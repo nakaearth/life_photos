@@ -2,12 +2,12 @@ $ ->
   $('#calendar').fullCalendar
 	  header:
 		  right: 'agendaDay agendaWeek month today prev next'
-    defaultView: 'agendaWeek'
+    defaultView: 'month'
     height: 500
     selectable: true
-    selectHelper: true
     editable: true
-    events: "/events?format=json"
+    events: 
+	    url: '/events.json'
     titleFormat:
       month: 'yyyy年 MMMM'
     monthNames: [
@@ -33,10 +33,10 @@ $ ->
       '金'
       '土'
     ]
-    buttonText: [
+    buttonText: 
       today: '今日'
       month: '月'
       week: '週'
       day: '日'
-    ]
+    
 
