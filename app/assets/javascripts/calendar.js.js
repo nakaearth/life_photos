@@ -6,10 +6,9 @@ $(function() {
       right: 'agendaDay agendaWeek month today prev next',
       defaultView: 'month',
       selectable: true,
+      selectHelper: true,
       editable: true,
-      events: {
-        url: '/events.json'
-      },
+      events: '/events.json',
       titleFormat: {
         month: 'yyyy年 MMMM'
       },

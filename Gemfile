@@ -67,10 +67,8 @@ end
 # jpmobile
 gem "jpmobile"
 
-group :assets do
-  # google calendar
-  gem 'fullcalendar-rails'
-end
+# google calendar
+gem 'fullcalendar-rails'
 
 # active record debug
 group :test, :development do
