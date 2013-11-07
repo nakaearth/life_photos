@@ -1,16 +1,21 @@
-<h1>Albums#index</h1>
 
 <table >
 	<tr>
 		<th>アルバム名</th>
 		<th></th>
 	</tr>
-<% @albums.each do |album| %>
 	<tr>
-		<td> <%= album.title %></td>
-		<td> <%= link_to '詳細へ' , album %></td>
+    <div class="contents">
+      <div class="content_div">
+      <% @albums.each do|album| %>
+        <div class="album_div">
+          <%= link_to '詳細へ' , album %><br/>
+          <%= album.title %>
+        </div>
+      <% end %>
+	  	</div>
+ 	  </div>
 	</tr>
-<% end %>
 
 </table>
 
