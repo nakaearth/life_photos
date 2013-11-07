@@ -4,18 +4,10 @@ $ ->
 		  right: 'agendaDay agendaWeek month today prev next'
     defaultView: 'agendaWeek'
     height: 500
-    slotMinutes: 30
     selectable: true
     selectHelper: true
     editable: true
     events: "/events?format=json"
-		eventSources: [
-			{
-				url: "/events?format=json",
-				color: "yellow",
-				textColor: "black"
-			}
-		]
     titleFormat:
       month: 'yyyy年 MMMM'
     monthNames: [
@@ -47,34 +39,4 @@ $ ->
       week: '週'
       day: '日'
     ]
-
-    dragOpacity: "0.5",
-    eventDrop: (event, dayDelta, minuteDelta, allDay, revertFunc) ->
-      updateEvent(event);
-
-    eventResize: (event, dayDelta, minuteDelta, revertFunc) ->
-      updateEvent(event);
-
-    select: (start, end, allDay) ->
-      addEvent(start, end , allDay)
-
-   eventDblClick: (event, jsEvent) ->
-     title = prompt('Event Title:');
-     if title
-       $('#calendar').fullCalendar('renderEvent', {title: title, start: start, end: end, allDay: allDay}, true)
-       $('#calendar').fullCalendar('unselect');
-			 
-addEvent = (start, end , allDay,the_event) ->
-  title = prompt('Event Title:');
-  if title
-    $('#calendar').fullCalendar('renderEvent', {title: title, start: start, end: end, allDay: allDay}, true)
-  $('#calendar').fullCalendar('unselect');
-
-updateEvent = (the_event) ->
-  $.update "/events/" + the_event.id,
-    event:
-      nama: the_event.nama,
-      starts_at: "" + the_event.start,
-      ends_at: "" + the_event.end,
-      keterangan: the_event.keterangan
 
