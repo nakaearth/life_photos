@@ -1,3 +1,27 @@
 // Place all the styles related to the albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.album_form {
+  font-weight: bold;
+  font-size: 10pt;
+  font-color: #FFFFFF;
+  background-color: #222222;
+  border: 1px solid #000000;
+    width: 70%;
+    height: 50%;
+    margin: 10px;
+    -webkit-border-radius: 5px;/* Safari、Google Chrome */
+    -moz-border-radius: 5px;/* Firefox */
+    .album_form_div {
+      background-color: #FFFFFF;
+      border: 1px solid #FFFFFF;
+      font-size: 10pt;
+      width: 70%;
+      height: 80%;
+      margin: 5px;
+      z-index: 1;
+      -webkit-border-radius: 10px;/* Safari、Google Chrome */
+      -moz-border-radius: 10px;/* Firefox */
+    }
+}
+

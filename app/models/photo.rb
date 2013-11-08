@@ -20,6 +20,8 @@ class Photo < ActiveRecord::Base
   has_one    :geo_map
   validates :title,  presence: true
 
+  after_save :album_image_set
+
   Paperclip.interpolates :img_dir_num do |attachment, style|
     (attachment.instance.user_id).to_s + "/" + (attachment.instance.id * 0.01).to_s 
   end 
@@ -37,6 +39,10 @@ class Photo < ActiveRecord::Base
     has_attached_file :photo,
       url: "/system/img/attaches/:img_dir_num/:id/:style/:filename" ,
       styles:  { medium:  "350x350>", thumb:  "100x100>", original: "700x700>" }
+  end
+
+  def album_image_set
+    ##ここにalbumにセットされている写真の枚数をチェックして、1枚ならその写真尾サムネールパスをalbum.top_img_pathにセット
   end
 
 end

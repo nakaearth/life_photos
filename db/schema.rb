@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104122848) do
+ActiveRecord::Schema.define(version: 20131108154001) do
 
   create_table "albums", force: true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20131104122848) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "top_img_path", default: "img/no_image.jpg", null: false
   end
 
   create_table "events", force: true do |t|

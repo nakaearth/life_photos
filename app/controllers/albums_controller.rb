@@ -23,13 +23,15 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+    @from_url = params[:from_url].presence || 'menu'
   end
 
   def create
     @album = Album.new(album_params)
     @album.user_id = current_user.id
     if @album.save
-      redirect_to @album , notice: 'album create success'
+      redirect_to action: :new, controller: :photos if params[:from_url] == 'photo'
+      redirect_to @album , notice: 'album create success' unless params[:from_url] == 'photo'
     else
       render action: :new
     end

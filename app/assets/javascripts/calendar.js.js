@@ -5,6 +5,7 @@ $(function() {
     header: {
       right: 'agendaDay agendaWeek month today prev next',
       defaultView: 'month',
+      allDayDefault: false,
       selectable: true,
       selectHelper: true,
       editable: true,

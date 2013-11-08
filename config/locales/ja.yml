@@ -185,4 +185,6 @@ ja:
         title: タイトル 
         description: 説明
         album_id: アルバム
-
+      album:
+        title: タイトル
+        description: 説明

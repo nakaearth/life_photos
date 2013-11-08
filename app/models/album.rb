@@ -17,4 +17,8 @@ class Album < ActiveRecord::Base
   validates :title, presence: true 
 
   scope :latest , -> { order('created_at DESC') }
+
+  def self.top_image_setup(album_id)
+    # アルバムのidから該当するアルバムに写真が１枚以上ならば、top_img_pathをセットする
+  end
 end
