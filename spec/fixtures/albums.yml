@@ -20,6 +20,6 @@ one:
 
 two:
   id: 2
-  title: MyString2
-  description: MyText2
+  title: testAlbum2
+  description: test test
   user_id: 1

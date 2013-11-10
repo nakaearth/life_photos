@@ -14,7 +14,10 @@
 	</div>
 	<div class="content_div">
 		<% @albums.each do|album| %>
-			<div class="album_div"><%= album.title %></div>
+			<div class="album_div">
+				<%= image_tag album.top_img_path || 'no_image.jpg', size: '100x100' %>
+				<%= album.title %>
+			</div>
 		<% end %>
 	</div>
 </div>

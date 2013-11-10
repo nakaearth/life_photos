@@ -18,7 +18,11 @@ class Album < ActiveRecord::Base
 
   scope :latest , -> { order('created_at DESC') }
 
-  def self.top_image_setup(album_id)
+  def top_image_setup(image_path)
     # アルバムのidから該当するアルバムに写真が１枚以上ならば、top_img_pathをセットする
+    if photos.empty?
+      top_img_path = image_path
+      save
+    end
   end
 end

@@ -43,6 +43,9 @@ class Photo < ActiveRecord::Base
 
   def album_image_set
     ##ここにalbumにセットされている写真の枚数をチェックして、1枚ならその写真尾サムネールパスをalbum.top_img_pathにセット
+    @album = Album.find(album_id)
+    p photo.url(:thumb)
+    @album.top_image_setup(photo.url(:thumb))
   end
 
 end

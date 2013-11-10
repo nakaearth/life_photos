@@ -8,7 +8,8 @@
     <div class="contents">
       <div class="content_div">
       <% @albums.each do|album| %>
-        <div class="album_div">
+				<div class="album_div">
+					<%= image_tag album.top_img_path || 'no_image.jpg', size: '100x100' %>
           <%= link_to '詳細へ' , album %><br/>
           <%= album.title %>
         </div>

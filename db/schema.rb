@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20131108154001) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "top_img_path", default: "img/no_image.jpg", null: false
+    t.string   "top_img_path", default: "no_image.jpg", null: false
   end
 
   create_table "events", force: true do |t|

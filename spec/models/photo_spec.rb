@@ -43,6 +43,12 @@ describe Photo do
         expect(@album.photos).not_to be_nil
         expect(@album.photos.size).to eql(1)
       end
+
+      it "album top image" do
+        @photo.save
+        @album = Album.find(1)
+        expect(@album.top_img_path).not_to be_nil
+      end
     end
 
     context "save photo error check(title is nil)" do
