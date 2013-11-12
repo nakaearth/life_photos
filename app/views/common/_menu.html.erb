@@ -4,6 +4,6 @@
 <%= link_to_unless_current 'アルバム作成', new_album_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
 <%= link_to_unless_current 'My写真一覧へ', photos_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
 <%= link_to_unless_current '写真投稿', new_photo_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
-<%= link_to_unless_current '日記をつける', events_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
+<%= link_to_unless_current '日記をつける', events_path, "data-no-turbolink" => true %>&nbsp;&nbsp;|&nbsp;&nbsp;
 </menu>
 <br>

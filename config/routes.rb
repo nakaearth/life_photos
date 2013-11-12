@@ -1,6 +1,10 @@
 LifePhotos::Application.routes.draw do
 
-  resources :events
+  resources :events do
+    collection do
+      get 'event_list'
+    end
+  end
 
   #  namespace :lifephotos do
    resources :photos do

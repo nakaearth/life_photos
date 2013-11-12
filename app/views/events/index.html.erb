@@ -1,35 +1,11 @@
 <h1>Listing events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Start</th>
-      <th>End</th>
-      <th>Color</th>
-      <th>Allday</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.start %></td>
-        <td><%= event.end %></td>
-        <td><%= event.color %></td>
-        <td><%= event.allDay %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="content" ng-controller="eventCtrl" >
+	<div class="content_div" ng-init="doSearch()">
+	<li ng-repeat="event in events">
+	{{event.title}} {{event.start}} から {{event.end}} |&nbsp;&nbsp;<a href='/events/{{event.id}}' >詳細</a> &nbsp;&nbsp;
+	</li>
+	</div>
 <br>
 
 <%= link_to 'New Event', new_event_path %>
+</div>
