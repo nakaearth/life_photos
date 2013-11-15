@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" ng-app>
+<html lang="ja" ng-app="LifePhotos">
 <head>
 	<title>LifePhotos</title>
   <meta charset="utf-8">
@@ -24,10 +24,10 @@
     <%= link_to "Twitter login", "/twitter/login",  "data-no-turbolink" => true %>
 <% end %>
 	</div>
-<%= yield %>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
-  <script src="http://lifephoto.herokuapp.com/assets/bucky.min.js" data-bucky-host="http://buckyserver.herokuapp.com/bucky" data-bucky-page data-bucky-requests></script>
-	<%= javascript_include_tag "events" %>
+	<%= yield %>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>	
+	<script src="http://lifephoto.herokuapp.com/assets/bucky.min.js" data-bucky-host="http://buckyserver.herokuapp.com/bucky" data-bucky-page data-bucky-requests></script>
+	<%= javascript_include_tag "application" %>
 </body>
 </html>

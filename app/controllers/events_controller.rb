@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 
   def event_list
     @events = Event.all
+    render json: @events, status: 201
   end
 
   # GET /events/1

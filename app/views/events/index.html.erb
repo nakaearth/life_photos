@@ -1,10 +1,14 @@
 <h1>Listing events</h1>
-<div class="content" ng-controller="eventCtrl" >
-	<div class="content_div" ng-init="doSearch()">
-	<li ng-repeat="event in events">
-	{{event.title}} {{event.start}} から {{event.end}} |&nbsp;&nbsp;<a href='/events/{{event.id}}' >詳細</a> &nbsp;&nbsp;
-	</li>
-	</div>
+<div class="content" ng-controller="EventsCtrl">
+	<h1>Message: {{message}}</h1>
+	<div class="content_div">
+		<u1 ng-show="events.length" style="list-style:none;padding:0">
+		件数：{{events.length}}
+    	<li ng-repeat="event in events">
+    	{{event.title}} {{event.start}} から {{event.end}} |&nbsp;&nbsp;<a href='/events/{{event.id}}' >詳細</a> &nbsp;&nbsp;
+    	</li>
+    </u1>
+  </div>
 <br>
 
 <%= link_to 'New Event', new_event_path %>

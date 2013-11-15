@@ -15,3 +15,5 @@
 //= require calendar
 //= require gcal
 //= require map
+//= require app
+//= require_tree ./angular

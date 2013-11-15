@@ -2,7 +2,7 @@ LifePhotos::Application.routes.draw do
 
   resources :events do
     collection do
-      get 'event_list'
+      get 'event_list', {format: :json }
     end
   end
 
