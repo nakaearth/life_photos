@@ -19,7 +19,7 @@ LifePhotos::Application.routes.draw do
       end
    end
    resources :groups 
-   resources :maps ,only: [:index] do end
+   resources :maps ,only: [:index, :new, :create] do end
    get :markers, to: 'maps#markers'
  #  end
 

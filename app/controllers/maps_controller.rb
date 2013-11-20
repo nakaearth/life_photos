@@ -5,6 +5,23 @@ class MapsController < ApplicationController
     @albums = current_user.albums.page(params[:page]).per(10)
   end
 
+  def new
+    @map = GeoMaps.new
+  end
+
+  def create
+    @map = GeoMaps.new(geo_map_params) 
+    #latitude = params[:latitude]
+    #longitude = params[:longtitude]
+    #@map.latitude = params[:latitude]
+    #@map.longitude = params[:longtitude]
+    if @map.save
+      redirect_to action: 'index'
+    else
+      render action: :new
+    end
+  end
+
   def markers
     response.header['Content-Type'] = 'text/event-stream'
  
@@ -26,4 +43,10 @@ class MapsController < ApplicationController
   ensure
     response.stream.close
   end 
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def geo_map_params
+    params.require(:geo_maps).permit(:name ,:latitude, :longitude)
+  end
+
 end
