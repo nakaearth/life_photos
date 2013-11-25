@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120071416) do
+ActiveRecord::Schema.define(version: 20131124130422) do
 
   create_table "albums", force: true do |t|
     t.string   "title"
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 20131120071416) do
     t.datetime "updated_at"
   end
 
+  create_table "group_members", force: true do |t|
+    t.string  "e_mail",   null: false
+    t.integer "group_id"
+  end
+
   create_table "groups", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -70,16 +75,7 @@ ActiveRecord::Schema.define(version: 20131120071416) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "provider",    null: false
-    t.string   "uid",         null: false
-    t.string   "name"
-    t.string   "screen_name"
-    t.string   "image_path"
-    t.string   "token"
-    t.string   "secret"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "users" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end

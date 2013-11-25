@@ -19,4 +19,6 @@ one:
   provider: 'twitter'
   uid: 'aabbccdd112233'
   name: 'test_user'
+  email: 'test@gmail.com'
+
 

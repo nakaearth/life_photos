@@ -1,0 +1,10 @@
+<div id="photo_form" class="photo_form">
+	<div id="photo_form_div" class="photo_form_div">
+    <%= form_for(@group_member) do |f| %>
+    <%= f.label :e_mail %>:<%= f.text_field :e_mail %><br/>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <% end %>
+  </div>
+</div>

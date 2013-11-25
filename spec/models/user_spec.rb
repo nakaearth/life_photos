@@ -22,7 +22,7 @@ describe User do
   describe "create_with_omniauth method test" do
     context "first login by omniauth normal test" do
       before do
-        auth  = { provider: 'twitter' , uid:  'aabbbcc11111' }
+        auth  = { provider: 'twitter' , uid:  'aabbbcc11111', info: {email: 'test@gmail.com' }}
         @user = User.create_twitter_account auth
       end
 
@@ -33,6 +33,7 @@ describe User do
       it "test attribute check" do
         expect(@user.provider).to eql('twitter')
         expect(@user.uid).to eql('aabbbcc11111')
+        expect(@user.email).to eql('test@gmail.com')
       end
     end
 

@@ -1,2 +1,16 @@
-<h1>Group#show</h1>
-<p>Find me in app/views/group/show.html.erb</p>
+  <div class="group_member_list">
+		グループ名: <%=@group.name %> &nbsp;&nbsp;| <%= link_to '招待する', action: 'invite_member', controller: 'group_members', group_id: @group.id %>
+    <table>
+      <tr>
+        <th></th>
+      </tr>
+ <% @group_members.each do |member| %>
+     <tr>
+       <div class="group_member_div">
+         <%= member.e_mail %><br/>
+       </div>
+     </tr>
+ <% end %>
+  </div>
+
+

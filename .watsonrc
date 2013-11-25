@@ -1,0 +1,31 @@
+# watson rc
+# watson - inline issue manager
+# [goosecode] labs 
+
+
+# Directories 
+[dirs] 
+./
+
+ 
+# Tags 
+[tags] 
+fix
+review
+todo
+
+
+# Ignores
+[ignore]
+.git
+*.swp
+
+
+[github_api]
+7684502e6092963e16bac4ddb8ea3f90a32805a2
+
+
+[github_repo]
+nakaearth/life_photos
+
+

@@ -1,7 +1,6 @@
 App.controller 'GroupsCtrl', ['$scope', ($scope) ->
-  $scope.groups = "Angular Rocks!"
+  $scope.message = "Angular Rocks!"
 ]
-App.controller 'GroupsCtrl', ['$scope', 'Group', ($scope, Group) ->
-  $scope.groups = Group.query()
+App.controller 'GroupsCtrl', ['$scope', 'Groups', ($scope, Groups) ->
+  $scope.groups = Groups.query()
 ]
-

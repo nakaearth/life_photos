@@ -2,12 +2,12 @@
 
 App.controller('GroupsCtrl', [
   '$scope', function($scope) {
-    return $scope.groups = "Angular Rocks!";
+    return $scope.message = "Angular Rocks!";
   }
 ]);
 
 App.controller('GroupsCtrl', [
-  '$scope', 'Group', function($scope, Group) {
-    return $scope.groups = Group.query();
+  '$scope', 'Groups', function($scope, Groups) {
+    return $scope.groups = Groups.query();
   }
 ]);

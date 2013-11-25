@@ -1,7 +1,11 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = Group.all 
+  
+  end
+
+  def my_groups
+    @groups = current_user.groups
     @groups.to_json
     respond_to do |format|
       format.html # new.html.erb
@@ -9,15 +13,15 @@ class GroupsController < ApplicationController
     end
   end
 
-
   def new
     @group = Group.new
   end
 
   def create
+    # [todo] -  transaction setting add!
     @group = Group.new(group_params)
-    if @group.save
-      redirect_to @group, notice: 'save successful.'
+    if @group.save_group(current_user)
+      redirect_to action: "show", id:  @group.id,  notice: 'save successful.'
     else
       render action: :new 
     end
@@ -25,6 +29,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @group_members = @group.group_members
   end
 
   def edit

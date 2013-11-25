@@ -18,7 +18,17 @@ LifePhotos::Application.routes.draw do
         get 'my_list', defaults: { format: 'json' }
       end
    end
-   resources :groups 
+   resources :groups  do
+     collection do
+       get 'my_groups', {format: :json }
+     end
+     resources  :group_member do
+       collection do
+         get 'invite_member'
+         post 'invite'
+       end
+     end
+   end
    resources :maps ,only: [:index, :new, :create] do end
    get :markers, to: 'maps#markers'
  #  end

@@ -99,4 +99,7 @@ gem 'angular-gem'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# todo list generates
+gem 'watson-ruby'
+
 

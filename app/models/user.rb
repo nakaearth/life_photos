@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
       @user.name        = auth[:info][:name]
       @user.screen_name = auth[:info][:nickname]
       @user.image_path  = auth[:info][:image]
+      @user.email       = auth[:info][:email]
     end
     @user.token = auth["credentials"]["token"] unless auth["credentials"].blank?
     @user.save
@@ -56,6 +57,7 @@ class User < ActiveRecord::Base
       @user.name        = auth[:info][:name]
       @user.screen_name = auth[:info][:nickname]
       @user.image_path  = auth[:info][:image]
+      @user.email       = auth[:info][:email]
     end
     @user.token = auth["credentials"]["token"] unless auth["credentials"].blank?
     @user.save
@@ -70,6 +72,7 @@ class User < ActiveRecord::Base
       @user.name        = "developer"
       @user.screen_name = "dev dev"
       @user.image_path  = auth[:info][:image]
+      @user.email       = auth[:info][:email]
     end
     @user.token = auth["credentials"]["token"] unless auth["credentials"].blank?
     @user.save

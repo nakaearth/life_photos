@@ -1,17 +1,11 @@
-<h1>グループ一覧</h1>
- <div ng-controller="GroupsCtrl">
-   <div id="photo-list-container">
-     <ul>
-       <li ng-repeat="group in groups">
-         <h3><small>({{group.name}})</small></h3>
-       </li>
-     </ul>
-   </div>
-   <div id="photo-view-container" ng-show="selectedGroup">
-     <h2>{{selectedGroup.name}}</h2>
-       <p>
-       作成日付 {{selectedGroup.created_at | date: 'mediumDate'}}
-       </p>
-   </div>
-</div>
+<div class="content" ng-controller="GroupsCtrl">
+	<div class="content_div">
+		<u1 ng-show="groups.length" style="list-style:none;padding:0">
+    	<li ng-repeat="group in groups" ng-class-even="'evenbg'" ng-class-odd="'oddbg'">
+    	{{group.name}} |&nbsp;&nbsp;<a href='/groups/{{group.id}}' >詳細</a> &nbsp;&nbsp;
+    	</li>
+    </u1>
+  </div>
+<br>
 
+</div>

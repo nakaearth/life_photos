@@ -1,4 +1,3 @@
-App.factory 'Group', ['$resource', ($resource) ->
-  $resource '/groups/index'
+App.factory 'Groups', ['$resource', ($resource) ->
+  $resource '/groups/my_groups'
 ]
-
