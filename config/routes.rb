@@ -22,7 +22,7 @@ LifePhotos::Application.routes.draw do
      collection do
        get 'my_groups', {format: :json }
      end
-     resources  :group_member do
+     resources  :group_member, to: 'groups/group_member' do
        collection do
          get 'invite_member'
          post 'invite'
