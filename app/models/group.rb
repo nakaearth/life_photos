@@ -17,15 +17,17 @@ class Group < ActiveRecord::Base
 
   #[todo] implements no problem?
   def save_group(user)
-    save_group_datas do
-      @user_group = UserGroup.new
-      @user_group.user_id = user.id
-      @user_group.group_id = id
-      @user_group.save
-      @member = GroupMember.new
-      @member.e_mail = user.email
-      @member.group_id = id
-      @member.save
+    ActiveRecord::Base.transaction do
+      save_group_datas do
+        @user_group = UserGroup.new
+        @user_group.user_id = user.id
+        @user_group.group_id = id
+        @user_group.save
+        @member = GroupMember.new
+        @member.e_mail = user.email
+        @member.group_id = id
+        @member.save
+      end
     end
   end
 

@@ -18,13 +18,16 @@ class GroupsController < ApplicationController
   end
 
   def create
-    # [todo] -  transaction setting add!
-    @group = Group.new(group_params)
-    if @group.save_group(current_user)
-      redirect_to action: "show", id:  @group.id,  notice: 'save successful.'
-    else
-      render action: :new 
+    Group.transaction do
+      @group = Group.new(group_params)
+      if @group.save_group(current_user)
+        redirect_to action: "show", id:  @group.id,  notice: 'save successful.'
+      else
+        render action: :new 
+      end
     end
+  rescue => e
+    redirect_to '/500.html'
   end
 
   def show
