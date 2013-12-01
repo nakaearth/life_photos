@@ -6,10 +6,10 @@ class InviteGroupMailer < ActionMailer::Base
   #
   #   en.invite_group_mailer.send_invite_mail.subject
   #
-  def send_invite_mail(to_mail)
+  def send_invite_mail(to_mail, album_id)
     @greeting = "Hi"
-    @group_join_url = "http://hogehoge.com/"
-
+    @group_join_url = "/albums/#{album_id}"
+     
     mail to: to_mail ,subject: "Invite life_photo group."
   end
 

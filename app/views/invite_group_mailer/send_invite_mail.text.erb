@@ -1,3 +1,9 @@
 InviteGroupMailer#send_invite_mail
 
 <%= @greeting %>
+
+アルバム閲覧への招待メールです。
+以下のURLをクリックしてアルバム閲覧をしてください。
+
+<a herf="<%= "http://lifephoto.herokuapp.com/" + @album_url %>" %>こちらから</a>
+

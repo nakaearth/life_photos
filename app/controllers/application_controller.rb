@@ -7,12 +7,15 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    begin
-      @current_user ||=  User.find(session[:user_id]) if session[:user_id]
-    rescue ActiveRecord::RecordNotFound => ar
-      logger.info "ユーザ情報がありません."
-      session[:user_id] = nil
-    end
+    @current_user ||=  User.find(session[:user_id]) if session[:user_id]
+  rescue ActiveRecord::RecordNotFound => ar
+    logger.info "ユーザ情報がありません."
+    session[:user_id] = nil
+  end
+
+  # [todo] ここに招待したユーザかどうかチェックするロジックをいれる
+  def user_status_check
+
   end
 
   def record_logs
