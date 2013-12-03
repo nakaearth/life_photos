@@ -1,5 +1,7 @@
 class AlbumsController < ApplicationController
 
+  before_action :album_group_member?, only: [:show]
+
   def index
     @albums = current_user.albums.page(params[:page]).per(10)
   end
@@ -19,6 +21,7 @@ class AlbumsController < ApplicationController
   def show
     @album  = Album.where(id: params[:id]).where(user_id: current_user.id).first
     @photos = Photo.where(album_id: @album.id).where(user_id: current_user.id).page(params[:page]).per(20)
+      
   end
 
   def new
@@ -51,6 +54,12 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
+  end
+
+  # [todo] ここに招待したユーザかどうかチェックするロジックをいれる
+  def album_group_member?
+    e_mail = current_user.email || params[:e_mail]
+    GroupMember.where(group_id: params[:group_id]).where(e_mail: e_mail).exists
   end
 
   private

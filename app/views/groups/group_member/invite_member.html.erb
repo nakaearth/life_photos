@@ -1,12 +1,22 @@
 <div id="invite_form" class="photo_form">
 	<div id="invite_form_div" class="photo_form_div">
 		<%= form_for @group_member, url: {action: 'invite'} do |f| %>
-			<%= f.label :e_mail %>:<%= f.text_field :e_mail %><br/>
-			アルバム選択：<%= select_tag "album_id", options_from_collection_for_select(@albums,"id","title") %>
-			<%= hidden_field_tag :group_id, @group.id %>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+      <% if @group_member.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@group_member.errors.count, "error") %> prohibited this member from being saved:</h2>
+          <ul>
+          <% @group_member.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.label :e_mail %>:<%= f.text_field :e_mail %><br/>
+      アルバム選択：<%= select_tag "album_id", options_from_collection_for_select(@albums,"id","title") %>
+	    <%= hidden_field_tag :group_id, @group.id %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
     <% end %>
   </div>
 </div>

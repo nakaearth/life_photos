@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   # [todo] ここに招待したユーザかどうかチェックするロジックをいれる
-  def user_status_check
-
+  def album_group_member?
+    GroupMember.where(group_id: params[:group_id]).where(e_mail: params[:e_mail]).exists
   end
 
   def record_logs
