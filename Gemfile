@@ -102,4 +102,6 @@ gem 'angular-gem'
 # todo list generates
 gem 'watson-ruby'
 
+#setting
+gem 'settingslogic'
 
