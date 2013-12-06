@@ -16,7 +16,7 @@
 
 class Photo < ActiveRecord::Base
   belongs_to :user
-  belongs_to :albums
+  belongs_to :albums, counter_cache: true
   has_one    :geo_map
   validates :title,  presence: true
 

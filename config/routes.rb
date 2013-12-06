@@ -17,6 +17,9 @@ LifePhotos::Application.routes.draw do
       collection do
         get 'my_list', defaults: { format: 'json' }
       end
+      member do
+        get 'guest_user_show'
+      end
    end
    resources :groups  do
      collection do
@@ -29,6 +32,7 @@ LifePhotos::Application.routes.draw do
        end
      end
    end
+   get "/groups/:group_id/join_this_group"  =>  "groups/group_member#join_this_group"
    resources :maps ,only: [:index, :new, :create] do end
    get :markers, to: 'maps#markers'
  #  end

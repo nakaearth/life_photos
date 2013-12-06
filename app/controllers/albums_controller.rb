@@ -21,7 +21,14 @@ class AlbumsController < ApplicationController
   def show
     @album  = Album.where(id: params[:id]).where(user_id: current_user.id).first
     @photos = Photo.where(album_id: @album.id).where(user_id: current_user.id).page(params[:page]).per(20)
-      
+  end
+
+  # [todo] showのview側をtemplateにする。
+  # [todo] routes.rbに追加.
+  # [todo] メールから招待されたユーザはこちらをみる
+  def guest_user_show
+    @album  = Album.find(id: params[:album_id])
+    @photos = Photo.where(album_id: @album.id).page(params[:page]).per(20)
   end
 
   def new

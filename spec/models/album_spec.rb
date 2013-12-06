@@ -17,6 +17,7 @@ describe Album do
   fixtures :users
   fixtures :users
   fixtures :albums
+  fixtures :photos
 
   describe "album list" do
     context "user album list" do
@@ -45,6 +46,25 @@ describe Album do
         #@album_data = Album.where(title: "create test title").first
         expect(@album.id).not_to be_nil
         expect(@album.user_id).to eql(@user.id)
+      end
+    end
+
+    context "user album create and add photo" do
+      before do
+        @user = User.find(1)
+        @file = File.new("spec/fixtures/test.png")
+        @file.binmode
+        @subject = Paperclip.io_adapters.for(@file)
+        @album = Album.new(title: "create test title", description: "test album")
+        @album.user_id =  @user.id
+        @album.save
+        @photo = Photo.new(title: 'test photo', description: "これはテストです", user_id: 1, album_id: @album.id)
+        @photo.save
+      end
+      it "created data check" do
+        expect(@album.id).not_to be_nil
+        expect(@album.user_id).to eql(@user.id)
+        expect(@album.photos.size).to eql(1)
       end
     end
 

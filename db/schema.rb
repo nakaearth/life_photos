@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128153143) do
+ActiveRecord::Schema.define(version: 20131205103503) do
 
   create_table "album_groups", force: true do |t|
     t.integer  "album_id"
@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(version: 20131128153143) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "top_img_path", default: "no_image.jpg", null: false
+    t.string   "top_img_path",       default: "no_image.jpg", null: false
+    t.integer  "album_photos_count", default: 0,              null: false
   end
 
   create_table "events", force: true do |t|
@@ -50,9 +51,13 @@ ActiveRecord::Schema.define(version: 20131128153143) do
   end
 
   create_table "group_members", force: true do |t|
-    t.string  "e_mail",   null: false
+    t.string  "e_mail",                      null: false
     t.integer "group_id"
+    t.boolean "invite_flag", default: false, null: false
+    t.string  "token"
   end
+
+  add_index "group_members", ["token"], name: "index_group_members_on_token", unique: true
 
   create_table "groups", force: true do |t|
     t.string   "name"
