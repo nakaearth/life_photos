@@ -7,10 +7,7 @@ class GroupsController < ApplicationController
   def my_groups
     @groups = current_user.groups
     @groups.to_json
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @groups }
-    end
+    render json: @groups, status: 201
   end
 
   def new

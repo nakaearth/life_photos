@@ -1,10 +1,7 @@
 <div class="content" ng-controller="GroupsCtrl">
 	<div class="content_div">
-		<%= @groups.each do |group| %>
-			<li > <%= group.name %> &nbsp;&nbsp;|&nbsp;&nbsp;<a href='/groups/<%=group.id %>' >詳細</a> </li>
-		<% end %>
-		<u1 ng-show="groups.length" style="list-style:none;padding:0">
-    	<li ng-repeat="group in groups" ng-class-even="'evenbg'" ng-class-odd="'oddbg'">
+		<u1  style="list-style:none;padding:0">
+    	<li ng-repeat="group in groups"  ng-class-even="'evenbg'" ng-class-odd="'oddbg'" >
     	{{group.name}} |&nbsp;&nbsp;<a href='/groups/{{group.id}}' >詳細</a>&nbsp;&nbsp;
     	</li>
     </u1>
