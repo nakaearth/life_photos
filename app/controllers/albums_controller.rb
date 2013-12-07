@@ -27,7 +27,7 @@ class AlbumsController < ApplicationController
   # [todo] routes.rbに追加.
   # [todo] メールから招待されたユーザはこちらをみる
   def guest_user_show
-    @album  = Album.find(id: params[:album_id])
+    @album  = Album.find_by(id: params[:id])
     @photos = Photo.where(album_id: @album.id).page(params[:page]).per(20)
   end
 

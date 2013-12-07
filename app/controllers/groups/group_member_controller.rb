@@ -24,10 +24,11 @@ class Groups::GroupMemberController < ApplicationController
   end
 
   def join_this_group
-    if @group_member = Group_member.find(group_id: params[:group_id], e_mail: params[:e_mail], token: params[:token])
+    if @group_member = GroupMember.find_by(group_id: params[:group_id], e_mail: params[:e_mail], token: params[:token])
       @group_member.invite_flag = true
       @group_member.save
-      redirect_to action: "guest_user_show", controller: "albums", id: params[:album_id]
+      @album_group = AlbumGroup.find_by(group_id:  params[:group_id])
+      redirect_to "/albums/#{@album_group.album_id}/guest_user_show"
     else
       redirect_to '/500.html'
     end
