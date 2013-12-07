@@ -1,8 +1,7 @@
 <menu class="menu_text">
 <%= link_to_unless_current 'トップページへ', root_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
-<%= link_to_unless_current 'Myアルバム一覧', albums_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
+<%= link_to_unless_current 'Myアルバム', albums_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
 <%= link_to_unless_current 'My写真', photos_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
-<%= link_to_unless_current '写真投稿', new_photo_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
 <%= link_to_unless_current 'Myグループ', groups_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
 <%= link_to_unless_current '日記をつける', events_path, "data-no-turbolink" => true %>&nbsp;&nbsp;|&nbsp;&nbsp;
 </menu>
