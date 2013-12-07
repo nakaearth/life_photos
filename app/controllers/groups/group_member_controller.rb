@@ -7,7 +7,6 @@ class Groups::GroupMemberController < ApplicationController
 
   def invite
     ActiveRecord::Base.transaction do
-      # [todo] Token発行処理をいれる 
       token = generate_token
       @group_member = GroupMember.new(group_id: params[:group_id], e_mail: params[:group_member][:e_mail], token: token)
       if @group_member.save 

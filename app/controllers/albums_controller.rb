@@ -1,4 +1,5 @@
 class AlbumsController < ApplicationController
+  layout "guest_user", :only => [:guest_user_show]
 
   before_action :album_group_member?, only: [:show]
 
@@ -23,9 +24,7 @@ class AlbumsController < ApplicationController
     @photos = Photo.where(album_id: @album.id).where(user_id: current_user.id).page(params[:page]).per(20)
   end
 
-  # [todo] showのview側をtemplateにする。
-  # [todo] routes.rbに追加.
-  # [todo] メールから招待されたユーザはこちらをみる
+  # [todo] viewテンプレートを分ける
   def guest_user_show
     @album  = Album.find_by(id: params[:id])
     @photos = Photo.where(album_id: @album.id).page(params[:page]).per(20)
