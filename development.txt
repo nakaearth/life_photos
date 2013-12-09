@@ -37,3 +37,12 @@ gem 'annotate', :git => 'https://github.com/ctran/annotate_models'
 
 bundle exec annotate
 
+■bower
+ npm install bower -g
+
+ gem 'bower-rails', '0.3.1'
+
+ http://tohae.hatenablog.com/entry/2013/05/10/121548
+
+
+

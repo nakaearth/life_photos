@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
   end
 
   def new
+    redirect_to action: "new", controller: "albums", notice: 'グループ作成の前に先にアルバムを登録してください' unless Album.where(user_id: current_user.id).exists?
     @group = Group.new
   end
 
