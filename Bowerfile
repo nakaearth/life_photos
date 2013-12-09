@@ -4,5 +4,9 @@ assets_path "assets/javascripts"
 group :vendor, :assets_path => "assets/javascript" do
   asset 'jquery'
   asset 'jquery-ujs' 
-  # asset 'jquery-autopager', 'http://lagoscript.org/files/jquery/autopager/jquery.autopager-1.0.0.js'
+  
+	asset 'swiper'
+	asset 'angular'
+  asset 'angular-resource'
+	asset 'angular-animate'
 end

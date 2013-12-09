@@ -42,6 +42,24 @@ bundle exec annotate
 
  gem 'bower-rails', '0.3.1'
 
+ vim Bowerfile
+
+  assets_path "assets/javascripts"
+ 
+ # Puts files under ./vendor/assets/javascripts
+ group :vendor, :assets_path => "assets/javascript" do
+   asset 'jquery'
+   asset 'jquery-ujs'
+ end
+
+rake bower:install
+
+https://github.com/42dev/bower-rails
+
+config/application.rbを編集
+
+  config.assets.paths << Rails.root.join("vendor", "assets", "javascript", "bower_components")
+
  http://tohae.hatenablog.com/entry/2013/05/10/121548
 
 

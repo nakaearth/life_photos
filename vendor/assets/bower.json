@@ -2,6 +2,10 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "jquery": "latest",
-    "jquery-ujs": "latest"
+    "jquery-ujs": "latest",
+    "swiper": "latest",
+    "angular": "latest",
+    "angular-resource": "latest",
+    "angular-animate": "latest"
   }
 }
