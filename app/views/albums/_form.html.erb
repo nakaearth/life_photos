@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 <div id="album_form" class="album_form">
-	<div id="album_form_div" class="album_form_div">
+  <div id="album_form_div" class="album_form_div">
     <%= form_for(@album) do |f| %>
-    <%= f.label :title %>:<%= f.text_field :title %><br/>
-		<%= f.label :description %>:<%= f.text_area :description, :size => "40x20" %><br/>
-    <div class="actions">
-			<%= f.submit %>
-			<%= hidden_field_tag :from_url, @from_url %>
-    </div>
+      <%= f.label :title %>:<%= f.text_field :title %><br/>
+      <%= f.label :description %>:<%= f.text_area :description, :size => "40x20" %><br/>
+      <div class="actions">
+        <%= f.submit %>
+        <%= hidden_field_tag :from_url, @from_url %>
+      </div>
     <% end %>
   </div>
 </div>
