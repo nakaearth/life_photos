@@ -1,13 +1,45 @@
 <!DOCTYPE html>
-<html ng-app="LifePhotos">
+<html >
 <head>
 	<title>LifePhotos</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">	
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	<%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<link rel="stylesheet" href="assets/idangerous.swiper.css">
+  <%= stylesheet_link_tag    "guest_user", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "guest_user" %>
+	<%= csrf_meta_tags %>
+<script type="text/javascript">
+/*======
+Use document ready or window load events
+For example:
+With jQuery: $(function() { ...code here... })
+Or window.onload = function() { ...code here ...}
+Or document.addEventListener('DOMContentLoaded', function(){ ...code here... }, false)
+=======*/
+
+window.onload = function() {
+  var mySwiper = new Swiper('.swiper-container',{
+    //Your options here:
+    mode:'horizontal',
+    loop: true
+    //etc..
+  });  
+}
+
+/*
+Or with jQuery/Zepto
+*/
+$(function(){
+  var mySwiper = $('.swiper-container').swiper({
+    //Your options here:
+    mode:'horizontal',
+    loop: true
+    //etc..
+  });
+})
+
+</script>
 </head>
 <body>
 	<header>

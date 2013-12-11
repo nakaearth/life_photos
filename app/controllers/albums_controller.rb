@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  include Jpmobile::ViewSelector
+  
   layout "guest_user", :only => [:guest_user_show]
 
   before_action :album_group_member?, only: [:show]
