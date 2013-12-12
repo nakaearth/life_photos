@@ -2,17 +2,18 @@
 #
 # Table name: albums
 #
-#  id           :integer          not null, primary key
-#  title        :string(255)
-#  description  :text
-#  user_id      :integer
-#  created_at   :datetime
-#  updated_at   :datetime
-#  top_img_path :string(255)      default("no_image.jpg"), not null
+#  id                 :integer          not null, primary key
+#  title              :string(255)
+#  description        :text
+#  user_id            :integer
+#  created_at         :datetime
+#  updated_at         :datetime
+#  top_img_path       :string(255)      default("no_image.jpg"), not null
+#  album_photos_count :integer          default(0), not null
 #
 
 class Album < ActiveRecord::Base
-  belongs_to :users
+  belongs_to :users, dependent: :destroy
   has_many  :photos
 
   validates :title, presence: true 

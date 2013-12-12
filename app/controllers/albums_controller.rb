@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   include Jpmobile::ViewSelector
-  
+
   layout "guest_user", :only => [:guest_user_show]
 
   before_action :album_group_member?, only: [:show]
@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
   def index
     @albums = current_user.albums.page(params[:page]).per(10)
   end
-  
+
   def my_list
     @albums = current_user.albums.page(params[:page]).per(10)
     respond_to do |format|

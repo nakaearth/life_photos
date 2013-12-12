@@ -6,7 +6,6 @@
 #  name       :string(255)      not null
 #  latitude   :decimal(, )      not null
 #  longitude  :decimal(, )      not null
-#  photo_id   :integer          not null
 #  created_at :datetime
 #  updated_at :datetime
 #

@@ -2,13 +2,14 @@
 #
 # Table name: albums
 #
-#  id           :integer          not null, primary key
-#  title        :string(255)
-#  description  :text
-#  user_id      :integer
-#  created_at   :datetime
-#  updated_at   :datetime
-#  top_img_path :string(255)      default("no_image.jpg"), not null
+#  id                 :integer          not null, primary key
+#  title              :string(255)
+#  description        :text
+#  user_id            :integer
+#  created_at         :datetime
+#  updated_at         :datetime
+#  top_img_path       :string(255)      default("no_image.jpg"), not null
+#  album_photos_count :integer          default(0), not null
 #
 
 require 'spec_helper'
@@ -18,6 +19,8 @@ describe Album do
   fixtures :users
   fixtures :albums
   fixtures :photos
+
+  it { should have_many(:photos) }
 
   describe "album list" do
     context "user album list" do
@@ -69,7 +72,7 @@ describe Album do
     end
 
     context "user album create error case" do
-       before do
+      before do
         @user = User.find(1)
         @album = Album.new(description: "test album")
         @album.user_id =  @user.id
@@ -77,7 +80,7 @@ describe Album do
       it "album create success?" do
         expect(@album).not_to be_valid
       end
-      
+
     end
   end
 end
