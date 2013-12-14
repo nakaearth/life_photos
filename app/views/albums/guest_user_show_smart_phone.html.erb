@@ -1,21 +1,24 @@
 <h1>アルバム内の写真</h1>
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-		  <% @photos.each do |photo| %>		
-      <div class="swiper-slide orange-slide">
-        <div class="title"><%= image_tag photo.photo.url(:original) %></div>
-        <p><%= photo.title %></p>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <% @photos.each do |photo| %>		
+      <div class="swiper-slide">
+        <%= image_tag photo.photo.url(:medium) %><br/>
+        <%= photo.title %>
       </div>
-      <% end %>
-    </div>
-    <div class="pagination"></div>
+    <% end %>
   </div>
-  <script>
-  var mySwiper = new Swiper('.swiper-container',{
+  <div class="pagination">&nbsp;</div>
+</div>
+<script>
+  var mySwiper = $('.swiper-container').swiper({
+    //Your options here:
     pagination: '.pagination',
-    paginationClickable: true,
-    freeMode: true,
-    freeModeFluid: true
-  })
-  </script>
+    loop:true,
+    autoplay:3000,
+    paginationClickable:true,
+    calculateHeight:true,
+    touchRatio:0.6,
+  });
+</script>
 
