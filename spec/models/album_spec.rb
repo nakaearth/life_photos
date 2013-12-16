@@ -20,7 +20,10 @@ describe Album do
   fixtures :albums
   fixtures :photos
 
-  it { should have_many(:photos) }
+  it { expect have_many(:photos) }
+  it { expect belong_to(:users) }
+  it { expect have_db_column(:user_id) }
+  it { expect have_db_index(:user_id) }
 
   describe "album list" do
     context "user album list" do
