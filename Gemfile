@@ -62,6 +62,7 @@ group :test do
   gem 'rubocop', require: false
   gem 'rubocop-checkstyle_formatter', require: false
   gem 'spring'
+  gem 'guard-rspec'
   gem 'shoulda-matchers'
 end
 
