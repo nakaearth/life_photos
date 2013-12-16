@@ -22,6 +22,9 @@ describe Photo do
   fixtures :albums
 
   describe "save photo test" do
+
+    it { expect belong_to(:albums) }
+
     context "photo 投稿" do
       before do
         @file = File.new("spec/fixtures/test.png")
