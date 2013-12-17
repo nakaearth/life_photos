@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html ng-app="LifePhotos">
-<head>
-	<title>LifePhotos</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">	
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<header>
-  Life Photos
-  </header>
-	<br/>
-  <div class="login_user_info">
-<% if current_user %>
-    <%= image_tag "#{current_user.image_path}", size: "40x40" %><%= current_user.screen_name %>さん
-    <%= link_to "logout", logout_path %>
-  	<%= render 'common/menu' %>
-<% else %>
-	<br>
-    <%= link_to "Facebook login", "/facebook/login", "data-no-turbolink" => true %> &nbsp;&nbsp;|&nbsp;&nbsp;
-    <%= link_to "Twitter login", "/twitter/login",  "data-no-turbolink" => true %>
-<% end %>
-	</div>
-<%= yield %>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-resource.min.js"></script>
-  <script src="http://lifephoto.herokuapp.com/assets/bucky.min.js" data-bucky-host="http://buckyserver.herokuapp.com/bucky" data-bucky-page data-bucky-requests></script>
-	<%= javascript_include_tag "application" %>
-</body>
+  <head>
+    <title>LifePhotos</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+    Life Photos
+    </header>
+    <br/>
+    <div class="login_user_info">
+      <% if current_user %>
+        <%= image_tag "#{current_user.image_path}", size: "40x40" %><%= current_user.screen_name %>さん
+        <%= link_to "logout", logout_path %>
+        <%= render 'common/menu' %>
+      <% else %>
+        <br>
+        <%= link_to "Facebook login", "/facebook/login", "data-no-turbolink" => true %> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <%= link_to "Twitter login", "/twitter/login",  "data-no-turbolink" => true %>
+      <% end %>
+    </div>
+    <%= yield %>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-resource.min.js"></script>
+    <script src="http://lifephoto.herokuapp.com/assets/bucky.min.js" data-bucky-host="http://buckyserver.herokuapp.com/bucky" data-bucky-page data-bucky-requests></script>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
