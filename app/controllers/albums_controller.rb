@@ -65,9 +65,12 @@ class AlbumsController < ApplicationController
 
   # [todo] ここに招待したユーザかどうかチェックするロジックをいれる
   def album_group_member?
-    e_mail = current_user.email || params[:e_mail]
-    unless GroupMember.where(group_id: params[:group_id]).where(e_mail: e_mail).exists
-      redirect_to :root_path
+    e_mail = current_user.try(:email) || params[:e_mail]
+    unless e_mail
+      redirect_to :root
+    end
+    unless GroupMember.where(group_id: params[:group_id]).where(e_mail: e_mail).exists 
+      redirect_to :root
     end
   end
 
