@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   rescue_from RuntimeError, with: :runtime_error
   rescue_from ActionController::RoutingError, ActiveRecord::RecordNotFound, with: :routing_error
-#  rescue_from Toeicfive::ExaminationError, with: :examination_error
+  #  rescue_from Toeicfive::ExaminationError, with: :examination_error
 
   before_action :record_logs
   helper_method :current_user
@@ -11,7 +11,9 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound => ar
     logger.info "ユーザ情報がありません."
     session[:user_id] = nil
+    redirect_to :root
   end
+
 
   # [todo] ここに招待したユーザかどうかチェックするロジックをいれる
   def album_group_member?
@@ -25,6 +27,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def login?
+    if session[:user_id].blank?
+      redirect_to :root
+    end
+  end
+
   def runtime_error
     logger.error "アプリケーションエラーが発生しました"
     render "error/500", status:500
@@ -35,8 +43,8 @@ class ApplicationController < ActionController::Base
     render "error/404"
   end
 
-#  def examination_error
-#    loger.error "試験データに問題が発生しました。"
-#    render "error/examination_error"
-#  end
+  #  def examination_error
+  #    loger.error "試験データに問題が発生しました。"
+  #    render "error/examination_error"
+  #  end
 end

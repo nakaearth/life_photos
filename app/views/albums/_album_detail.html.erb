@@ -20,14 +20,14 @@
             $( '#photo_<%=photo.id %>' ).click(function (){
                 $( '#photo_viewer_<%=photo.id %>' ).fadeIn("slow"); 
                 });
-              </script>
-              <script type="text/javascript" >
-                $( '#photo_viewer_<%=photo.id %>' ).click(function (){
-                    $( '#photo_viewer_<%=photo.id %>' ).fadeOut("slow"); 
-                    });
-                  </script>
-                  <%= photo.title %><br/>
-                  <%= photo.description %>
+</script>
+<script type="text/javascript" >
+  $( '#photo_viewer_<%=photo.id %>' ).click(function (){
+      $( '#photo_viewer_<%=photo.id %>' ).fadeOut("slow"); 
+      });
+</script>
+<%= photo.title %><br/>
+<%= photo.description %>
                 </div>
               </tr>
             <% end %>

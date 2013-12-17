@@ -3,7 +3,7 @@ class AlbumsController < ApplicationController
 
   layout "guest_user", :only => [:guest_user_show]
 
-  before_action :album_group_member?, only: [:show]
+  #  before_action :album_group_member?, only: [:show]
 
   def index
     @albums = current_user.albums.page(params[:page]).per(10)
@@ -22,11 +22,13 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    album_group_member? params[:id]
     @album  = Album.where(id: params[:id]).where(user_id: current_user.id).first
     @photos = Photo.where(album_id: @album.id).where(user_id: current_user.id).page(params[:page]).per(20)
   end
 
   def guest_user_show
+    album_group_member? params[:id]
     @album  = Album.find_by(id: params[:id])
     @photos = Photo.where(album_id: @album.id).page(params[:page]).per(20)
   end
@@ -64,7 +66,11 @@ class AlbumsController < ApplicationController
   end
 
   # [todo] ここに招待したユーザかどうかチェックするロジックをいれる
-  def album_group_member?
+  def album_group_member?(album_id)
+    @album = Album.find(album_id)
+    if @album.user_id == current_user.try(:id)
+      return
+    end
     e_mail = current_user.try(:email) || params[:e_mail]
     unless e_mail
       redirect_to :root
