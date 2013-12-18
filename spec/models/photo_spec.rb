@@ -34,7 +34,7 @@ describe Photo do
       end
 
       it "photo save success" do
-        expect(@photo.save!).to be_true
+        expect(@photo.save!).to be_truthy
       end
 
       it "database check" do
@@ -63,7 +63,7 @@ describe Photo do
       end
 
       it "save error" do
-        expect(@photo).to have(1).error_on(:title)
+        expect(@photo.error_on(:title).size).to eq(1)
       end
     end
   end

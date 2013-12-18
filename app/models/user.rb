@@ -23,6 +23,13 @@ class User < ActiveRecord::Base
   has_many :groups, through: :user_groups
   has_many :events 
 
+  composed_of :fullscreenname ,
+              class_name: "FullScreenName",
+              mapping: [
+                [:provider, :provider],
+                [:screen_name, :name]
+              ]
+
   def self.create_account(auth)
     if auth[:provider] == 'facebook'
       create_facebook_account auth
@@ -78,7 +85,17 @@ class User < ActiveRecord::Base
       user.save
     end
   end
+end
 
+class FullScreenName
+  attr_reader :provider, :name
 
+  def initialize(provider, name)
+    @provider = provider
+    @name = name
+  end
 
+  def to_s
+    @name + "(" + @provider + ")"
+  end
 end

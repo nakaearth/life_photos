@@ -23,7 +23,7 @@ describe Group do
         @group.name = "test group"
       end
       it "group save?" do
-        expect(@group.save_group(@user)).to be_true
+        expect(@group.save_group(@user)).to be_truthy
       end
       it "model check" do
         @group.save_group(@user)

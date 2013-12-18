@@ -23,7 +23,7 @@ describe User do
   describe "create_with_omniauth method test" do
     context "first login by omniauth normal test" do
       before do
-        auth  = { provider: 'twitter' , uid:  'aabbbcc11111', info: {email: 'test@gmail.com' }}
+        auth  = { provider: 'twitter' , uid:  'aabbbcc11111', info: {email: 'test@gmail.com', nickname: 'test test' }}
         @user = User.create_twitter_account auth
       end
 
@@ -35,6 +35,7 @@ describe User do
         expect(@user.provider).to eql('twitter')
         expect(@user.uid).to eql('aabbbcc11111')
         expect(@user.email).to eql('test@gmail.com')
+        expect(@user.fullscreenname.to_s).to eql('test test(twitter)')
       end
     end
 
@@ -82,7 +83,7 @@ describe User do
       end
       it "group " do
         @user.groups << @group
-        expect(@user.save).to be_true
+        expect(@user.save).to be_truthy
         @user = User.find(1)
         expect(@user.groups.size).to eql(1)
       end
@@ -96,7 +97,7 @@ describe User do
       it "save test" do
         @group = Group.new
         expect(@group).not_to be_valid
-        expect(@group).to have(1).errors_on(:name)
+        expect(@group.errors_on(:name).size).to eq(1)
       end
     end
   end

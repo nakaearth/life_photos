@@ -25,7 +25,7 @@ describe GeoMaps do
         @geomap.name = 'tokyo'
         @geomap.latitude = 35
         @geomap.longitude = 139
-        expect(@geomap.save).to be_true
+        expect(@geomap.save).to be_truthy
       end
 
     end

@@ -45,7 +45,7 @@ describe Album do
         @album.user_id =  @user.id
       end
       it "album create success?" do
-        expect(@album.save).to be_true
+        expect(@album.save).to be_truthy
       end
       it "created data check" do
         @album.save

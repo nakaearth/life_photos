@@ -55,8 +55,8 @@ gem "aws-sdk"
 
 # test & coverage & code style
 group :test do
-  gem 'rspec'
-  gem 'rspec-rails'
+  gem 'rspec', '~>2.99.0.beta1'
+  gem 'rspec-rails', '~>2.99.0.beta1'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'rubocop', require: false
@@ -109,4 +109,7 @@ gem 'settingslogic'
 
 # bower
 gem 'bower-rails', '~> 0.5.0'
+
+# dropbox sdk
+gem 'dropbox-sdk'
 
