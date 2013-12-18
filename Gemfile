@@ -55,8 +55,8 @@ gem "aws-sdk"
 
 # test & coverage & code style
 group :test do
-  gem 'rspec', '~>2.99.0.beta1'
-  gem 'rspec-rails', '~>2.99.0.beta1'
+  gem 'rspec', '~> 3.0.0.beta1'
+  gem 'rspec-rails', '~> 3.0.0.beta1'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'rubocop', require: false

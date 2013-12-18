@@ -9,7 +9,7 @@ describe AlbumsController do
     context "index method" do
       before do
         @user = User.find(1)
-        controller.stub(:current_user) { @user }
+        allow(controller).to receive(:current_user) { @user }
         get :index
       end
       it { expect(@user.albums).not_to be_nil }

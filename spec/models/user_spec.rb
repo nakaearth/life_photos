@@ -59,7 +59,7 @@ describe User do
 
   describe "check user photos" do
     fixtures :photos
-    
+
     context "check user photo" do
       before do
         @user = User.find(1)

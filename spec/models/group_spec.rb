@@ -12,7 +12,7 @@ require 'spec_helper'
 
 describe Group do
   fixtures :users
-  
+
   it { expect belong_to(:users) }
 
   describe "save method" do
