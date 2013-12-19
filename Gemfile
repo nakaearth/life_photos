@@ -49,9 +49,11 @@ gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
 
 # s3
-gem  "paperclip"
+gem "paperclip"
 gem "aws-s3"
 gem "aws-sdk"
+gem "jquery-fileupload-rails"
+
 
 # test & coverage & code style
 group :test do

@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require fullcalendar
+ *= require jquery.fileupload-ui
  *= common
  *= require_tree .
  */

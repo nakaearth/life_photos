@@ -10,6 +10,7 @@ LifePhotos::Application.routes.draw do
    resources :photos do
      collection do
        get 'my_list'
+       get 'multi_upload'
      end
    end
    get '/calendar' => 'albums#calendar'

@@ -40,7 +40,6 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     @photo.user_id = current_user.id
-#    @photo.album_id= params[:photo][:album_id]
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
@@ -50,6 +49,12 @@ class PhotosController < ApplicationController
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # POST multi upload
+  def multi_upload
+    @photo = Photo.new
+    @albums = Album.where(user_id: session[:user_id]).latest
   end
 
   # PUT /photos/1

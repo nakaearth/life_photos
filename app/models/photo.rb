@@ -21,6 +21,7 @@ class Photo < ActiveRecord::Base
   validates :title,  presence: true
 
   after_save :album_image_set
+#  before_save :setup_title  
 
   Paperclip.interpolates :img_dir_num do |attachment, style|
     (attachment.instance.user_id).to_s + "/" + (attachment.instance.id * 0.01).to_s 
@@ -47,5 +48,9 @@ class Photo < ActiveRecord::Base
     p photo.url(:thumb)
     @album.top_image_setup(photo.url(:thumb))
   end
+
+#  def setup_title
+#    self.title = "no title"
+#  end
 
 end
