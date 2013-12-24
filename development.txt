@@ -68,3 +68,6 @@ config/application.rbを編集
 https://github.com/thoughtbot/shoulda-matchers#activerecord-matchers
  
 
+○multi image upload
+https://github.com/tors/jquery-fileupload-rails-paperclip-example
+
