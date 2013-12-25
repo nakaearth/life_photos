@@ -1,4 +1,4 @@
-//CasperJS
+CasperJS
 (0)install
 http://docs.casperjs.org/en/latest/installation.html
 brew update
