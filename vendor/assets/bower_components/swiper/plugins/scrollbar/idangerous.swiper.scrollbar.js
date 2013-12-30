@@ -1,5 +1,5 @@
 /*
- * Swiper Scrollbar 2.3
+ * Swiper Scrollbar 2.4+
  * Plugin for Swiper 2.0+
  * http://www.idangero.us/sliders/swiper/
  *
@@ -9,7 +9,7 @@
  *
  * Licensed under GPL & MIT
  *
- * Released on: November 2, 2013
+ * Released on: December 6, 2013
 */
 
 Swiper.prototype.plugins.scrollbar = function(swiper, params){
@@ -155,14 +155,14 @@ Swiper.prototype.plugins.scrollbar = function(swiper, params){
 		drag.style.height = ''
 		if (isH) {
 			trackWidth = swiper.h.getWidth(track, true);
-			divider = swiper.width/swiper.h.getWidth(swiper.wrapper);
+			divider = swiper.width/(swiper.h.getWidth(swiper.wrapper) + swiper.wrapperLeft + swiper.wrapperRight);
 			moveDivider = divider*(trackWidth/swiper.width);
 			dragWidth = trackWidth*divider;
 			drag.style.width = dragWidth+'px';
 		}
 		else {
 			trackHeight = swiper.h.getHeight(track, true);
-			divider = swiper.height/swiper.h.getHeight(swiper.wrapper);
+			divider = swiper.height/(swiper.h.getHeight(swiper.wrapper) + swiper.wrapperTop + swiper.wrapperBottom);
 			moveDivider = divider*(trackHeight/swiper.height);
 			dragHeight = trackHeight*divider;
 			if (dragHeight>trackHeight) dragHeight = trackHeight

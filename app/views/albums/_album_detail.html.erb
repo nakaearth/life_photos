@@ -1,3 +1,4 @@
+<% cache @photos do %>
 <%= paginate @photos %>
 <div class="photo_list">
   <table>
@@ -16,8 +17,8 @@
             <%= image_tag photo.photo.url(:thumb) %>
             <%= photo.created_at.strftime("%Y/%m/%d") %>
           </span>
-          <script type="text/javascript" >
-            $( '#photo_<%=photo.id %>' ).click(function (){
+          <script type="text/javascript">
+            $( '#photo_<%=photo.id %>' ).click(function () {
                 $( '#photo_viewer_<%=photo.id %>' ).fadeIn("slow"); 
                 });
 </script>
@@ -28,8 +29,9 @@
 </script>
 <%= photo.title %><br/>
 <%= photo.description %>
-                </div>
-              </tr>
-            <% end %>
-          </div>
-
+        </div>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<% end %>

@@ -112,6 +112,12 @@ gem 'settingslogic'
 # bower
 gem 'bower-rails', '~> 0.5.0'
 
-# dropbox sdk
-gem 'dropbox-sdk'
+# cache_digest
+gem 'cache_digests'
+
+
+## dropbox sdk
+#gem 'dropbox-sdk'
+
+
 

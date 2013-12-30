@@ -12,13 +12,19 @@ namespace :dropbox do
     puts '2. Click "Allow" (you might have to log in first)'
     puts '3. Copy the authorization code'
     print 'Enter the authorization code here: '
-    code = gets.strip 
+    puts authorize_url
+ #   code = gets.strip 
+  end
+
+  task :get_token => :environment do
+    flow = DropboxOAuth2FlowNoRedirect.new(ENV['DROP_BOX_APP_KEY'], ENV['DROP_BOX_APP_SECRET'])
+    flow.start()
+    access_token, user_id = flow.finish(ENV['DROP_BOX_CODE'])
+    puts access_token
   end
 
   task :transfer_s3 => :environment do
-    flow = DropboxOAuth2FlowNoRedirect.new(ENV['DROP_BOX_APP_KEY'], ENV['DROP_BOX_APP_SECRET'])
-    access_token, user_id = flow.finish(ENV['DROP_BOX_CODE'])
-    client = DropboxClient.new(access_token)
+    client = DropboxClient.new(ENV['DROP_BOX_ACCESS_TOKEN'])
     root_folder = client.metadata('./Photos')
     puts "folder:" , root_folder.inspect
   end

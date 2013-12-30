@@ -23,7 +23,7 @@ class AlbumsController < ApplicationController
 
   def show
     album_group_member? params[:id]
-    @album  = Album.where(id: params[:id]).where(user_id: current_user.id).first
+    @album  = Album.find_by(id: params[:id])
     @photos = Photo.where(album_id: @album.id).where(user_id: current_user.id).page(params[:page]).per(20)
   end
 
