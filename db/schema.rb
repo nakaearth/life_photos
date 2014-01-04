@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216063926) do
+ActiveRecord::Schema.define(version: 20140103132522) do
 
   create_table "album_groups", force: true do |t|
     t.integer  "album_id"
@@ -100,6 +100,13 @@ ActiveRecord::Schema.define(version: 20131216063926) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
+  end
+
+  create_table "videos", force: true do |t|
+    t.string   "title"
+    t.string   "panda_video_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

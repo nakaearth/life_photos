@@ -119,5 +119,6 @@ gem 'cache_digests'
 ## dropbox sdk
 #gem 'dropbox-sdk'
 
-
+# panda stream
+gem 'panda', '~> 1.6.0'
 

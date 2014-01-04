@@ -1,5 +1,9 @@
 LifePhotos::Application.routes.draw do
 
+  post "panda/authorize_upload" , :to => "panda#authorize_upload"
+ 
+  resources :videos
+  
   resources :events do
     collection do
       get 'event_list', {format: :json }

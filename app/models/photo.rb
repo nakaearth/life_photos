@@ -18,6 +18,7 @@ class Photo < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
   belongs_to :albums, counter_cache: true, dependent: :destroy, touch: true
   has_one    :geo_map
+
   validates :title,  presence: true
 
   after_save :album_image_set
@@ -48,9 +49,4 @@ class Photo < ActiveRecord::Base
     p photo.url(:thumb)
     @album.top_image_setup(photo.url(:thumb))
   end
-
-#  def setup_title
-#    self.title = "no title"
-#  end
-
 end
