@@ -122,3 +122,6 @@ gem 'cache_digests'
 # panda stream
 gem 'panda', '~> 1.6.0'
 
+# pusher
+gem 'pusher'
+

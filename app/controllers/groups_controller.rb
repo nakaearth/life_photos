@@ -19,7 +19,8 @@ class GroupsController < ApplicationController
     Group.transaction do
       @group = Group.new(group_params)
       if @group.save_group(current_user)
-        redirect_to action: "show", id:  @group.id,  notice: 'save successful.'
+        redirect_to action: :new, controller: :albums if params[:from_url] == 'album'
+        redirect_to action: "show", id:  @group.id,  notice: 'save successful.' unless params[:from_url] == 'album'
       else
         render action: :new 
       end

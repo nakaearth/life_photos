@@ -42,6 +42,7 @@ class PhotosController < ApplicationController
     @photo.user_id = current_user.id
     respond_to do |format|
       if @photo.save
+        send_push_message
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
         format.json { render json: { :files => [@photo.photo.url(:thumb)]}, status: :created, location: @photo }
       else
@@ -67,7 +68,7 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find(params[:id])
     @photo.user_id = current_user.id
-#    @photo.album_id= params[:photo][:album_id]
+    #    @photo.album_id= params[:photo][:album_id]
     respond_to do |format|
       if @photo.update_attributes(photo_params)
         format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
@@ -81,13 +82,19 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo = Photo.find(params(:id))
-   @photo.destroy
-#    @photo.delete_photo
+    @photo.destroy
+    #    @photo.delete_photo
     redirect_to photos_url ,notice: '写真を削除しました!'
   end
 
- private
+  private
   def photo_params
     params.require(:photo).permit(:photo, :title, :description, :album_id) 
+  end
+
+  def send_push_message
+    Pusher['test_channel'].trigger('greet', {
+      :greeting => "Hello there!"
+    })
   end
 end

@@ -12,6 +12,9 @@ class Group < ActiveRecord::Base
   has_many :users, through: :user_groups
   has_many :user_groups
   has_many :group_members
+  has_many :albums
+
+  scope :latest, -> { order('created_at DESC') }
 
   validates :name , presence: true
 

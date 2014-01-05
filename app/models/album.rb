@@ -15,6 +15,7 @@
 class Album < ActiveRecord::Base
   belongs_to :users, dependent: :destroy
   has_many  :photos
+  belongs_to :groups
 
   validates :title, presence: true 
 

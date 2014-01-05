@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140103132522) do
+ActiveRecord::Schema.define(version: 20140105085241) do
 
   create_table "album_groups", force: true do |t|
     t.integer  "album_id"
@@ -28,8 +28,10 @@ ActiveRecord::Schema.define(version: 20140103132522) do
     t.datetime "updated_at"
     t.string   "top_img_path",       default: "no_image.jpg", null: false
     t.integer  "album_photos_count", default: 0,              null: false
+    t.integer  "group_id"
   end
 
+  add_index "albums", ["group_id"], name: "index_albums_on_group_id"
   add_index "albums", ["user_id"], name: "index_albums_on_user_id"
 
   create_table "events", force: true do |t|

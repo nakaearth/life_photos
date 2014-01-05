@@ -36,6 +36,7 @@ class AlbumsController < ApplicationController
   def new
     @album = Album.new
     @from_url = params[:from_url].presence || 'menu'
+    @groups =  current_user.groups
   end
 
   def create
@@ -60,6 +61,7 @@ class AlbumsController < ApplicationController
 
   def edit
     @album = Album.find(params[:id])
+    @groups =  current_user.groups
   end
 
   def destroy
@@ -82,7 +84,7 @@ class AlbumsController < ApplicationController
 
   private
   def album_params
-    params.require(:album).permit(:title, :description)
+    params.require(:album).permit(:title, :description, :group_id)
   end
 
 end
