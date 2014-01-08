@@ -14,7 +14,7 @@
 
 class Album < ActiveRecord::Base
   belongs_to :users, dependent: :destroy
-  has_many  :photos
+  has_many  :photos, counter_cache: true
   belongs_to :groups
 
   validates :title, presence: true 

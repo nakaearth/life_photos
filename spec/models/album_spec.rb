@@ -19,6 +19,7 @@ describe Album do
   fixtures :users
   fixtures :albums
   fixtures :photos
+  fixtures :groups
 
   it { expect have_many(:photos) }
   it { expect belong_to(:users) }
@@ -32,7 +33,7 @@ describe Album do
       end
       it "album list check" do
         expect(@user.albums).not_to be_nil
-        expect(@user.albums.size).to eql(2)
+        expect(@user.albums.size).to eql(3)
       end
     end
   end
@@ -63,6 +64,7 @@ describe Album do
         @subject = Paperclip.io_adapters.for(@file)
         @album = Album.new(title: "create test title", description: "test album")
         @album.user_id =  @user.id
+        @album.group_id = 1
         @album.save
         @photo = Photo.new(title: 'test photo', description: "これはテストです", user_id: 1, album_id: @album.id)
         @photo.save

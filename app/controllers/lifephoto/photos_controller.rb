@@ -1,4 +1,4 @@
-class PhotosController < ApplicationController
+class Lifephoto::PhotosController < ApplicationController
   def index
     @photos = current_user.photos.page(params[:page]).per(10)
   end

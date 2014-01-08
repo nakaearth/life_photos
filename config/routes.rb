@@ -1,46 +1,50 @@
 LifePhotos::Application.routes.draw do
 
   post "panda/authorize_upload" , :to => "panda#authorize_upload"
- 
+
   resources :videos
-  
+
   resources :events do
     collection do
       get 'event_list', {format: :json }
     end
   end
 
-  #  namespace :lifephotos do
-   resources :photos do
-     collection do
-       get 'my_list'
-       get 'multi_upload'
-     end
-   end
-   get '/calendar' => 'albums#calendar'
-   resources :albums do
+  namespace :lifephoto do
+    get '/calendar' => 'albums#calendar'
+    resources :albums do
       collection do
         get 'my_list', defaults: { format: 'json' }
       end
       member do
         get 'guest_user_show'
       end
-   end
-   resources :groups  do
-     collection do
-       get 'my_groups', {format: :json }
-     end
-     resources  :group_member, to: 'groups/group_member' do
-       collection do
-         get 'invite_member'
-         post 'invite'
-       end
-     end
-   end
-   get "/groups/:group_id/join_this_group"  =>  "groups/group_member#join_this_group"
-   resources :maps ,only: [:index, :new, :create] do end
-   get :markers, to: 'maps#markers'
- #  end
+    end
+    resources :photos do
+      collection do
+        get 'my_list'
+        get 'multi_upload'
+      end
+    end
+  end
+
+  ##################
+  get '/calendar' => 'albums#calendar'
+  resources :groups  do
+    collection do
+      get 'my_groups', {format: :json }
+    end
+    resources  :group_member, to: 'groups/group_member' do
+      collection do
+        get 'invite_member'
+        post 'invite'
+      end
+    end
+  end
+  get "/groups/:group_id/join_this_group"  =>  "groups/group_member#join_this_group"
+  resources :maps ,only: [:index, :new, :create] do end
+  get :markers, to: 'maps#markers'
+  #  end
 
   #facebook login 
   get "/:provider/login"  => "sessions#new"
@@ -48,7 +52,7 @@ LifePhotos::Application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create" unless Rails.env.development?
   post "/auth/:provider/callback" => "sessions#create" if Rails.env.development?
   get "/auth/failure" => "sessions#failuer"
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -89,7 +93,7 @@ LifePhotos::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

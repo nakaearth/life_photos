@@ -13,7 +13,7 @@ describe AlbumsController do
         get :index
       end
       it { expect(@user.albums).not_to be_nil }
-      it { expect(@user.albums.size).to eql(2) }
+      it { expect(@user.albums.size).to eql(3) }
       it { expect(render_template('index')) } 
       it { expect(render_with_layout('album')) }
       it { expect(respond_with(200)) }

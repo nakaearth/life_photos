@@ -16,13 +16,15 @@
 
 class Photo < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
-  belongs_to :albums, counter_cache: true, dependent: :destroy, touch: true
+  belongs_to :album,  dependent: :destroy, touch: true
   has_one    :geo_map
 
   validates :title,  presence: true
 
   after_save :album_image_set
-#  before_save :setup_title  
+  after_save :send_notice_mail
+
+  #  before_save :setup_title  
 
   Paperclip.interpolates :img_dir_num do |attachment, style|
     (attachment.instance.user_id).to_s + "/" + (attachment.instance.id * 0.01).to_s 
@@ -46,7 +48,18 @@ class Photo < ActiveRecord::Base
   def album_image_set
     ##ここにalbumにセットされている写真の枚数をチェックして、1枚ならその写真尾サムネールパスをalbum.top_img_pathにセット
     @album = Album.find(album_id)
-    p photo.url(:thumb)
     @album.top_image_setup(photo.url(:thumb))
+  end
+
+  def send_notice_mail
+    #  group_memberの一覧を取ってリストをまわしてメールを来る
+    return unless album_id
+    @album = Album.find(album_id)
+    return unless @album.group_id
+    @group = Group.find(@album.group_id)
+    @group_members = GroupMember.where(group_id: @group.id)
+    @group_members.each do |group_member|
+      PostPhotoMailer.send_notice_photo_mail(group_member, album_id).deliver
+    end
   end
 end

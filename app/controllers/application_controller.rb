@@ -35,12 +35,12 @@ class ApplicationController < ActionController::Base
 
   def runtime_error
     logger.error "アプリケーションエラーが発生しました"
-    render "error/500", status:500
+    render "/public/500.html", status:500
   end
 
   def routing_error
     logger.error "ルーティングエラーが発生しました"
-    render "error/404"
+    render "/public/404.html"
   end
 
   #  def examination_error

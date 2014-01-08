@@ -23,6 +23,7 @@ one:
   photo_file_name: 
   photo_content_type: MyString
   photo_file_size: 1
+  album_id: 1
 
 two:
   title: test photo2
@@ -31,6 +32,7 @@ two:
   photo_file_name: 
   photo_content_type: MyString
   photo_file_size: 1
+  album_id: 1
 
 three:
   title: test phpto3
@@ -39,6 +41,7 @@ three:
   photo_file_name: 
   photo_content_type: MyString
   photo_file_size: 1
+  album_id: 1
 
 four:
   title: test phpto4
@@ -47,12 +50,14 @@ four:
   photo_file_name: 
   photo_content_type: MyString
   photo_file_size: 1
+  album_id: 2 
 
 five:
   title: test phpto5
   user_id: 1
   description: MyText5
   photo_file_name: 
+  album_id: 2 
   photo_content_type: MyString
   photo_file_size: 1
 

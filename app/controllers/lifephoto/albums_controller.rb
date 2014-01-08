@@ -1,4 +1,4 @@
-class AlbumsController < ApplicationController
+class Lifephoto::AlbumsController < ApplicationController
   include Jpmobile::ViewSelector
 
   layout "guest_user", :only => [:guest_user_show]
@@ -37,6 +37,7 @@ class AlbumsController < ApplicationController
     @album = Album.new
     @from_url = params[:from_url].presence || 'menu'
     @groups =  current_user.groups
+    @action = 'create'
   end
 
   def create
@@ -62,6 +63,7 @@ class AlbumsController < ApplicationController
   def edit
     @album = Album.find(params[:id])
     @groups =  current_user.groups
+    @action = 'update'
   end
 
   def destroy

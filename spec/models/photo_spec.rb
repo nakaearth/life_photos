@@ -20,10 +20,11 @@ describe Photo do
   fixtures :users
   fixtures :photos
   fixtures :albums
+  fixtures :groups
 
   describe "save photo test" do
 
-    it { expect belong_to(:albums) }
+    it { expect belong_to(:album) }
 
     context "photo 投稿" do
       before do
@@ -44,7 +45,7 @@ describe Photo do
         expect(saved_photo.title).to eql('test photo')
         @album = Album.find(1)
         expect(@album.photos).not_to be_nil
-        expect(@album.photos.size).to eql(1)
+        expect(@album.photos.size).to eql(4)
       end
 
       it "album top image" do
