@@ -26,22 +26,23 @@ LifePhotos::Application.routes.draw do
         get 'multi_upload'
       end
     end
+    resources :groups  do
+      collection do
+        get 'my_groups', {format: :json }
+      end
+      resources  :group_member, to: 'groups/group_member' do
+        collection do
+          get 'invite_member'
+          post 'invite'
+        end
+      end
+    end
+    get "/groups/:group_id/join_this_group"  =>  "groups/group_member#join_this_group"
+
   end
 
   ##################
   get '/calendar' => 'albums#calendar'
-  resources :groups  do
-    collection do
-      get 'my_groups', {format: :json }
-    end
-    resources  :group_member, to: 'groups/group_member' do
-      collection do
-        get 'invite_member'
-        post 'invite'
-      end
-    end
-  end
-  get "/groups/:group_id/join_this_group"  =>  "groups/group_member#join_this_group"
   resources :maps ,only: [:index, :new, :create] do end
   get :markers, to: 'maps#markers'
   #  end

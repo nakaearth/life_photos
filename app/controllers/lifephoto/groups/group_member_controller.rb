@@ -1,4 +1,4 @@
-class Groups::GroupMemberController < ApplicationController
+class Lifephoto::Groups::GroupMemberController < ApplicationController
   def invite_member
     @group = Group.find(params[:group_id])
     @group_member = GroupMember.new
