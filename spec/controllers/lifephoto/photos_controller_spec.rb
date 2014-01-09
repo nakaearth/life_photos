@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe PhotosController do
+describe Lifephoto::PhotosController do
 
 end

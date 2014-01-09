@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe GroupsController do
+describe Lifephoto::GroupsController do
 
 end

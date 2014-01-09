@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AlbumsController do
+describe Lifephoto::AlbumsController do
   fixtures :users
   fixtures :albums
   fixtures :photos
