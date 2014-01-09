@@ -4,12 +4,6 @@ LifePhotos::Application.routes.draw do
 
   resources :videos
 
-  resources :events do
-    collection do
-      get 'event_list', {format: :json }
-    end
-  end
-
   namespace :lifephoto do
     get '/calendar' => 'albums#calendar'
     resources :albums do
@@ -38,7 +32,11 @@ LifePhotos::Application.routes.draw do
       end
     end
     get "/groups/:group_id/join_this_group"  =>  "groups/group_member#join_this_group"
-
+    resources :events do
+      collection do
+        get 'event_list', {format: :json }
+      end
+    end
   end
 
   ##################

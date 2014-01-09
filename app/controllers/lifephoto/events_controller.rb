@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+class Lifephoto::EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -15,29 +15,30 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
   def new
     @event = Event.new
+    @action = "create"
   end
 
   # GET /events/1/edit
   def edit
+    @event = Event.find(params[:id])
+    @action = "update"
   end
 
   # POST /events
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @event }
+        format.html { redirect_to action: 'show', controller: 'events'  , id: @event.id,  notice: 'Event was successfully created.' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +48,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to action: 'show', controller: 'events', id: @event.id , notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
