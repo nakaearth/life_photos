@@ -17,7 +17,7 @@ describe Lifephoto::AlbumsController do
       it { expect(render_template('index')) } 
       it { expect(render_with_layout('album')) }
       it { expect(respond_with(200)) }
-      # it { expect route(:get, '/albums').to('albums#index') }
+      it { expect(get: '/lifephoto/albums').to route_to('lifephoto/albums#index') }
     end
   end
 
@@ -31,6 +31,7 @@ describe Lifephoto::AlbumsController do
       end
       it { expect(@album).not_to be_nil }
       it { expect(render_template('guest_user_show')) }
+      it { expect(get: '/lifephoto/albums/1/guest_user_show').to route_to(controller: 'lifephoto/albums' , action:  'guest_user_show', id: '1') }
       # it { expect route(:get, '/albums/1/guest_user_show').to('albums#guest_user_show', id: 1) }
     end
   end
