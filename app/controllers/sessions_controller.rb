@@ -9,12 +9,12 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id
     logger.info @user
     #redirect_to :root, notice:'login successfully.'
-    redirect_to controller: 'top', action: 'index', notice:'login successfully.'
+    redirect_to controller: 'lifephoto/top', action: 'index', notice:'login successfully.'
   end
 
   def destroy 
     session[:user_id] = nil
-    redirect_to controller: 'top', action: 'index', notice:'login successfully.'
+    redirect_to controller: 'lifephoto/top', action: 'index', notice:'login successfully.'
   end
 
   def oauth_failure

@@ -43,7 +43,7 @@ LifePhotos::Application.routes.draw do
   get '/calendar' => 'albums#calendar'
   resources :maps ,only: [:index, :new, :create] do end
   get :markers, to: 'maps#markers'
-  #  end
+  #end
 
   #facebook login 
   get "/:provider/login"  => "sessions#new"
@@ -56,7 +56,7 @@ LifePhotos::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'top#index'
+  root 'lifephoto/top#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
