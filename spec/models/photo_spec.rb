@@ -31,7 +31,7 @@ describe Photo do
         @file = File.new("spec/fixtures/test.png")
         @file.binmode
         @subject = Paperclip.io_adapters.for(@file)
-        @photo = Photo.new(title: 'test photo', description: "これはテストです", user_id: 1, album_id: 1)
+        @photo = Photo.new(title: 'test photo', description: "これはテストです", user_id: 1, album_id: 1, photo: @subjet)
       end
 
       it "photo save success" do
@@ -60,7 +60,7 @@ describe Photo do
         @file = File.new("spec/fixtures/test.png")
         @file.binmode
         @subject = Paperclip.io_adapters.for(@file)
-        @photo = Photo.new(description: "これはテストです", user_id: 1)
+        @photo = Photo.new(description: "これはテストです", user_id: 1, photo: @subject)
       end
 
       it "save error" do
