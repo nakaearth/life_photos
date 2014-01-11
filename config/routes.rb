@@ -1,19 +1,33 @@
 LifePhotos::Application.routes.draw do
 
+  #### API ####
+  mount API => "/"
+
   post "panda/authorize_upload" , :to => "panda#authorize_upload"
 
   resources :videos
+  ##################
+  get '/calendar' => 'albums#calendar'
+  resources :maps ,only: [:index, :new, :create] do end
+  get :markers, to: 'maps#markers'
+  #end
+
+  #facebook login 
+  get "/:provider/login"  => "sessions#new"
+  get "/logout" => "sessions#destroy"
+  get "/auth/:provider/callback" => "sessions#create" unless Rails.env.development?
+  post "/auth/:provider/callback" => "sessions#create" if Rails.env.development?
+  get "/auth/failure" => "sessions#failuer"
+  ##################
 
   namespace :lifephoto do
     get '/calendar' => 'albums#calendar'
     resources :albums do
-      collection do
-        get 'my_list', defaults: { format: 'json' }
-      end
       member do
         get 'guest_user_show'
       end
     end
+    get "/my_list/:user_id" => "albums#my_list" , :defaults => { :format => 'json' }
     resources :photos do
       collection do
         get 'my_list'
@@ -38,19 +52,6 @@ LifePhotos::Application.routes.draw do
       end
     end
   end
-
-  ##################
-  get '/calendar' => 'albums#calendar'
-  resources :maps ,only: [:index, :new, :create] do end
-  get :markers, to: 'maps#markers'
-  #end
-
-  #facebook login 
-  get "/:provider/login"  => "sessions#new"
-  get "/logout" => "sessions#destroy"
-  get "/auth/:provider/callback" => "sessions#create" unless Rails.env.development?
-  post "/auth/:provider/callback" => "sessions#create" if Rails.env.development?
-  get "/auth/failure" => "sessions#failuer"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

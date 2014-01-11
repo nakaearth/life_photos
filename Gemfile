@@ -66,6 +66,7 @@ group :test do
   gem 'spring'
   gem 'guard-rspec'
   gem 'shoulda-matchers'
+  gem 'json_expressions'
 end
 
 # jpmobile
@@ -125,3 +126,6 @@ gem 'panda', '~> 1.6.0'
 # pusher
 gem 'pusher'
 
+# aip development
+gem 'grape'
+gem 'rabl'

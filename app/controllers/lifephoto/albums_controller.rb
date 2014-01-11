@@ -3,6 +3,8 @@ class Lifephoto::AlbumsController < ApplicationController
 
   layout "guest_user", :only => [:guest_user_show]
 
+  respond_to :json, :only => ["my_list"]
+
   #  before_action :album_group_member?, only: [:show]
 
   def index
@@ -10,11 +12,8 @@ class Lifephoto::AlbumsController < ApplicationController
   end
 
   def my_list
-    @albums = current_user.albums.page(params[:page]).per(10)
-    respond_to do |format|
-      @albums.to_json
-      format.json
-    end
+    @albums = User.find(params[:user_id]).albums.page(params[:page]).per(10)
+    @albums.to_json
   end
 
   def calendar
