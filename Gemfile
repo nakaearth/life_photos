@@ -3,17 +3,48 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
+# 開発環境、テスト環境両方で使うもの
 group :development, :test do
   gem 'sqlite3'
-end
+  # Railsコンソールの多機能版
+  gem 'pry-rails'
 
+  # pryの入力に色付け
+  gem 'pry-coolline'
+
+  # デバッカー
+  gem 'pry-byebug'
+
+  # Pryでの便利コマンド
+  gem 'pry-doc'
+
+  # PryでのSQLの結果を綺麗に表示
+  gem 'hirb'
+  gem 'hirb-unicode'
+
+  # pryの色付けをしてくれる
+  gem 'awesome_print'
+
+  gem 'spring'
+end
+# 本番のみn設定
 group :production do
   gem 'pg'
 #  gem 'unicorn'
   gem 'foreman'
   gem 'thin'
 end
+
+# profile gem
+gem 'speed_gun'
+gem 'msgpack',  '~> 0.5.0'
+
+# PG/MySQL Log Formatter
+gem 'rails-flog'
+
+# Migration Helper
+gem 'migrant'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -22,6 +53,9 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
+#quiet assets
+gem 'quiet_assets'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -57,16 +91,21 @@ gem "jquery-fileupload-rails"
 
 # test & coverage & code style
 group :test do
-  gem 'rspec', '~> 3.0.0.beta1'
+#  gem 'rspec', '~> 3.0.0.beta1'
   gem 'rspec-rails', '~> 3.0.0.beta1'
+  gem 'rake_shared_context'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'rubocop', require: false
   gem 'rubocop-checkstyle_formatter', require: false
-  gem 'spring'
+  # fixtureの代わり
+  gem "factory_girl_rails"
   gem 'guard-rspec'
+  gem 'guard-spring'
   gem 'shoulda-matchers'
   gem 'json_expressions'
+  # テスト環境のテーブルをきれいにする
+  gem 'database_rewinder'
 end
 
 # jpmobile
@@ -116,7 +155,6 @@ gem 'bower-rails', '~> 0.5.0'
 # cache_digest
 gem 'cache_digests'
 
-
 ## dropbox sdk
 #gem 'dropbox-sdk'
 
@@ -129,3 +167,7 @@ gem 'pusher'
 # aip development
 gem 'grape'
 gem 'rabl'
+
+# presenter(view helper/decorator)
+gem 'draper'
+

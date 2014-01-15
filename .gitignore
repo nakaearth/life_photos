@@ -16,3 +16,6 @@
 /tmp
 /vendor/bundle/
 /public/system/*
+
+/config/initializers/secret_tokens.rb
+

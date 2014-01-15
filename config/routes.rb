@@ -1,7 +1,7 @@
 LifePhotos::Application.routes.draw do
 
   #### API ####
-  mount API => "/"
+  mount Lifephoto::API => "/lifephoto-api"
 
   post "panda/authorize_upload" , :to => "panda#authorize_upload"
 
