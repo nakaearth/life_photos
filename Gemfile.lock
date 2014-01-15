@@ -439,6 +439,7 @@ DEPENDENCIES
   foreman
   fullcalendar-rails
   grape
+  guard
   guard-rspec
   guard-spring
   hirb

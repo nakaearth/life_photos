@@ -26,6 +26,10 @@ group :development, :test do
   gem 'awesome_print'
 
   gem 'spring'
+
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-spring'
 end
 # 本番のみn設定
 group :production do
@@ -42,7 +46,7 @@ gem 'speed_gun'
 gem 'msgpack',  '~> 0.5.0'
 
 # PG/MySQL Log Formatter
-gem 'rails-flog'
+gem 'rails-flog' , :require => 'flog'
 
 # Migration Helper
 gem 'migrant'
