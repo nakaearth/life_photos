@@ -33,6 +33,8 @@ group :production do
 #  gem 'unicorn'
   gem 'foreman'
   gem 'thin'
+  gem 'rails_12factor'
+  gem 'bugsnag'
 end
 
 # profile gem
