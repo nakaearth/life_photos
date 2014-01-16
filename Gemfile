@@ -26,11 +26,14 @@ group :development, :test do
   gem 'awesome_print'
 
   gem 'spring'
-
+end
+# 開発環境のみ
+group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spring'
 end
+
 # 本番のみn設定
 group :production do
   gem 'pg'
