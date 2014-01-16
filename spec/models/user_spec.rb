@@ -23,7 +23,7 @@ describe User do
   describe "create_with_omniauth method test" do
     context "first login by omniauth normal test" do
       before do
-        auth  = { provider: 'twitter' , uid:  'aabbbcc11111', info: {email: 'test@gmail.com', nickname: 'test test' }}
+        auth  = { provider: 'twitter' , uid:  'aabbbcc11111', extra: {raw_info: {email: 'test@gmail.com', nickname: 'test test' } } }
         @user = User.create_twitter_account auth
       end
 
