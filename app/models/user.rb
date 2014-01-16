@@ -18,6 +18,8 @@
 
 class User < ActiveRecord::Base
   include TwitterAccount
+  include FacebookAccount
+  include DeveloperAccount
 
   has_many :photos  
   has_many :albums  
@@ -32,7 +34,6 @@ class User < ActiveRecord::Base
                 [:screen_name, :name]
               ]
 
-
   def self.create_account(auth)
     if auth[:provider] == 'facebook'
       create_facebook_account auth
@@ -43,51 +44,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # TODO 整理しよう。あとで
-  def self.create_facebook_account(auth)
-    User.new.tap do |user|
-      user.uid      = auth[:uid]
-      user.provider = auth[:provider]
-      unless auth[:info].blank?
-        user.name        = auth[:info][:name]
-        user.screen_name = auth[:info][:nickname]
-        user.image_path  = auth[:info][:image]
-        user.email       = auth[:info][:email]
-      end
-      user.token = auth["credentials"]["token"] unless auth["credentials"].blank?
-      user.save
-    end
-  end
-
-#  def self.create_twitter_account(auth)
-#    User.new.tap do |user|
-#      user.uid      = auth[:uid]
-#      user.provider = auth[:provider]
-#      unless auth[:extra].blank?
-#        user.name        = auth[:extra][:raw_info][:name]
-#        user.screen_name = auth[:extra][:raw_info][:nickname]
-#        user.image_path  = auth[:extra][:raw_info][:image]
-#        user.email       = auth[:extra][:raw_info][:email]
-#      end
-#      user.token = auth["credentials"]["token"] unless auth["credentials"].blank?
-#      user.save
-#    end 
-#  end
-
-  def self.create_developer_account(auth)
-    User.new.tap do |user|
-      user.uid      = auth[:uid]
-      user.provider = auth[:provider]
-      unless auth[:info].blank?
-        user.name        = "developer"
-        user.screen_name = "dev dev"
-        user.image_path  = auth[:info][:image]
-        user.email       = auth[:info][:email]
-      end
-      user.token = auth["credentials"]["token"] unless auth["credentials"].blank?
-      user.save
-    end
-  end
 end
 
 class FullScreenName
