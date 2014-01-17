@@ -83,6 +83,7 @@ GEM
     columnize (0.3.6)
     coolline (0.4.2)
     daemons (1.1.9)
+    dalli (2.7.0)
     database_rewinder (0.0.2)
     debugger-linecache (1.2.0)
     descendants_tracker (0.0.3)
@@ -433,6 +434,7 @@ DEPENDENCIES
   bugsnag
   cache_digests
   coffee-rails (~> 4.0.0)
+  dalli
   database_rewinder
   draper
   factory_girl_rails

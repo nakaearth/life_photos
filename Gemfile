@@ -180,3 +180,7 @@ gem 'rabl'
 # presenter(view helper/decorator)
 gem 'draper'
 
+# memcached client
+gem 'dalli'
+
+
