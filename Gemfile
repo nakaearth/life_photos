@@ -181,6 +181,7 @@ gem 'rabl'
 gem 'draper'
 
 # memcached client
+gem 'memcachier'
 gem 'dalli'
 
 
