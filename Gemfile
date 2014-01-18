@@ -26,6 +26,11 @@ group :development, :test do
   gem 'awesome_print'
 
   gem 'spring'
+
+  # profile gem
+  gem 'speed_gun'
+  gem 'msgpack',  '~> 0.5.0'
+
 end
 # 開発環境のみ
 group :development do
@@ -43,10 +48,6 @@ group :production do
   gem 'rails_12factor'
   gem 'bugsnag'
 end
-
-# profile gem
-gem 'speed_gun'
-gem 'msgpack',  '~> 0.5.0'
 
 # PG/MySQL Log Formatter
 gem 'rails-flog' , :require => 'flog'
@@ -96,7 +97,6 @@ gem "paperclip"
 gem "aws-s3"
 gem "aws-sdk"
 gem "jquery-fileupload-rails"
-
 
 # test & coverage & code style
 group :test do
@@ -171,7 +171,7 @@ gem 'cache_digests'
 gem 'panda', '~> 1.6.0'
 
 # pusher
-gem 'pusher'
+# gem 'pusher'
 
 # aip development
 gem 'grape'

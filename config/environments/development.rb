@@ -42,6 +42,6 @@ end
 
 require 'pusher'
 
-Pusher.app_id = '55006'
-Pusher.key    = 'ee6e119bd7a7555c1b89'
-Pusher.secret = '7a30df7118865e30a3d1'
+#Pusher.app_id = '55006'
+#Pusher.key    = 'ee6e119bd7a7555c1b89'
+#Pusher.secret = '7a30df7118865e30a3d1'
