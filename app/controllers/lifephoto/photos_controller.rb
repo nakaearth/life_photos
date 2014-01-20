@@ -43,11 +43,11 @@ class Lifephoto::PhotosController < ApplicationController
     respond_to do |format|
       if @photo.save
         #send_push_message
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
-        #format.json { render json: { :files => [@photo.photo.url(:thumb)]}, status: :created, location: @photo }
+        format.html { redirect_to action: 'show', controller: 'lifephoto/photos', id:  @photo.id , notice: 'Photo was successfully created.' }
+        format.json { render json: { :files => [@photo.photo.url(:thumb)]}, status: :created, location: @photo }
       else
         format.html { render action: "new" }
-        #format.json { render json: @photo.errors, status: :unprocessable_entity }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
     end
   end
