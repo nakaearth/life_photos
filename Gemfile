@@ -30,15 +30,15 @@ group :development, :test do
 end
 
 # 開発環境のみ
-group :development do
-  # PryでのSQLの結果を綺麗に表示
-  gem 'hirb'
-  gem 'hirb-unicode'
-
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-spring'
-end
+#group :development do
+#  # PryでのSQLの結果を綺麗に表示
+#  gem 'hirb'
+#  gem 'hirb-unicode'
+#
+#  gem 'guard'
+#  gem 'guard-rspec'
+#  gem 'guard-spring'
+#end
 
 # 本番のみn設定
 group :production do
