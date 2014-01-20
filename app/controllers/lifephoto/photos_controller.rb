@@ -42,7 +42,7 @@ class Lifephoto::PhotosController < ApplicationController
     @photo.user_id = current_user.id
     respond_to do |format|
       if @photo.save
-        send_push_message
+        #send_push_message
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
         format.json { render json: { :files => [@photo.photo.url(:thumb)]}, status: :created, location: @photo }
       else
@@ -92,9 +92,9 @@ class Lifephoto::PhotosController < ApplicationController
     params.require(:photo).permit(:photo, :title, :description, :album_id) 
   end
 
-  def send_push_message
-    Pusher['test_channel'].trigger('greet', {
-      :greeting => "Hello there!"
-    })
-  end
+#  def send_push_message
+#    Pusher['test_channel'].trigger('greet', {
+#      :greeting => "Hello there!"
+#    })
+#  end
 end
