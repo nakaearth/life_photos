@@ -18,10 +18,6 @@ group :development, :test do
   # Pryでの便利コマンド
   gem 'pry-doc'
 
-  # PryでのSQLの結果を綺麗に表示
-  gem 'hirb'
-  gem 'hirb-unicode'
-
   # pryの色付けをしてくれる
   gem 'awesome_print'
 
@@ -32,8 +28,13 @@ group :development, :test do
   gem 'msgpack',  '~> 0.5.0'
 
 end
+
 # 開発環境のみ
 group :development do
+  # PryでのSQLの結果を綺麗に表示
+  gem 'hirb'
+  gem 'hirb-unicode'
+
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spring'
