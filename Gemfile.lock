@@ -81,7 +81,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     columnize (0.3.6)
-    coolline (0.4.2)
     daemons (1.1.9)
     dalli (2.7.0)
     database_rewinder (0.0.2)
@@ -151,7 +150,6 @@ GEM
     httpclient (2.3.4.1)
     i18n (0.6.9)
     ice_nine (0.11.0)
-    io-console (0.3)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -239,9 +237,6 @@ GEM
     pry-byebug (1.2.1)
       byebug (~> 2.2)
       pry (~> 0.9.12)
-    pry-coolline (0.2.2)
-      coolline (~> 0.3)
-      io-console (~> 0.3.0)
     pry-doc (0.5.1)
       pry (>= 0.9)
       yard (>= 0.8)
@@ -438,8 +433,10 @@ DEPENDENCIES
   foreman
   fullcalendar-rails
   grape
+  guard
   guard-rspec
   guard-spring
+  hirb
   hirb-unicode
   jbuilder (~> 1.2)
   jpmobile
@@ -457,7 +454,6 @@ DEPENDENCIES
   paperclip
   pg
   pry-byebug
-  pry-coolline
   pry-doc
   pry-rails
   quiet_assets

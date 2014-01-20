@@ -10,7 +10,7 @@ group :development, :test do
   gem 'pry-rails'
 
   # pryの入力に色付け
-  gem 'pry-coolline'
+#  gem 'pry-coolline'
 
   # デバッカー
   gem 'pry-byebug'
@@ -30,15 +30,15 @@ group :development, :test do
 end
 
 # 開発環境のみ
-#group :development do
-#  # PryでのSQLの結果を綺麗に表示
-#  gem 'hirb'
-#  gem 'hirb-unicode'
-#
-#  gem 'guard'
-#  gem 'guard-rspec'
-#  gem 'guard-spring'
-#end
+group :development do
+  # PryでのSQLの結果を綺麗に表示
+  gem 'hirb'
+  gem 'hirb-unicode'
+
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-spring'
+end
 
 # 本番のみn設定
 group :production do
@@ -116,6 +116,7 @@ group :test do
   gem 'json_expressions'
   # テスト環境のテーブルをきれいにする
   gem 'database_rewinder'
+#  gem 'io-console', '~> 0.4.2'
 end
 
 # jpmobile
