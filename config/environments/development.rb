@@ -40,7 +40,7 @@ LifePhotos::Application.configure do
   config.cache_store = :dalli_store
 end
 
-require 'pusher'
+#require 'pusher'
 
 #Pusher.app_id = '55006'
 #Pusher.key    = 'ee6e119bd7a7555c1b89'
