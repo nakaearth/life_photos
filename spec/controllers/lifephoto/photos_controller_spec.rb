@@ -43,9 +43,6 @@ describe Lifephoto::PhotosController do
         allow(controller).to receive(:current_user) { @user }
         @albums = @user.albums
         @file =  Rack::Test::UploadedFile.new('spec/fixtures/test.png', 'image/png')
-#        @file = File.new("spec/fixtures/test.png")
-#        @file.binmode
-#        @subject = Paperclip.io_adapters.for(@file)
         post :create,  photo: { title: 'test photo', description: "これはテストです", user_id: 1, album_id: 1, photo: @file }
       end
       it { expect(render_with_layout('photo')) }

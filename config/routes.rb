@@ -30,10 +30,10 @@ LifePhotos::Application.routes.draw do
     get "/my_list/:user_id" => "albums#my_list" , :defaults => { :format => 'json' }
     resources :photos do
       collection do
-        get 'my_list'
         get 'multi_upload'
       end
     end
+    get "/my_photo_list/:user_id" => "photos#my_list" , :defaults => { :format => 'json' }
     resources :groups  do
       collection do
         get 'my_groups', {format: :json }

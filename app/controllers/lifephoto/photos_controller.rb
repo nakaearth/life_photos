@@ -5,7 +5,7 @@ class Lifephoto::PhotosController < ApplicationController
 
   # api 表示用
   def my_list
-    @photos = current_user.photos.page(1).per(5)
+    @photos = User.find(params[:user_id]).photos.page(1).per(5)
     render json: @photos
   end
 
