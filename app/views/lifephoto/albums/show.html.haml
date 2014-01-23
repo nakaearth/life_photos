@@ -1,0 +1,11 @@
+- cache @album  do
+  %h1 アルバム内の写真
+  #post_photo_form.post_poto_form
+    #post_photo_form_div.post_photo_form_div
+      = link_to '修正する', action: 'edit', controller: 'lifephoto/albums'
+      %br/
+      title:#{@album.title}
+      %br/
+      = @album.description
+      %br/
+= render 'album_detail'

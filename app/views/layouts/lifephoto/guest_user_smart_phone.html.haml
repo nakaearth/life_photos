@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title LifePhotos
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = stylesheet_link_tag    "guest_user", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "idangerous.swiper", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "guest_user"
+    = csrf_meta_tags
+  %body
+    %header
+      Life Photos
+    %br/
+    %br/
+    = yield
+    %script{"data-bucky-host" => "http://buckyserver.herokuapp.com/bucky", "data-bucky-page" => "", "data-bucky-requests" => "", :src => "http://lifephoto.herokuapp.com/assets/bucky.min.js"}

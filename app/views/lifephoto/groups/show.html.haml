@@ -1,0 +1,10 @@
+.group_member_list
+  グループ名: #{@group.name} &nbsp;&nbsp;| #{link_to '招待する', action: 'invite_member', controller: 'lifephoto/groups/group_member', group_id: @group.id}
+  %table
+    %tr
+      %th
+    - @group_members.each do |member|
+      %tr
+      .group_member_div
+        = member.e_mail
+        %br/

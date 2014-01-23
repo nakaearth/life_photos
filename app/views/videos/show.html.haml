@@ -1,0 +1,5 @@
+- if @h264e.status == "success"
+  %video#movie{:controls => "", :height => @h264e.height, :poster => @h264e.screenshots.first, :preload => "none", :width => @h264e.width}
+    %source{:src => @h264e.url, :type => "video/mp4"}
+- else
+  Your video is processing: #{@h264e.encoding_progress.to_i}%

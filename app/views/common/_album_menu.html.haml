@@ -1,0 +1,7 @@
+%menu.menu_text
+  = link_to_unless_current 'アルバム一覧', lifephoto_albums_path
+  \&nbsp;&nbsp;|&nbsp;&nbsp;
+  \#{link_to_unless_current 'アルバム作成', new_lifephoto_album_path,  "data-no-turbolink" => true}&nbsp;&nbsp;|&nbsp;&nbsp;
+  \#{link_to_unless_current 'カレンダーから見るアルバム', calendar_path,  "data-no-turbolink" => true}&nbsp;&nbsp;|&nbsp;&nbsp;
+  \#{link_to_unless_current '地図から見るアルバム', maps_path, "data-no-turbolink" => true}&nbsp;&nbsp;|&nbsp;&nbsp;
+%br/

@@ -1,0 +1,16 @@
+= javascript_tag do
+  $(function() {
+  if(window.EventSource) {
+  new Map("map");
+  } else {
+  $("#map").text("EventSource を利用できるブラウザでアクセスしてください。");
+  }
+  });
+.contents
+  .content_div
+    #map
+  .content_div
+    - @albums.each do|album|
+      .album_div
+        = image_tag album.top_img_path || 'no_image.jpg', size: '100x100'
+        = album.title

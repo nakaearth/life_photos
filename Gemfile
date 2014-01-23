@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -38,6 +40,8 @@ group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spring'
+  # Converter erb => haml
+  gem 'erb2haml'
 end
 
 # 本番のみn設定
@@ -49,6 +53,9 @@ group :production do
   gem 'rails_12factor'
   gem 'bugsnag'
 end
+
+# profile
+gem 'rack-mini-profiler'
 
 # PG/MySQL Log Formatter
 gem 'rails-flog' , :require => 'flog'
@@ -64,6 +71,16 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
+# source map
+#gem 'coffee-rails-source-maps'
+#gem 'sass-rails-source-maps'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby
+
+# Haml
+gem 'haml-rails'
 
 #quiet assets
 gem 'quiet_assets'

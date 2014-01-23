@@ -1,0 +1,8 @@
+#photo_form.photo_form
+  #photo_form_div.photo_form_div
+    = form_for(@group, url: "/lifephoto/groups/#{@group.id}", action: 'PUT' ) do |f|
+      = f.label :name
+      \:#{f.text_field :name}
+      %br/
+      .actions
+        = f.submit

@@ -1,0 +1,8 @@
+.content
+  .content_div
+    = @groups.each do|group|
+      %li
+        = group.name
+        |&nbsp;&nbsp;
+        %a{:href => "/lifephoto/groups/#{group.id}"}> 詳細
+        \&nbsp;&nbsp;

@@ -1,0 +1,22 @@
+%h1 動画アップロード
+= form_for @video do |f|
+  / field where the video ID will be stored after the upload
+  = f.hidden_field :panda_video_id
+  %label Title
+  = f.text_field :title
+  / upload progress bar (optional)
+  .progress
+    %span#progress-bar.bar
+  / file selector
+  #browse Choose file
+:javascript
+  panda.uploader.init({
+    'buttonId': 'browse',
+    'progressBarId': 'progress-bar',
+    'onSuccess': function(file, data) {
+      $("#panda_video_id").val(data.id)
+    },
+    'onComplete': function(){
+      $("#new_video").submit();
+    }
+  });

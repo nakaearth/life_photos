@@ -1,0 +1,18 @@
+.swiper-container
+  .swiper-wrapper
+    - @photos.each do |photo|
+      .swiper-slide
+        = image_tag photo.photo.url(:medium)
+        %br/
+        = photo.title
+  .pagination &nbsp;
+:javascript
+  var mySwiper = $('.swiper-container').swiper({
+    //Your options here:
+    pagination: '.pagination',
+    loop:true,
+    autoplay:3000,
+    paginationClickable:true,
+    calculateHeight:true,
+    touchRatio:0.6,
+  });

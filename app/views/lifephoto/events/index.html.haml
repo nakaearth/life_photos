@@ -1,0 +1,11 @@
+%h1 Listing events
+.content{"ng-controller" => "EventsCtrl"}
+  .content_div
+    %u1{"ng-show" => "events.length", :style => "list-style:none;padding:0"}
+      件数：{{events.length}}
+      %li{"ng-class-even" => "'evenbg'", "ng-class-odd" => "'oddbg'", "ng-repeat" => "event in events"}
+        {{event.title}} {{event.start}} から {{event.end}} |&nbsp;&nbsp;
+        %a{:href => "/events/{{event.id}}"} 詳細
+        \&nbsp;&nbsp;
+  %br/
+  = link_to 'New Event', new_lifephoto_event_path

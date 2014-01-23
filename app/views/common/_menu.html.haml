@@ -1,0 +1,8 @@
+%menu.menu_text
+  = link_to_unless_current 'トップページへ', root_path
+  \&nbsp;&nbsp;|&nbsp;&nbsp;
+  \#{link_to_unless_current 'Myアルバム', lifephoto_albums_path}&nbsp;&nbsp;|&nbsp;&nbsp;
+  \#{link_to_unless_current 'My写真', lifephoto_photos_path}&nbsp;&nbsp;|&nbsp;&nbsp;
+  \#{link_to_unless_current 'Myグループ', lifephoto_groups_path}&nbsp;&nbsp;|&nbsp;&nbsp;
+  \#{link_to_unless_current '日記をつける', lifephoto_events_path, "data-no-turbolink" => true}&nbsp;&nbsp;|&nbsp;&nbsp;
+%br/

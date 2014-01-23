@@ -1,0 +1,17 @@
+%p#notice= notice
+#album_form.album_form
+  #album_form_div.album_form_div
+    = form_for(@album , url: { action: 'update' ,  controller: 'lifephoto/albums'} ) do |f|
+      = f.label :group_id
+      \:#{f.select "group_id", options_from_collection_for_select(@groups,"id","name")} &nbsp;&nbsp;|
+      \&nbsp;&nbsp;#{link_to 'グループ作成', { controller: "lifephoto/groups", action: "new", from_url: 'album' }}
+      %br/
+      = f.label :title
+      \:#{f.text_field :title}
+      %br/
+      = f.label :description
+      \:#{f.text_area :description, :size => "40x20"}
+      %br/
+      .actions
+        = f.submit
+        = hidden_field_tag :from_url, @from_url

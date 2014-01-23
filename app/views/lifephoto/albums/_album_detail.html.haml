@@ -1,0 +1,27 @@
+- cache @photos do
+  = paginate @photos
+  .photo_list
+    %table
+      %tr
+        %th
+      - @photos.each do |photo|
+        %tr
+        .photo_div
+          .photo_detail{:id => "photo_viewer_#{photo.id}"}
+            %span{:id => "close_photo_#{photo.id}"}
+              閉じる
+              \#{image_tag photo.photo.url(:original)}
+          %span{:id => "photo_#{photo.id}"}
+            = image_tag photo.photo.url(:thumb)
+            = photo.created_at.strftime("%Y/%m/%d")
+          :javascript
+            $( '#photo_#{photo.id}' ).click(function () {
+                $( '#photo_viewer_#{photo.id}' ).fadeIn("slow"); 
+                });
+          :javascript
+            $( '#photo_viewer_#{photo.id}' ).click(function (){
+                $( '#photo_viewer_#{photo.id}' ).fadeOut("slow"); 
+                });
+          = photo.title
+          %br/
+          = photo.description

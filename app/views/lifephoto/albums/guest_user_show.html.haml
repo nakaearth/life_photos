@@ -1,0 +1,11 @@
+%h1 アルバム内の写真
+#post_photo_form.post_poto_form
+  #post_photo_form_div.post_photo_form_div
+    = form_for(@album) do |f|
+      = f.label :title
+      \:#{@album.title}
+      %br/
+      = f.label :description
+      \:#{@album.description}
+      %br/
+= render 'album_detail'

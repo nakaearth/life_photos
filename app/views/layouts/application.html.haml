@@ -1,0 +1,30 @@
+!!!
+%html{"ng-app" => "LifePhotos"}
+  %head
+    %title LifePhotos
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    %header
+      Life Photos
+    %br/
+    .login_user_info
+      - if current_user
+        = image_tag "#{current_user.image_path}", size: "40x40"
+        = current_user.screen_name
+        さん
+        \#{link_to "logout", logout_path}
+        \#{render 'common/menu'}
+      - else
+        %br/
+        = link_to "Facebook login", "/facebook/login", "data-no-turbolink" => true
+        \&nbsp;&nbsp;|&nbsp;&nbsp;
+        \#{link_to "Twitter login", "/twitter/login",  "data-no-turbolink" => true}
+    = yield
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"}
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-resource.min.js"}
+    %script{"data-bucky-host" => "http://buckyserver.herokuapp.com/bucky", "data-bucky-page" => "", "data-bucky-requests" => "", :src => "http://lifephoto.herokuapp.com/assets/bucky.min.js"}
+    = javascript_include_tag "application"

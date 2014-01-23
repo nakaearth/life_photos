@@ -1,0 +1,13 @@
+%table
+  %tr
+    %th アルバム名
+    %th
+  %tr
+    .contents
+      .content_div
+        - @albums.each do|album|
+          .album_div
+            = image_tag album.top_img_path || 'no_image.jpg', size: '100x100'
+            = link_to '詳細へ' ,  controller: 'lifephoto/albums', action: 'show', id: album.id
+            %br/
+            = album.title
