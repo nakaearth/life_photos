@@ -38,7 +38,7 @@ group :development do
   gem 'hirb-unicode'
 
   gem 'guard'
-  gem 'guard-rspec'
+  gem 'guard-rspec', ' ~> 0.4.2'
   gem 'guard-spring'
   # Converter erb => haml
   gem 'erb2haml'
@@ -127,8 +127,6 @@ group :test do
   gem 'rubocop-checkstyle_formatter', require: false
   # fixtureの代わり
   gem "factory_girl_rails"
-  gem 'guard-rspec'
-  gem 'guard-spring'
   gem 'shoulda-matchers'
   gem 'json_expressions'
   # テスト環境のテーブルをきれいにする

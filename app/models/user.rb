@@ -23,16 +23,17 @@ class User < ActiveRecord::Base
 
   has_many :photos  
   has_many :albums  
+  has_many :auth_providers
   has_many :user_groups
   has_many :groups, through: :user_groups
   has_many :events 
 
   composed_of :fullscreenname ,
-              class_name: "FullScreenName",
-              mapping: [
-                [:provider, :provider],
-                [:screen_name, :name]
-              ]
+    class_name: "FullScreenName",
+    mapping: [
+      [:provider, :provider],
+      [:name, :name]
+  ]
 
   def self.create_account(auth)
     if auth[:provider] == 'facebook'
@@ -43,7 +44,6 @@ class User < ActiveRecord::Base
       create_developer_account auth
     end
   end
-
 end
 
 class FullScreenName
@@ -55,6 +55,8 @@ class FullScreenName
   end
 
   def to_s
+    p @name
+    p @provider
     @name + "(" + @provider + ")"
   end
 end

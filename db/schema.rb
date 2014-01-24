@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140105085241) do
+ActiveRecord::Schema.define(version: 20140123153248) do
 
   create_table "album_groups", force: true do |t|
     t.integer  "album_id"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20140105085241) do
 
   add_index "albums", ["group_id"], name: "index_albums_on_group_id"
   add_index "albums", ["user_id"], name: "index_albums_on_user_id"
+
+  create_table "auth_providers", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider",    null: false
+    t.string   "uid",         null: false
+    t.string   "screen_name"
+    t.string   "image_path"
+    t.string   "token"
+    t.string   "secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -92,13 +104,7 @@ ActiveRecord::Schema.define(version: 20140105085241) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "provider",    null: false
-    t.string   "uid",         null: false
     t.string   "name"
-    t.string   "screen_name"
-    t.string   "image_path"
-    t.string   "token"
-    t.string   "secret"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"

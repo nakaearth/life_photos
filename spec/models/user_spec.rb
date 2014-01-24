@@ -19,12 +19,13 @@ require 'spec_helper'
 
 describe User do
   fixtures :users
+  fixtures :auth_providers
 
   describe "create_with_omniauth method test" do
     context "first login by omniauth normal test" do
       before do
-        auth  = { provider: 'twitter' , uid:  'aabbbcc11111', extra: {raw_info: {email: 'test@gmail.com', nickname: 'test test' } } }
-        @user = User.create_twitter_account auth
+        auth  = { provider: 'twitter',  uid:  'aabbbcc11111', extra: { raw_info: { email: 'test2@gmail.com', name: 'test test', nickname: 'test test' } } }
+        @user = User.create_account auth
       end
 
       it "login success?" do
@@ -32,17 +33,18 @@ describe User do
       end
 
       it "test attribute check" do
-        expect(@user.provider).to eql('twitter')
-        expect(@user.uid).to eql('aabbbcc11111')
-        expect(@user.email).to eql('test@gmail.com')
-        expect(@user.fullscreenname.to_s).to eql('test test(twitter)')
+        providers = @user.auth_providers
+        expect(providers[0].provider).to eql('twitter')
+        expect(providers[0].uid).to eql('aabbbcc11111')
+        expect(@user.email).to eql('test2@gmail.com')
+        #        expect(@user.fullscreenname.to_s).to eql('test test(twitter)')
       end
     end
 
     context "second login by omniauth test" do
       before do
-        auth  = { provider: 'twitter' , uid: 'aabbcc112233' }
-        @user = User.create_twitter_account auth
+        auth  = { provider: 'twitter' , uid: 'aabbcc112233', extra: { raw_info: { email: 'test2@gmail.com' } } }
+        @user = User.create_account auth
       end
 
       it "login success? " do
@@ -50,11 +52,31 @@ describe User do
       end
 
       it "attribute check" do
-        expect(@user.provider).to eql('twitter')
-        expect(@user.uid).to  eql('aabbcc112233')
+        providers = @user.auth_providers
+        expect(providers[0].provider).to eql('twitter')
+        expect(providers[0].uid).to  eql('aabbcc112233')
         expect(@user.name).to be_nil
       end
     end
+
+    context "exist regist account login" do
+      before do
+        auth  = { provider: 'twitter' , uid: 'aabbccdd112233', extra: { raw_info: { email: 'test@gmail.com' } } }
+        @user = User.create_account auth
+      end
+
+      it "login success? " do
+        expect(@user).not_to be_nil
+      end
+
+      it "attribute check" do
+        providers = @user.auth_providers
+        expect(providers[0].provider).to eql('twitter')
+        expect(providers[0].uid).to  eql('aabbccdd112233')
+        expect(@user.name).to eql('test_user')
+      end
+    end
+
   end
 
   describe "check user photos" do
