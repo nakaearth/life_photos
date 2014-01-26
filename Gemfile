@@ -195,7 +195,7 @@ gem 'grape'
 gem 'rabl'
 
 # presenter(view helper/decorator)
-gem 'draper'
+# gem 'draper'
 
 # memcached client
 gem 'memcachier'
