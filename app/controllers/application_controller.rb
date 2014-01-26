@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   #  rescue_from Toeicfive::ExaminationError, with: :examination_error
 
   before_action :record_logs
+  before_action :login?
   helper_method :current_user
 
   def current_user
@@ -13,7 +14,6 @@ class ApplicationController < ActionController::Base
     session[:user_id] = nil
     redirect_to :root
   end
-
 
   # [todo] ここに招待したユーザかどうかチェックするロジックをいれる
   def album_group_member?
@@ -25,14 +25,13 @@ class ApplicationController < ActionController::Base
     TD.event.post(table_name, {uid: current_user.try(:id) || 'unknown', action_date: Time.now.strftime("%Y%m%d") })
   end
 
-  private
-
   def login?
     if session[:user_id].blank?
       redirect_to :root
     end
   end
 
+  private
   def runtime_error
     logger.error "アプリケーションエラーが発生しました"
     render "/public/500.html", status:500

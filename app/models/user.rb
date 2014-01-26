@@ -35,6 +35,12 @@ class User < ActiveRecord::Base
       [:name, :name]
   ]
 
+  def self.find_user_by_provider_and_uid(provider, uid)
+     @auth = AuthProvider.where(provider: provider).where(uid: uid).first
+     @user = where(user_id: @auth.user_id) if @auth
+     nil unless @auth
+  end
+
   def self.create_account(auth)
     if auth[:provider] == 'facebook'
       create_facebook_account auth
