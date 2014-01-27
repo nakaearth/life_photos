@@ -27,7 +27,8 @@ describe User do
         auth  = { provider: 'twitter',  uid:  'aabbbcc11111', extra: { raw_info: { email: 'test2@gmail.com', name: 'test test', nickname: 'test test' } } }
         @user = User.create_account auth
       end
-
+      #  subject { @user }
+      #  expectが使えない
       it "login success?" do
         expect(@user).not_to be_nil
       end
@@ -40,6 +41,26 @@ describe User do
         #        expect(@user.fullscreenname.to_s).to eql('test test(twitter)')
       end
     end
+
+    context "first login by omniauth normal test(facebook account)" do
+      before do
+        auth  = { provider: 'facebook',  uid:  'facebook11111', info: { email: 'test3@gmail.com', name: 'test test3', nickname: 'test test' } } 
+        @user = User.create_account auth
+      end
+
+      it "login success?" do
+        expect(@user).not_to be_nil
+      end
+
+      it "test attribute check" do
+        providers = @user.auth_providers
+        expect(providers[0].provider).to eql('facebook')
+        expect(providers[0].uid).to eql('facebook11111')
+        expect(@user.email).to eql('test3@gmail.com')
+        #        expect(@user.fullscreenname.to_s).to eql('test test(twitter)')
+      end
+    end
+
 
     context "second login by omniauth test" do
       before do

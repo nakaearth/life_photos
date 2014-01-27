@@ -2,12 +2,12 @@ module DeveloperAccount
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def self.create_developer_account(auth)
-      @new_user = User.where(email: auth[:info][:email]).first_or_create  do|user|
+    def create_developer_account(auth)
+      @new_user = User.find_or_creaet_by(email: auth[:info][:email])  do|user|
         user.name  = "developer"
         user.email = auth[:info][:email]
       end
-      AuthProvider.where(provider: auth[:provider]).where(user_id: @new_user.id).first_or_create do |auth_pro|
+      AuthProvider.find_or_create_by(provider: auth[:provider]).where(user_id: @new_user.id) do |auth_pro|
         auth_pro.user_id = @new_user.id 
         auth_pro.uid      = auth[:uid]
         auth_pro.provider = auth[:provider]
