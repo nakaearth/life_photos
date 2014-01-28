@@ -34,9 +34,10 @@ describe User do
       end
 
       it "test attribute check" do
-        providers = @user.auth_providers
-        expect(providers[0].provider).to eql('twitter')
-        expect(providers[0].uid).to eql('aabbbcc11111')
+        provider = @user.login_provider
+        expect(@user.login_provider).not_to be_nil
+        expect(provider.provider).to eql('twitter')
+        expect(provider.uid).to eql('aabbbcc11111')
         expect(@user.email).to eql('test2@gmail.com')
         #        expect(@user.fullscreenname.to_s).to eql('test test(twitter)')
       end

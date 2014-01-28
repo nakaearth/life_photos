@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
   has_many :groups, through: :user_groups
   has_many :events 
 
+  attr_accessor :login_provider
+
   composed_of :fullscreenname ,
     class_name: "FullScreenName",
     mapping: [
@@ -39,15 +41,10 @@ class User < ActiveRecord::Base
   end
 
   def self.create_account(auth)
-    if auth[:provider] == 'facebook'
-      FacebookUser.create_account auth
-    elsif auth[:provider] == 'twitter'
-      TwitterUser.create_account auth
-    elsif auth[:provider] == 'developer'
-      DeveloperUser.create_account auth
-    end
+    @user = UserFactory.create_user(auth[:provider])
+    @user.create_account(auth)
   end
-
+   
 end
 
 class FullScreenName

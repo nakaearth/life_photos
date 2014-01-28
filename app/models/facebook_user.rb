@@ -2,12 +2,12 @@
 
 class FacebookUser < User
 
-  def self.create_account(auth)
+  def create_account(auth)
     @new_user = User.find_or_create_by(email: auth[:info][:email]) do |user|
       user.name  = auth[:info][:name]
       user.email = auth[:info][:email]
     end
-    AuthProvider.find_or_create_by(provider: auth[:provider], user_id: auth[:user_id]) do |auth_provider|
+    @provider = AuthProvider.find_or_create_by(provider: auth[:provider], user_id: auth[:user_id]) do |auth_provider|
       auth_provider.user_id = @new_user.id
       auth_provider.uid      = auth[:uid]
       auth_provider.provider = auth[:provider]
@@ -18,6 +18,7 @@ class FacebookUser < User
       auth_provider.token = auth["credentials"]["token"] unless auth["credentials"].blank?
       auth_provider.save
     end
+    @new_user.login_provider =  @provider
     @new_user
   end
 end

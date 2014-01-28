@@ -1,6 +1,6 @@
 class TwitterUser < User
 
-  def self.create_account(auth)
+  def create_account(auth)
     @new_user = User.find_or_create_by(email: auth[:extra][:raw_info][:email]) do|user|
       user.name  = auth[:extra][:raw_info][:name]
       user.email = auth[:extra][:raw_info][:email]
@@ -15,6 +15,8 @@ class TwitterUser < User
       end
       auth_provider.token = auth["credentials"]["token"] unless auth["credentials"].blank?
     end
+    @new_user.login_provider =  @provider
+    p @new_user.login_provider
     @new_user
   end
 end
