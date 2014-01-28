@@ -17,9 +17,6 @@
 #
 
 class User < ActiveRecord::Base
-  include TwitterAccount
-  include FacebookAccount
-  include DeveloperAccount
 
   has_many :photos  
   has_many :albums  
@@ -43,32 +40,13 @@ class User < ActiveRecord::Base
 
   def self.create_account(auth)
     if auth[:provider] == 'facebook'
-      create_facebook_account auth
+      FacebookUser.create_account auth
     elsif auth[:provider] == 'twitter'
-      create_twitter_account auth
+      TwitterUser.create_account auth
     elsif auth[:provider] == 'developer'
-      create_developer_account auth
+      DeveloperUser.create_account auth
     end
   end
-
-#  def self.create_developer_account(auth)
-#    @new_user = User.first_or_create_by(email: auth[:info][:email])  do|user|
-#      user.name  = "developer"
-#      user.email = auth[:info][:email]
-#    end
-#    AuthProvider.where(provider: auth[:provider]).where(user_id: @new_user.id).first_or_create do |auth_pro|
-#      auth_pro.user_id = @new_user.id
-#      auth_pro.uid      = auth[:uid]
-#      auth_pro.provider = auth[:provider]
-#      unless auth[:info].blank?
-##        auth_pro.screen_name = "dev dev"
-#        auth_pro.image_path  = auth[:info][:image]
-#      end
-#      auth_pro.token = auth["credentials"]["token"] unless auth["credentials"].blank?
-#      auth_pro.save
-#    end
-#    @new_user
-#  end
 
 end
 
