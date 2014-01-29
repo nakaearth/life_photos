@@ -16,7 +16,6 @@ class TwitterUser < User
       auth_provider.token = auth["credentials"]["token"] unless auth["credentials"].blank?
     end
     @new_user.login_provider =  @provider
-    p @new_user.login_provider
     @new_user
   end
 end
