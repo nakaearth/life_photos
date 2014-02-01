@@ -54,6 +54,10 @@ group :production do
   gem 'bugsnag'
 end
 
+# puma APサーバ。後で切り替える
+# gem 'puma'
+
+
 # profile
 gem 'rack-mini-profiler'
 
@@ -200,5 +204,8 @@ gem 'rabl'
 # memcached client
 gem 'memcachier'
 gem 'dalli'
+
+# pdf ライブラリ
+gem 'prawn' , '~> 0.8.4'
 
 

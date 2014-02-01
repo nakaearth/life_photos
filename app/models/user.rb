@@ -34,17 +34,6 @@ class User < ActiveRecord::Base
       [:name, :name]
   ]
 
-  def self.find_user_by_provider_and_uid(provider, uid)
-    @auth = AuthProvider.where(provider: provider).where(uid: uid).first
-    @user = where(user_id: @auth.user_id) if @auth
-    nil unless @auth
-  end
-
-  def self.create_account(auth)
-    @user = UserFactory.create_user(auth[:provider])
-    @user.create_account(auth)
-  end
-   
 end
 
 class FullScreenName

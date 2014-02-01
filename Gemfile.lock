@@ -240,6 +240,16 @@ GEM
     pg (0.17.1)
     polyglot (0.3.3)
     powerpack (0.0.9)
+    prawn (0.8.4)
+      prawn-core (>= 0.8.4, < 0.9)
+      prawn-core (>= 0.8.4, < 0.9)
+      prawn-layout (>= 0.8.4, < 0.9)
+      prawn-layout (>= 0.8.4, < 0.9)
+      prawn-security (>= 0.8.4, < 0.9)
+      prawn-security (>= 0.8.4, < 0.9)
+    prawn-core (0.8.4)
+    prawn-layout (0.8.4)
+    prawn-security (0.8.4)
     pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -469,6 +479,7 @@ DEPENDENCIES
   panda (~> 1.6.0)
   paperclip
   pg
+  prawn (~> 0.8.4)
   pry-byebug
   pry-doc
   pry-rails
