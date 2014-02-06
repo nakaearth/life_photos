@@ -28,7 +28,7 @@ group :development, :test do
   # profile gem
   gem 'speed_gun'
   gem 'msgpack',  '~> 0.5.0'
-
+  
 end
 
 # 開発環境のみ
@@ -47,15 +47,13 @@ end
 # 本番のみn設定
 group :production do
   gem 'pg'
-#  gem 'unicorn'
   gem 'foreman'
-  gem 'thin'
   gem 'rails_12factor'
   gem 'bugsnag'
 end
 
 # puma APサーバ。後で切り替える
-# gem 'puma'
+gem 'puma'
 
 
 # profile
