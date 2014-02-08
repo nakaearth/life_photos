@@ -51,6 +51,7 @@ LifePhotos::Application.routes.draw do
         get 'event_list', {format: :json }
       end
     end
+    get "/my_events_pdf" => "events#to_pdf",  :defaults => { format: 'pdf' }
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

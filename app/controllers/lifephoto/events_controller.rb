@@ -67,6 +67,11 @@ class Lifephoto::EventsController < ApplicationController
     end
   end
 
+  def to_pdf
+    @events = current_user.events
+    render pdf: @events
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
