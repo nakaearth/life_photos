@@ -74,9 +74,10 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-# source map
-#gem 'coffee-rails-source-maps'
-#gem 'sass-rails-source-maps'
+# gruntsJS for rails
+#gem 'half-pipe', '~> 0.3.0.beta'
+gem 'half-pipe', '~> 0.2.4'
+gem 'thor', '>= 0.18.1'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby

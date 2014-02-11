@@ -18,21 +18,27 @@
 require 'spec_helper'
 
 describe User do
-  fixtures :users
-  fixtures :auth_providers
+
+  let!(:user1) { FactoryGirl.create(:current_user) }
+  let!(:auth_provider1) {  FactoryGirl.create(:current_user_auth_provider, user: user1) } 
+  let!(:photo1) { FactoryGirl.build(:current_user_photo1, user: user1) }
+  let!(:photo2) { FactoryGirl.build(:current_user_photo1, user: user1) }
+  let!(:photo3) { FactoryGirl.build(:current_user_photo1, user: user1) }
+  let!(:photo4) { FactoryGirl.build(:current_user_photo1, user: user1) }
+  let!(:photo5) { FactoryGirl.build(:current_user_photo1, user: user1) }
 
   describe "check user photos" do
     fixtures :photos
 
     context "check user photo" do
       before do
-        @user = User.find(1)
+        @user = user1
       end
       it "check photo" do
         expect(@user.photos).not_to be_nil
       end
       it "photo count" do
-        expect(@user.photos.count).to eql(Photo.where(user_id: 1).count)
+        expect(@user.photos.count).to eql(Photo.where(user_id: @user.id).count)
       end
     end
   end
@@ -42,13 +48,13 @@ describe User do
 
     context "user join the group" do
       before do
-        @user = User.find(1)
+        @current_user = user1
         @group = Group.find(1)
       end
       it "group " do
-        @user.groups << @group
-        expect(@user.save).to be_truthy
-        @user = User.find(1)
+        @current_user.groups << @group
+        expect(@current_user.save).to be_truthy
+        @user = User.find(@current_user.id)
         expect(@user.groups.size).to eql(1)
       end
     end

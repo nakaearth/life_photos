@@ -17,10 +17,17 @@
 require 'spec_helper'
 
 describe Photo do
-  fixtures :users
-  fixtures :photos
-  fixtures :albums
-  fixtures :groups
+
+  let!(:test_group) { FactoryGirl.create(:current_user_group1) }
+  let!(:test_user1) { FactoryGirl.create(:current_user) }
+  let!(:auth_provider1) { FactoryGirl.create(:current_user_auth_provider, user: test_user1) }
+  let!(:test_album) {  FactoryGirl.create(:current_user_album1, user: test_user1, group: test_group) }
+  #  let!(:photo1) { FactoryGirl.build(:current_user_photo1, user: test_user1, album: test_album) }
+  #  let!(:photo2) { FactoryGirl.build(:current_user_photo1, user: test_user1, album: test_album) }
+  #  let!(:photo3) { FactoryGirl.build(:current_user_photo1, user: test_user1, album: test_album) }
+  #  let!(:photo4) { FactoryGirl.build(:current_user_photo1, user: test_user1, album: test_album ) }
+  #  let!(:photo5) { FactoryGirl.build(:current_user_photo1, user: test_user1, album: test_album) }
+
 
   describe "save photo test" do
 
@@ -28,10 +35,10 @@ describe Photo do
 
     context "photo 投稿" do
       before do
-        @file = File.new("spec/fixtures/test.png")
+        @file = File.new("spec/factories/test.png")
         @file.binmode
         @subject = Paperclip.io_adapters.for(@file)
-        @photo = Photo.new(title: 'test photo', description: "これはテストです", user_id: 1, album_id: 1, photo: @subjet)
+        @photo = Photo.new(title: "test photo", description: "これはテストです", user_id: test_user1.id, album_id: test_album.id, photo: @subjet)
       end
 
       it "photo save success" do
@@ -43,14 +50,14 @@ describe Photo do
         saved_photo = Photo.where(title: 'test photo').first
         expect(saved_photo).not_to be_nil
         expect(saved_photo.title).to eql('test photo')
-        @album = Album.find(1)
+        @album = test_album
         expect(@album.photos).not_to be_nil
         expect(@album.photos.size).to eql(4)
       end
 
       it "album top image" do
         @photo.save
-        @album = Album.find(1)
+        @album = test_album
         expect(@album.top_img_path).not_to be_nil
       end
     end
@@ -60,7 +67,7 @@ describe Photo do
         @file = File.new("spec/fixtures/test.png")
         @file.binmode
         @subject = Paperclip.io_adapters.for(@file)
-        @photo = Photo.new(description: "これはテストです", user_id: 1, photo: @subject)
+        @photo = Photo.new(description: "これはテストです", user_id: test_user1.id, photo: @subject)
       end
 
       it "save error" do

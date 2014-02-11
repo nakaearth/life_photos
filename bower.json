@@ -1,12 +1,18 @@
 {
+
   "lib": {
     "name": "bower-rails generated lib assets",
-    "dependencies": {
-    }
+      "dependencies": {
+        "html5shiv": "latest",
+        "requirejs": "latest",
+        "jquery": "latest",
+        "jquery-ujs": "latest",
+        "normalize-css": "latest"
+      }
   },
-  "vendor": {
-    "name": "bower-rails generated vendor assets",
-    "dependencies": {
+    "vendor": {
+      "name": "bower-rails generated vendor assets",
+      "dependencies": {
+      }
     }
-  }
 }
