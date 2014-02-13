@@ -20,6 +20,12 @@ class Photo < ActiveRecord::Base
   has_one    :geo_map
 
   validates :title,  presence: true
+#  validates_attachment_content_type :photo, :content_type => %w(image/jpeg image/jpg image/png)
+#  validates_attachment_file_name :photo, :matches => [/png\Z/, /jpe?g\Z/]
+
+#  validates_attachment :photo, :presence => true,
+#    :content_type => { :content_type => "image/jpg" },
+#    :size => { :in => 0..10.kilobytes }
 
   after_save :album_image_set
   after_save :send_notice_mail
