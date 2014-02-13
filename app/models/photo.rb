@@ -20,9 +20,6 @@ class Photo < ActiveRecord::Base
   has_one    :geo_map
 
   validates :title,  presence: true
-#  validates_attachment_content_type :photo, :content_type => %w(image/jpeg image/jpg image/png)
-#  validates_attachment_file_name :photo, :matches => [/png\Z/, /jpe?g\Z/]
-
 #  validates_attachment :photo, :presence => true,
 #    :content_type => { :content_type => "image/jpg" },
 #    :size => { :in => 0..10.kilobytes }
@@ -30,7 +27,6 @@ class Photo < ActiveRecord::Base
   after_save :album_image_set
   after_save :send_notice_mail
 
-  #  before_save :setup_title  
 
   Paperclip.interpolates :img_dir_num do |attachment, style|
     (attachment.instance.user_id).to_s + "/" + (attachment.instance.id * 0.01).to_s 
@@ -50,6 +46,8 @@ class Photo < ActiveRecord::Base
       url: "/system/img/attaches/:img_dir_num/:id/:style/:filename" ,
       styles:  { medium:  "350x350>", thumb:  "100x100>", original: "700x700>" }
   end
+
+  validates_attachment_content_type :photo, :content_type => %w(image/jpeg image/jpg image/png)
 
   def album_image_set
     ##ここにalbumにセットされている写真の枚数をチェックして、1枚ならその写真尾サムネールパスをalbum.top_img_pathにセット
