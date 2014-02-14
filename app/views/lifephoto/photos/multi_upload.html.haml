@@ -1,6 +1,6 @@
 .container
   %h2 Upload file
-  = form_for @photo, :html => { :multipart => true, :id => "fileupload"  } do |f|
+  = form_for(@photo, url: { controller: 'lifephoto/photos', action: 'create'}, :html => { :multipart => true, :id => "fileupload" }) do |f|
     / The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
     アルバム選択:#{f.select "album_id", options_from_collection_for_select(@albums,"id","title")} &nbsp;&nbsp;| &nbsp;&nbsp;#{link_to 'アルバム作成', {controller: "albums", action: "new", from_url: 'photo'}}
     %br/
