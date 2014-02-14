@@ -20,16 +20,13 @@ class Photo < ActiveRecord::Base
   has_one    :geo_map
 
   validates :title,  presence: true
-#  validates_attachment :photo, :presence => true,
-#    :content_type => { :content_type => "image/jpg" },
-#    :size => { :in => 0..10.kilobytes }
 
   after_save :album_image_set
   after_save :send_notice_mail
 
-
   Paperclip.interpolates :img_dir_num do |attachment, style|
-    (attachment.instance.user_id).to_s + "/" + (attachment.instance.id * 0.01).to_s 
+#    (attachment.instance.user_id).to_s + "/" + (attachment.instance.id * 0.01).to_s 
+    (attachment.instance.user_id).to_s 
   end 
 
   S3_CREDENTIALS = { access_key_id: ENV['S3_ACCESS_KEY_ID'], secret_access_key: ENV['S3_SECRET_KEY'], bucket: "life-album-photos" }
@@ -40,14 +37,16 @@ class Photo < ActiveRecord::Base
       s3_credentials: S3_CREDENTIALS,
       styles: { medium:  "350x350>", thumb:  "100x100>", original:  "700x700>" },
       url:  ":s3_domain_url",
-      path: "photos/:img_dir_num/:id/:style/:filename"
+      path: "photos/:img_dir_num/:style/:filename"
   else 
     has_attached_file :photo,
-      url: "/system/img/attaches/:img_dir_num/:id/:style/:filename" ,
+      default_url: "/images/:style/missing.png",
       styles:  { medium:  "350x350>", thumb:  "100x100>", original: "700x700>" }
   end
 
-  validates_attachment_content_type :photo, :content_type => %w(image/jpeg image/jpg image/png)
+  validates_attachment :photo, :presence => true,
+    :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif" ] }, 
+    :size => { :in => 0..10000.kilobytes }
 
   def album_image_set
     ##ここにalbumにセットされている写真の枚数をチェックして、1枚ならその写真尾サムネールパスをalbum.top_img_pathにセット
@@ -63,7 +62,7 @@ class Photo < ActiveRecord::Base
     @group = Group.find(@album.group_id)
     @group_members = GroupMember.where(group_id: @group.id)
     @group_members.each do |group_member|
-      PostPhotoMailer.send_notice_photo_mail(group_member, album_id).deliver
+    #  PostPhotoMailer.send_notice_photo_mail(group_member, album_id).deliver
     end
   end
 end
