@@ -15,11 +15,17 @@
 require 'spec_helper'
 
 describe Album do
-  fixtures :users
-  fixtures :users
-  fixtures :albums
-  fixtures :photos
-  fixtures :groups
+
+  let!(:test_group) { FactoryGirl.create(:current_user_group1) }
+  let!(:test_user1) { FactoryGirl.create(:current_user) }
+  let!(:auth_provider1) { FactoryGirl.create(:current_user_auth_provider, user: test_user1) }
+  let!(:test_album) {  FactoryGirl.create(:current_user_album1, user: test_user1, group: test_group) }
+  let!(:photo1) { FactoryGirl.create(:current_user_photo1, user: test_user1, album: test_album) }
+  let!(:photo2) { FactoryGirl.create(:current_user_photo1, user: test_user1, album: test_album) }
+  let!(:photo3) { FactoryGirl.create(:current_user_photo1, user: test_user1, album: test_album) }
+  let!(:photo4) { FactoryGirl.create(:current_user_photo1, user: test_user1, album: test_album) }
+  let!(:photo5) { FactoryGirl.create(:current_user_photo1, user: test_user1, album: test_album) }
+
 
   it { expect have_many(:photos) }
   it { expect belong_to(:users) }
@@ -29,11 +35,11 @@ describe Album do
   describe "album list" do
     context "user album list" do
       before do
-        @user = User.find(1)
+        @user = test_user1
       end
       it "album list check" do
         expect(@user.albums).not_to be_nil
-        expect(@user.albums.size).to eql(3)
+        expect(@user.albums.size).to eql(1)
       end
     end
   end
@@ -41,9 +47,8 @@ describe Album do
   describe "album create" do
     context "user album create" do
       before do
-        @user = User.find(1)
-        @album = Album.new(title: "create test title", description: "test album")
-        @album.user_id =  @user.id
+        @user = test_user1
+        @album = test_album
       end
       it "album create success?" do
         expect(@album.save).to be_truthy
@@ -58,29 +63,25 @@ describe Album do
 
     context "user album create and add photo" do
       before do
-        @user = User.find(1)
+        @user = test_user1
+
         @file = File.new("spec/fixtures/test.png")
         @file.binmode
         @subject = Paperclip.io_adapters.for(@file)
-        @album = Album.new(title: "create test title", description: "test album")
-        @album.user_id =  @user.id
-        @album.group_id = 1
-        @album.save
-        @photo = Photo.new(title: 'test photo', description: "これはテストです", user_id: 1, album_id: @album.id)
-        @photo.save
+
+        @album = test_album
       end
       it "created data check" do
         expect(@album.id).not_to be_nil
         expect(@album.user_id).to eql(@user.id)
-        expect(@album.photos.size).to eql(1)
+        expect(@album.photos.size).to eql(5)
       end
     end
 
     context "user album create error case" do
       before do
-        @user = User.find(1)
-        @album = Album.new(description: "test album")
-        @album.user_id =  @user.id
+        @user = test_user1
+        @album = Album.new(description: 'MyString8', group: test_group)
       end
       it "album create success?" do
         expect(@album).not_to be_valid
