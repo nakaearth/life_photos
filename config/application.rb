@@ -46,5 +46,7 @@ module LifePhotos
     config.paths.add "app/api", glob: "**/*.rb"
     config.autoload_paths += Dir["#{Rails.root}/app/api/*"]
 
+   config.compass.images_dir = '/app/assets/images'
+
   end
 end

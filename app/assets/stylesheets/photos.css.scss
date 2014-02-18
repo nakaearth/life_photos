@@ -1,6 +1,8 @@
-// Place all the styles related to the photos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "compass/utilities";
+@import "compass/css3";
+@import "compass/reset";
+@import "compass";
+
 .title {
 	font-weight: bold;
 	font-size: 15pt;
@@ -11,23 +13,25 @@ label {
    font-weight: bold;
 	 font-color: #FFFFFF;
 }
-.div.field{
-	 font-color: #FFFFFF;
-   margin:{
-     bottom: 10px;
-   }
+.div {
+   .field{
+	   font-color: #FFFFFF;
+     margin:{
+       bottom: 10px;
+     }
+  }
 }
 .photo_form {
    font-weight: bold;
    font-size: 10pt;
 	 font-color: #FFFFFF;
-   background-color: #222222;
+   background-color: #CCFFFF;
    border: 1px solid #000000;
    width: 70%;
 	 height: 50%;
    margin: 10px;
-   -webkit-border-radius: 5px;/* Safari、Google Chrome */
-   -moz-border-radius: 5px;/* Firefox */
+   @include border-radius();
+   @include box-shadow(rgba(blue, 0.4) 0 0 25px, rgba(green, 0.2) 0 0 3px 1px inset);
    .photo_form_div {
      background-color: #FFFFFF;
      border: 1px solid #FFFFFF;
@@ -36,20 +40,20 @@ label {
 	   height: 80%;
      margin: 5px;
      z-index: 1;
-     -webkit-border-radius: 10px;/* Safari、Google Chrome */
-     -moz-border-radius: 10px;/* Firefox */
+     @include border-radius();
+     @include box-shadow(rgba(blue, 0.4) 0 0 25px, rgba(green, 0.2) 0 0 3px 1px inset);
    }  
 }
 
 .photo_list {
-   width: 98%;
-   background-color: #222222;
+   width: 90%;
+   background-color: #CCFFFF;
    visibility: visible;
    position: absolute;
    margin: 4px;
    z-index: 0;
-   -webkit-border-radius: 5px;/* Safari、Google Chrome */
-   -moz-border-radius: 5px;/* Firefox */
+   @include border-radius(5px,5px);
+   @include box-shadow(rgba(blue, 0.4) 0 0 25px, rgba(green, 0.2) 0 0 3px 1px inset);
   .photo_div {
      background-color: #FFFFFF;
      border: 1px solid #FFFFFF;
@@ -59,21 +63,21 @@ label {
      margin: 5px;
      z-index: 1;
      float: left;
-     -webkit-border-radius: 10px;/* Safari、Google Chrome */
-     -moz-border-radius: 10px;/* Firefox */
+     @include border-radius(10px,10px);
+     @include box-shadow(rgba(blue, 0.4) 0 0 25px, rgba(green, 0.2) 0 0 3px 1px inset);
   }
 }
 
 .photo_detail {
-   background-color: #222222;
+   background-color: #CCFFFF;
    position: absolute;
    margin: 3px;
    font-size: 12px;
    border: 1px solid #FFFFFF;
    z-index: 2;
    display: none;
-   -webkit-border-radius: 10px;/* Safari、Google Chrome */
-   -moz-border-radius: 10px;/* Firefox */
+   @include border-radius(10px,10px);
+   @include box-shadow(rgba(blue, 0.4) 0 0 25px, rgba(green, 0.2) 0 0 3px 1px inset);
 }
 
 

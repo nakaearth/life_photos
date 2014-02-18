@@ -7,21 +7,21 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
   %body
-    %header
+    %header.header
       Life Photos
     %br/
-    .login_user_info
-      - if current_user
+    - if current_user
+      .login_user_info
         = image_tag "#{current_user.image_path}", size: "40x40"
         = current_user.screen_name
         さん
         \#{link_to "logout", logout_path}
-        \#{render 'common/menu'}
-      - else
-        %br/
-        = link_to "Facebook login", "/facebook/login", "data-no-turbolink" => true, "rel" => 'facebook_login'
-        \&nbsp;&nbsp;|&nbsp;&nbsp;
-        \#{link_to "Twitter login", "/twitter/login",  "data-no-turbolink" => true,  "rel" => 'twitter_login'}
+      \#{render 'common/menu'}
+    - else
+      %br/
+      = link_to "Facebook login", "/facebook/login", "data-no-turbolink" => true, "rel" => 'facebook_login'
+      \&nbsp;&nbsp;|&nbsp;&nbsp;
+      \#{link_to "Twitter login", "/twitter/login",  "data-no-turbolink" => true,  "rel" => 'twitter_login'}
     = yield
     %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"}
     %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-resource.min.js"}

@@ -11,7 +11,7 @@
  *= require_self
  *= require fullcalendar
  *= require jquery.fileupload-ui
+ *= require _font-awesome
  *= common
  *= require_tree .
  */
-

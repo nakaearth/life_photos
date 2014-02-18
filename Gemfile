@@ -75,7 +75,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # compass on rails
-gem 'compass-rails'
+gem "font-awesome-sass-rails"
+gem "compass-rails", github: "Compass/compass-rails"
 
 # gruntsJS for rails
 #gem 'half-pipe', '~> 0.3.0.beta'

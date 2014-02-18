@@ -8,21 +8,21 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    %header
+    %header.header
       Life Photos
     %br/
-    .login_user_info
-      - if current_user
+    - if current_user
+      .login_user_info
         = image_tag "#{current_user.image_path}", size: "40x40"
         = current_user.screen_name
         さん
         \#{link_to "logout", logout_path}
-        \#{render 'common/menu'}
-      - else
-        %br/
-        = link_to "Facebook login", "/facebook/login", "data-no-turbolink" => true
-        \&nbsp;&nbsp;|&nbsp;&nbsp;
-        \#{link_to "Twitter login", "/twitter/login",  "data-no-turbolink" => true}
+      \#{render 'common/menu'}
+    - else
+      %br/
+      = link_to "Facebook login", "/facebook/login", "data-no-turbolink" => true
+      \&nbsp;&nbsp;|&nbsp;&nbsp;
+      \#{link_to "Twitter login", "/twitter/login",  "data-no-turbolink" => true}
     = yield
     = javascript_include_tag "angular_setting"
     = javascript_include_tag "application"

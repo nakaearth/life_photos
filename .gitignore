@@ -18,4 +18,4 @@
 /public/system/*
 
 /config/initializers/secret_tokens.rb
-
+/.sass-cache
