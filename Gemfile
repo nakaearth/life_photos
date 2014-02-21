@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 
 # 開発環境、テスト環境両方で使うもの
 group :development, :test do
@@ -27,7 +27,7 @@ group :development, :test do
 
   # profile gem
   gem 'speed_gun'
-  gem 'msgpack',  '~> 0.5.0'
+  gem 'msgpack',  '~> 0.5.8'
   
 end
 
@@ -54,7 +54,6 @@ end
 
 # puma APサーバ。後で切り替える
 gem 'puma'
-
 
 # profile
 gem 'rack-mini-profiler'
@@ -83,6 +82,10 @@ gem "compass-rails", github: "Compass/compass-rails"
 #gem 'half-pipe', '~> 0.2.4'
 #gem 'thor', '>= 0.18.1'
 
+# log and assets file for heroku  
+gem 'rails_12factor', group: :production
+
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
@@ -96,7 +99,7 @@ gem 'quiet_assets'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-# gem 'jquery-rails'
+#gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -184,7 +187,7 @@ gem 'watson-ruby'
 gem 'settingslogic'
 
 # bower
-gem 'bower-rails', '~> 0.5.0'
+gem 'bower-rails', '~> 0.7.1'
 
 # cache_digest
 gem 'cache_digests'

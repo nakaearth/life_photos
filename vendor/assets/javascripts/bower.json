@@ -1,7 +1,11 @@
 {
+  "name": "dsl-generated dependencies",
   "dependencies": {
-    "jquery": "2.0.0",
+    "jquery": "latest",
     "jquery-ujs": "latest",
-    "jquery-autopager": "http://lagoscript.org/files/jquery/autopager/jquery.autopager-1.0.0.js"
+    "swiper": "latest",
+    "angular": "latest",
+    "angular-resource": "latest",
+    "angular-animate": "latest"
   }
 }
