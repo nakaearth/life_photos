@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.0.beta1'
 
 # 開発環境、テスト環境両方で使うもの
 group :development, :test do
@@ -65,7 +65,7 @@ gem 'rails-flog' , :require => 'flog'
 gem 'migrant'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.0.rc1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -75,7 +75,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # compass on rails
 gem "font-awesome-sass-rails"
-gem "compass-rails", github: "Compass/compass-rails"
+#gem "compass-rails", github: "Compass/compass-rails"
+gem "compass-rails", "~> 1.1.3"
 
 # gruntsJS for rails
 #gem 'half-pipe', '~> 0.3.0.beta'
@@ -146,7 +147,7 @@ group :test do
 end
 
 # jpmobile
-gem "jpmobile"
+#gem "jpmobile"
 
 # google calendar
 gem 'fullcalendar-rails'
