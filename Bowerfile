@@ -1,12 +1,12 @@
 assets_path "assets/javascripts"
 
 # Puts files under ./vendor/assets/javascripts
-group :vendor, :assets_path => "assets/javascript" do
-  asset 'jquery'
-  asset 'jquery-ujs' 
-  
-	asset 'swiper'
-	asset 'angular'
-  asset 'angular-resource'
-	asset 'angular-animate'
-end
+#group :vendor, :assets_path => "assets/javascript" do
+asset 'jquery'
+asset 'jquery-ujs' 
+
+asset 'swiper'
+asset 'angular'
+asset 'angular-resource'
+asset 'angular-animate'
+#end
