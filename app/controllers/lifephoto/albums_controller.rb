@@ -1,5 +1,5 @@
 class Lifephoto::AlbumsController < ApplicationController
-  include Jpmobile::ViewSelector
+  #include Jpmobile::ViewSelector
 
   layout "guest_user", :only => [:guest_user_show]
 
