@@ -5,10 +5,9 @@ ruby '2.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.beta1'
 
-gem 'sqlite3'
 # 開発環境、テスト環境両方で使うもの
 group :development, :test do
-#  gem 'sqlite3'
+  gem 'sqlite3'
   # Railsコンソールの多機能版
   gem 'pry-rails'
 
