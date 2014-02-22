@@ -99,7 +99,7 @@ GEM
     descendants_tracker (0.0.3)
     diff-lcs (1.2.5)
     docile (1.1.3)
-    dotenv (0.9.0)
+    dotenv (0.10.0)
     equalizer (0.0.9)
     erb2haml (0.1.5)
       html2haml
@@ -243,7 +243,7 @@ GEM
       faraday (>= 0.7.0)
       multi_json (>= 1.3.2)
       ruby-hmac (>= 0.3.2)
-    paperclip (4.1.0)
+    paperclip (4.1.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
@@ -398,15 +398,16 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    td (0.10.97)
+    sqlite3 (1.3.8)
+    td (0.10.98)
       hirb (>= 0.4.5)
       msgpack (>= 0.4.4, < 0.6.0, != 0.5.3, != 0.5.2, != 0.5.1, != 0.5.0)
       parallel (~> 0.6.1)
       rubyzip (~> 0.9.9)
-      td-client (~> 0.8.56)
+      td-client (~> 0.8.57)
       td-logger (~> 0.3.21)
       yajl-ruby (~> 1.1.0)
-    td-client (0.8.56)
+    td-client (0.8.57)
       httpclient (~> 2.3.4)
       json (>= 1.7.6)
       msgpack (>= 0.4.4, < 0.6.0, != 0.5.3, != 0.5.2, != 0.5.1, != 0.5.0)
@@ -516,6 +517,7 @@ DEPENDENCIES
   simplecov-rcov
   speed_gun
   spring
+  sqlite3
   td
   td-logger
   therubyracer
