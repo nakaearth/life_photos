@@ -48,7 +48,7 @@ end
 group :production do
   gem 'pg'
   gem 'foreman'
-#  gem 'rails_12factor'
+  gem 'rails_12factor'
   gem 'bugsnag'
 end
 
