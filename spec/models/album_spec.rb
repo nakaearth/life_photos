@@ -11,7 +11,6 @@
 #  top_img_path       :string(255)      default("no_image.jpg"), not null
 #  album_photos_count :integer          default(0), not null
 #
-
 require 'spec_helper'
 
 describe Album do
