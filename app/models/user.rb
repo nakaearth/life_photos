@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
       [:name, :name]
   ]
 
+  def self.find_by_email_and_provider(params)
+    User.includes(:auth_providers).where("users.email"=> params[:email]).find_by("auth_providers.provider" => params[:provider])
+  end
+
 end
 
 class FullScreenName

@@ -216,4 +216,10 @@ gem 'dalli'
 # pdf ライブラリ
 gem 'prawn' , '~> 0.8.4'
 
+# neo4j
+gem 'neography'
+
+# API versio管理
+gem 'versioncake'
+
 

@@ -54,6 +54,15 @@ LifePhotos::Application.routes.draw do
     get "/my_events_pdf" => "events#to_pdf",  :defaults => { format: 'pdf' }
   end
 
+  namespace :api ,  defaults: { format: 'json' }do
+    resources :photos do
+
+    end
+    resources :albums do
+
+    end
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
