@@ -1,0 +1,71 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#photo-ctrl {
+  background-color: #fff;
+  position: absolute;
+  top: 37px;
+  width: 100%;
+  bottom: 0;
+  overflow: auto;
+}
+
+#photo-list-container {
+  background-color: #fff;
+  position: absolute;
+  min-height: 700px;
+  width: 300px;
+  top: 37px;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  ul {
+    margin: 0px;
+    list-style: none;
+    padding: 0px;
+    li {
+      cursor: pointer;
+      border-bottom: 1px solid #ddd;
+      padding: 0 10px;
+    }
+  }
+  h3 {
+    font-size: 14px;
+    small {
+      font-size: 12px;
+      color: #ccc;
+      font-weight: normal;
+    }
+    &.active {
+      color: red;
+    }
+  }
+}
+
+#photo-view-container {
+  position: absolute;
+  border-left: 1px solid #d0d0d0;
+  top: 37px;
+  left: 300px;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  min-height: 700px;
+  padding: 5px 25px;
+}
+.calendar_content {
+  background-color: #ffffff;
+}
+/* 日曜日 */
+.fc-sun {
+    color: red;
+    background-color: #fff0f0;
+}
+
+/* 土曜日 */
+.fc-sat {
+    color: blue;
+    background-color: #f0f0ff;
+} 

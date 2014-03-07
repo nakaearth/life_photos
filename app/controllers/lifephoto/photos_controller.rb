@@ -13,7 +13,9 @@ class Lifephoto::PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @album = Album.find(@photo.album_id) if @photo.album_id
     respond_to do |format|
-      format.html # show.html.erb
+      format.html  do |html|
+        html.tablet
+      end
       format.json { render json: @photo }
     end
   end

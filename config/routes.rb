@@ -1,5 +1,9 @@
 LifePhotos::Application.routes.draw do
 
+  namespace :api do
+  get "session/create"
+  end
+
   #### API ####
   mount Lifephoto::API => "/lifephoto-api"
 

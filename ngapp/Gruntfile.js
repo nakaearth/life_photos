@@ -1,4 +1,4 @@
-// Generated on 2014-02-27 using generator-angular 0.7.1
+// Generated on 2014-03-06 using generator-angular 0.7.1
 'use strict';
 
 // # Globbing
@@ -21,8 +21,8 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: {
       // configurable paths
-      app: require('./bower.json').appPath || 'app',
-      dist: '../public/'
+      app:  'app',
+      dist: '../public'
     },
 
     // Watches files for changes and runs tasks based on the changed files
@@ -65,6 +65,13 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
+      proxies: [
+          {
+              context: '/api',
+              host: 'localhost',
+              port: 3000
+          }
+      ],
       livereload: {
         options: {
           open: true,

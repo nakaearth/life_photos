@@ -193,21 +193,9 @@ gem 'bower-rails', '~> 0.7.1'
 # cache_digest
 gem 'cache_digests'
 
-## dropbox sdk
-#gem 'dropbox-sdk'
-
-# panda stream
-gem 'panda', '~> 1.6.0'
-
-# pusher
-# gem 'pusher'
-
 # aip development
 gem 'grape'
 gem 'rabl'
-
-# presenter(view helper/decorator)
-# gem 'draper'
 
 # memcached client
 gem 'memcachier'
