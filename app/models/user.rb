@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :user_groups
   has_many :groups, through: :user_groups
   has_many :events 
+  has_many :photo_comments
 
   attr_accessor :login_provider
 

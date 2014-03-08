@@ -1,5 +1,11 @@
 LifePhotos::Application.routes.draw do
 
+  namespace :lifephoto do
+  namespace :photos do
+    get "comment/index"
+    end
+  end
+
   namespace :api do
   get "session/create"
   end

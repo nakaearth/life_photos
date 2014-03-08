@@ -18,6 +18,7 @@ class Photo < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
   belongs_to :album,  dependent: :destroy, touch: true
   has_one    :geo_map
+  has_many   :photo_comments
 
   validates :title,  presence: true
 
