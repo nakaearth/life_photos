@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.0.beta1'
+#gem 'rails', '4.0.3'
 
 # 開発環境、テスト環境両方で使うもの
 group :development, :test do
