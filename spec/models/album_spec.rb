@@ -27,7 +27,7 @@ describe Album do
 
 
   it { expect have_many(:photos) }
-  it { expect belong_to(:users) }
+#  it { expect belong_to(:users) }
   it { expect have_db_column(:user_id) }
   it { expect have_db_index(:user_id) }
 
@@ -73,7 +73,7 @@ describe Album do
       it "created data check" do
         expect(@album.id).not_to be_nil
         expect(@album.user_id).to eql(@user.id)
-        expect(@album.photos.size).to eql(5)
+        expect(@album.photos.size).to eql(8)
       end
     end
 

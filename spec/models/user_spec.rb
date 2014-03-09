@@ -28,7 +28,6 @@ describe User do
   let!(:photo5) { FactoryGirl.build(:current_user_photo1, user: user1) }
 
   describe "check user photos" do
-    fixtures :photos
 
     context "check user photo" do
       before do

@@ -30,7 +30,8 @@ describe Photo do
 
   describe "save photo test" do
 
-    it { expect belong_to(:album) }
+    #it { expect belong_to(:album) }
+    it { expect has_many(:photo_comment) }
 
     context "photo 投稿" do
       before do
@@ -40,10 +41,6 @@ describe Photo do
         @photo = Photo.new(title: "test photo", description: "これはテストです", user_id: test_user1.id, album_id: test_album.id, photo: @subject)
       end
 
-#      it "photo save success" do
-#        expect(@photo.save).to be_truthy
-#      end
-
       it "database check" do
         @photo.save
         saved_photo = Photo.where(title: 'test photo').first
@@ -51,7 +48,7 @@ describe Photo do
         expect(saved_photo.title).to eql('test photo')
         @album = test_album
         expect(@album.photos).not_to be_nil
-        expect(@album.photos.size).to eql(5)
+        expect(@album.photos.size).to eql(6)
       end
 
       it "album top image" do
