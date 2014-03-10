@@ -9,9 +9,8 @@ describe PhotoComment do
   let!(:test_photo_comment1) { FactoryGirl.create(:photo_comment1, user: test_user1, photo: photo1) }
 
   describe "関連をテスト" do
-    it { expect belong_to(:photo) }
-    it { expect belong_to(:user) }
-
+#    it { expect belong_to(:photo) }
+#    it { expect belong_to(:user) }
   end
   
 end

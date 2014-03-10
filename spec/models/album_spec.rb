@@ -73,7 +73,7 @@ describe Album do
       it "created data check" do
         expect(@album.id).not_to be_nil
         expect(@album.user_id).to eql(@user.id)
-        expect(@album.photos.size).to eql(8)
+        expect(@album.photos.size).to eql(5)
       end
     end
 
