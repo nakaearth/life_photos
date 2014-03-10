@@ -130,7 +130,7 @@ gem "jquery-fileupload-rails"
 
 # test & coverage & code style
 group :test do
-#  gem 'rspec', '~> 3.0.0.beta1'
+ # gem 'autodoc'
   gem 'rspec-rails', '~> 3.0.0.beta1'
   gem 'rake_shared_context'
   gem 'simplecov', require: false
