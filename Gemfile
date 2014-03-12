@@ -4,6 +4,7 @@ ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.beta1'
+#gem 'rails', '4.0.3'
 
 # 開発環境、テスト環境両方で使うもの
 group :development, :test do
@@ -130,8 +131,7 @@ gem "jquery-fileupload-rails"
 
 # test & coverage & code style
 group :test do
- # gem 'autodoc'
-  gem 'rspec-rails', '~> 3.0.0.beta1'
+  gem 'rspec-rails', '3.0.0.beta1'
   gem 'rake_shared_context'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
@@ -139,7 +139,7 @@ group :test do
   gem 'rubocop-checkstyle_formatter', require: false
   # fixtureの代わり
   gem "factory_girl_rails"
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
   gem 'json_expressions'
   # テスト環境のテーブルをきれいにする
   gem 'database_rewinder'
@@ -193,21 +193,9 @@ gem 'bower-rails', '~> 0.7.1'
 # cache_digest
 gem 'cache_digests'
 
-## dropbox sdk
-#gem 'dropbox-sdk'
-
-# panda stream
-gem 'panda', '~> 1.6.0'
-
-# pusher
-# gem 'pusher'
-
 # aip development
 gem 'grape'
 gem 'rabl'
-
-# presenter(view helper/decorator)
-# gem 'draper'
 
 # memcached client
 gem 'memcachier'

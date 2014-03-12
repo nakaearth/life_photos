@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::RoutingError, ActiveRecord::RecordNotFound, with: :routing_error
   #  rescue_from Toeicfive::ExaminationError, with: :examination_error
 
+  before_action :iPhone?
+  before_action :iPad?
   before_action :record_logs
   before_action :login?
   helper_method :current_user
@@ -29,6 +31,14 @@ class ApplicationController < ActionController::Base
     if session[:user_id].blank?
       redirect_to :root
     end
+  end
+
+  def iPhone? 
+    request.variant = :tablet if request.user_agent =~ /iPhone/
+  end
+
+  def iPad? 
+    request.variant = :tablet if request.user_agent =~ /iPad/
   end
 
   private
