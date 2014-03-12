@@ -1,7 +1,4 @@
-CasperJS
-(0)install
-http://docs.casperjs.org/en/latest/installation.html
-brew update
+CasperJS (0)install http://docs.casperjs.org/en/latest/installation.html brew update
 brew install casperjs
 
 1) get start
@@ -13,11 +10,7 @@ casper.start('http://casperjs.org/', function() {
     this.echo(this.getTitle());
 });
 
-casper.thenOpen('http://phantomjs.org', function() {
-    this.echo(this.getTitle());
-});
-
-casper.run();
+casper.thenOpen('http://phantomjs.org', function() { this.echo(this.getTitle()); }); casper.run();
 --------------------
 
 

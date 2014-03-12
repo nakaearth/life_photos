@@ -63,14 +63,13 @@ module.exports = function (grunt) {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
-        livereload: 35729
       },
-      proxies: [
-          {
-              context: '/api',
-              host: 'localhost',
-              port: 3000
-          }
+      proxies:[
+        {
+          context: '/api',
+          host: 'localhost',
+          port: 3000
+        }
       ],
       livereload: {
         options: {
@@ -80,7 +79,7 @@ module.exports = function (grunt) {
             '<%= yeoman.app %>'
           ]
         }
-      },
+      ],
       test: {
         options: {
           port: 9001,

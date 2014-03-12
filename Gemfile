@@ -4,7 +4,6 @@ ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.rc1'
-#gem 'rails', '4.0.3'
 
 # 開発環境、テスト環境両方で使うもの
 group :development, :test do
@@ -131,7 +130,7 @@ gem "jquery-fileupload-rails"
 
 # test & coverage & code style
 group :test do
-#  gem 'rspec', '~> 3.0.0.beta1'
+  gem 'minitest'
   gem 'rspec-rails', '3.0.0.beta1'
   gem 'rake_shared_context'
   gem 'simplecov', require: false
