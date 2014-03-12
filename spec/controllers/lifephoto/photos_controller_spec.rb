@@ -14,9 +14,9 @@ describe Lifephoto::PhotosController do
       end
       it { expect(@user.photos).not_to be_nil }
       it { expect(@user.photos.size).to eql(5) }
-      it { expect(render_template('index')) }
-      it { expect(render_with_layout('photo')) }
-      it { expect(respond_with(200)) }
+      it { expect render_template('index') }
+      it { expect render_with_layout 'lifephoto/photo' }
+      it { expect respond_with  200 }
       it { expect(get: '/lifephoto/photos').to route_to('lifephoto/photos#index') }
     end
   end
@@ -32,8 +32,8 @@ describe Lifephoto::PhotosController do
       end
       it { expect(@albums).not_to be_nil }
       it { expect(render_template('new')) }
-      it { expect(render_with_layout('photo')) }
-      it { expect(respond_with(200)) }
+      it { expect render_with_layout('photo') }
+      it { expect respond_with(200) }
       it { expect(get: '/lifephoto/photos/new').to route_to('lifephoto/photos#new') }
     end
 
@@ -45,8 +45,8 @@ describe Lifephoto::PhotosController do
         @file =  Rack::Test::UploadedFile.new('spec/fixtures/test.png', 'image/png')
         post :create,  photo: { title: 'test photo', description: "これはテストです", user_id: 1, album_id: 1, photo: @file }
       end
-      it { expect(render_with_layout('photo')) }
-      it { expect(respond_with(302)) }
+      it { expect render_with_layout('photo') }
+      it { expect respond_with(302)  }
 #      it { expect(get: '/lifephoto/photos/show').to route_to('lifephoto/photos#new') }
     end
   end

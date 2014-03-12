@@ -48,7 +48,7 @@ describe Photo do
         expect(saved_photo.title).to eql('test photo')
         @album = test_album
         expect(@album.photos).not_to be_nil
-        expect(@album.photos.size).to eql(9)
+        expect(@album.photos.size).to eql(6)
       end
 
       it "album top image" do
