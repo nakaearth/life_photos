@@ -13,4 +13,12 @@ describe PhotoComment do
 #    it { expect belong_to(:user) }
   end
   
+  context "コメント投稿' do
+    before do
+      
+    end
+
+    it "正常系" do
+
+  end
 end
