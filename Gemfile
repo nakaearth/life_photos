@@ -3,12 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-<<<<<<< HEAD
-gem 'rails', '4.1.0.beta1'
-=======
 gem 'rails', '4.1.0.rc1'
->>>>>>> origin/master
-#gem 'rails', '4.0.3'
 
 # 開発環境、テスト環境両方で使うもの
 group :development, :test do
@@ -135,10 +130,7 @@ gem "jquery-fileupload-rails"
 
 # test & coverage & code style
 group :test do
-<<<<<<< HEAD
-=======
-#  gem 'rspec', '~> 3.0.0.beta1'
->>>>>>> origin/master
+  gem 'minitest'
   gem 'rspec-rails', '3.0.0.beta1'
   gem 'rake_shared_context'
   gem 'simplecov', require: false
@@ -147,12 +139,8 @@ group :test do
   gem 'rubocop-checkstyle_formatter', require: false
   # fixtureの代わり
   gem "factory_girl_rails"
-<<<<<<< HEAD
-  gem 'shoulda-matchers', require: false
-=======
 #  gem 'shoulda-matchers', require: false
   gem 'shoulda-matchers'
->>>>>>> origin/master
   gem 'json_expressions'
   # テスト環境のテーブルをきれいにする
   gem 'database_rewinder'
