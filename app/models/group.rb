@@ -32,4 +32,5 @@ class Group < ActiveRecord::Base
       @member.save
     end
   end
+
 end
