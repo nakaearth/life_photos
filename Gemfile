@@ -212,4 +212,6 @@ gem 'neography'
 # API versio管理
 gem 'versioncake'
 
+# Travis CIでエラーが出たので、明示的に指定
+gem 'thread_safe', '0.2.0'
 
