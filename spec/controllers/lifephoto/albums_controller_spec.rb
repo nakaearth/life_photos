@@ -1,9 +1,19 @@
 require 'spec_helper'
 
 describe Lifephoto::AlbumsController do
-  fixtures :users
-  fixtures :albums
-  fixtures :photos
+
+  let!(:test_group1) { FactoryGirl.create(:test_group1) }
+  let!(:current_user) { FactoryGirl.create(:current_user) }
+  let!(:auth_provider1) { FactoryGirl.create(:current_user_auth_provider, user: current_user) }
+  let!(:test_album1) { FactoryGirl.create(:current_user_album1) }
+  let!(:test_photo1) { FactoryGirl.create(:current_user_photo1, user: current_user, album: test_album1) }
+  let!(:test_photo2) { FactoryGirl.create(:current_user_photo1, user: current_user, album: test_album1) }
+  let!(:test_photo3) { FactoryGirl.create(:current_user_photo1, user: current_user, album: test_album1) }
+  let!(:test_photo4) { FactoryGirl.create(:current_user_photo1, user: current_user, album: test_album1) }
+  let!(:test_photo5) { FactoryGirl.create(:current_user_photo1, user: current_user, album: test_album1) }
+  let!(:test_photo6) { FactoryGirl.create(:current_user_photo1, user: current_user, album: test_album1) }
+  let!(:test_photo7) { FactoryGirl.create(:current_user_photo1, user: current_user, album: test_album1) }
+  let!(:test_photo8) { FactoryGirl.create(:current_user_photo1, user: current_user, album: test_album1) }
 
   describe "albums list" do
     context "index method" do
