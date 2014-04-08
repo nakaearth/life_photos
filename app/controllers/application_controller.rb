@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :iPhone?
   before_action :iPad?
+  before_action :au?
   before_action :record_logs
   before_action :login?
   helper_method :current_user
@@ -34,11 +35,15 @@ class ApplicationController < ActionController::Base
   end
 
   def iPhone? 
-    request.variant = :tablet if request.user_agent =~ /iPhone/
+    request.variant = :iphone if request.user_agent =~ /iPhone/
   end
 
   def iPad? 
     request.variant = :tablet if request.user_agent =~ /iPad/
+  end
+  
+  def au?
+    request.variant = :au if request.user_agent =~ /AU/
   end
 
   private

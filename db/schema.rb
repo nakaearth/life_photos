@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307173347) do
+ActiveRecord::Schema.define(version: 20140408151643) do
 
   create_table "album_groups", force: true do |t|
     t.integer  "album_id"
@@ -124,5 +124,33 @@ ActiveRecord::Schema.define(version: 20140307173347) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "visits", force: true do |t|
+    t.string   "visit_token"
+    t.string   "visitor_token"
+    t.string   "ip"
+    t.text     "user_agent"
+    t.text     "referrer"
+    t.text     "landing_page"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "referring_domain"
+    t.string   "search_keyword"
+    t.string   "browser"
+    t.string   "os"
+    t.string   "device_type"
+    t.string   "country"
+    t.string   "region"
+    t.string   "city"
+    t.string   "utm_source"
+    t.string   "utm_medium"
+    t.string   "utm_term"
+    t.string   "utm_content"
+    t.string   "utm_campaign"
+    t.datetime "created_at"
+  end
+
+  add_index "visits", ["user_id", "user_type"], name: "index_visits_on_user_id_and_user_type"
+  add_index "visits", ["visit_token"], name: "index_visits_on_visit_token", unique: true
 
 end

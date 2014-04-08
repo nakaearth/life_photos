@@ -211,4 +211,7 @@ gem 'neography'
 # API versio管理
 gem 'versioncake'
 
+# access 解析
+gem 'ahoy_matey'
+
 

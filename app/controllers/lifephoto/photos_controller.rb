@@ -15,6 +15,8 @@ class Lifephoto::PhotosController < ApplicationController
     respond_to do |format|
       format.html  do |html|
         html.tablet
+        #html.au
+        html.any   { render text: "any"   }
       end
       format.json { render json: @photo }
     end
