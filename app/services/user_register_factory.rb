@@ -1,11 +1,11 @@
 class UserRegisterFactory
   def self.create_user_register(auth)
     if auth[:provider]  == 'facebook'
-      @user = FacebookUserRegister.new(auth) 
+      @user = UserRegist::Facebook.new(auth) 
     elsif auth[:provider] == 'twitter'
-      @user = TwitterUserRegister.new(auth)
+      @user = UserRegist::Twitter.new(auth)
     elsif auth[:provider] == 'developer'
-      @user = DeveloperUserRegister.new(auth) 
+      @user = UserRegist::Developer.new(auth) 
     end
     @user
   end

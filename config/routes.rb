@@ -1,11 +1,5 @@
 LifePhotos::Application.routes.draw do
 
-  namespace :lifephoto do
-  namespace :photos do
-    get "comment/index"
-    end
-  end
-
   namespace :api do
   get "session/create"
   end
@@ -42,6 +36,7 @@ LifePhotos::Application.routes.draw do
       collection do
         get 'multi_upload'
       end
+      resources :comment, only: [:index] do end
     end
     get "/my_photo_list/:user_id" => "photos#my_list" , :defaults => { :format => 'json' }
     resources :groups  do

@@ -32,6 +32,11 @@ describe Photo do
 
     #it { expect belong_to(:album) }
     it { expect have_many(:photo_comment) }
+    it { expect have_db_column(:user_id) }
+    it { expect have_db_column(:album_id) }
+    it { expect have_db_index(:album_id) }
+    it { expect have_db_index(:user_id) }
+    it { expect validate_presence_of(:title) }
 
     context "photo 投稿" do
       before do
