@@ -1,4 +1,4 @@
-class TwitterUserRegister < UserRegister
+class UserRegist::Twitter < UserRegister
 
   def initialize(auth)
     @auth = auth

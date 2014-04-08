@@ -1,6 +1,6 @@
 # coding: utf-8
 
-class FacebookUserRegister < UserRegister
+class UserRegist::Facebook < UserRegister
 
   def initialize(auth)
     @auth = auth

@@ -1,4 +1,4 @@
-class DeveloperUserRegister < UserRegister
+class UserRegist::Developer < UserRegister
 
   def initialize(auth)
     @auth = auth

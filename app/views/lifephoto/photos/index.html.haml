@@ -28,4 +28,5 @@
         コメント:#{photo.description}
         %br/
         = link_to '編集', action: 'edit', id: photo.id
+        = link_to 'コメントする', lifephoto_photo_comment_index_path(photo)
         \&nbsp;&nbsp; | &nbsp;&nbsp; #{link_to '削除', action: 'destroy', id: photo.id}

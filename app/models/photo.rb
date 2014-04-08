@@ -62,8 +62,8 @@ class Photo < ActiveRecord::Base
     return unless @album.group_id
     @group = Group.find(@album.group_id)
     @group_members = GroupMember.where(group_id: @group.id)
-    @group_members.each do |group_member|
-    #  PostPhotoMailer.send_notice_photo_mail(group_member, album_id).deliver
-    end
+#    @group_members.each do |group_member|
+#      PostPhotoMailer.send_notice_photo_mail(group_member, album_id).deliver
+#    end
   end
 end

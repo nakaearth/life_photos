@@ -41,17 +41,3 @@ class User < ActiveRecord::Base
 
 end
 
-class FullScreenName
-  attr_reader :provider, :name
-
-  def initialize(provider, name)
-    @provider = provider
-    @name = name
-  end
-
-  def to_s
-    p @name
-    p @provider
-    @name + "(" + @provider + ")"
-  end
-end

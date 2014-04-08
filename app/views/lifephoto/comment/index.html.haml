@@ -1,0 +1,5 @@
+= image_tag @photo.photo.url(:original) 
+%hr
+- @photo_comments.each do |comment|
+  = comment.message 
+%hr
