@@ -4,7 +4,8 @@ ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '4.1.0.beta1'
-gem 'rails', '4.1.0.rc1'
+#gem 'rails', '4.1.0.rc1'
+gem 'rails', '4.1.0'
 
 # 開発環境、テスト環境両方で使うもの
 group :development, :test do
@@ -216,5 +217,5 @@ gem 'versioncake'
 gem 'ahoy_matey'
 
 # Travis CIでエラーが出たので、明示的に指定
-gem 'thread_safe', '0.2.0'
+gem 'thread_safe', '0.3.0'
 
