@@ -43,8 +43,8 @@ class Lifephoto::AlbumsController < ApplicationController
     @album = Album.new(album_params)
     @album.user_id = current_user.id
     if @album.save
-      redirect_to action: :new, controller: :photos if params[:from_url] == 'photo'
-      redirect_to @album , notice: 'album create success' unless params[:from_url] == 'photo'
+      redirect_to action: :new, controller: :photos if params[:from_url] == 'lifephoto/photo'
+      redirect_to action: :index, controller: :albums , notice: 'album create success' unless params[:from_url] == 'lifephoto/photo'
     else
       render action: :new
     end
