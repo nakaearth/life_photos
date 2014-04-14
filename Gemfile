@@ -217,5 +217,5 @@ gem 'versioncake'
 gem 'ahoy_matey'
 
 # Travis CIでエラーが出たので、明示的に指定
-gem 'thread_safe', '0.3.0'
+gem 'thread_safe', '0.2.0'
 

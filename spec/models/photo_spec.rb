@@ -44,22 +44,26 @@ describe Photo do
         @file.binmode
         @subject = Paperclip.io_adapters.for(@file)
         @photo = Photo.new(title: "test photo", description: "これはテストです", user_id: test_user1.id, album_id: test_album.id, photo: @subject)
+        @photo.save
       end
 
       it "database check" do
-        @photo.save
         saved_photo = Photo.where(title: 'test photo').first
         expect(saved_photo).not_to be_nil
+      end
+      it "save photo titleの確認" do
+        saved_photo = Photo.where(title: 'test photo').first
         expect(saved_photo.title).to eql('test photo')
-        @album = test_album
-        expect(@album.photos).not_to be_nil
-        expect(@album.photos.size).to eql(6)
+      end
+      it "画像投稿でアルバムとちゃんと関連つけられているか" do
+        expect(test_album.photos).not_to be_nil
+      end
+      it "画像投稿でアルバムとちゃんと関連つけられているか2" do
+        expect(test_album.photos.size).to be >= 6
       end
 
       it "album top image" do
-        @photo.save
-        @album = test_album
-        expect(@album.top_img_path).not_to be_nil
+        expect(test_album.top_img_path).not_to be_nil
       end
     end
 
