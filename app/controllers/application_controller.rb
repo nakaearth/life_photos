@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 
   def record_logs
     table_name = Rails.env.production? ? 'lifephoto' : 'dev_lifephoto'
-    TD.event.post(table_name, {uid: current_user.try(:id) || 'unknown', action_date: Time.now.strftime("%Y%m%d") })
+    TD.event.post(table_name, {uid: current_user.try(:id) || 'unknown', action_date: Time.now.strftime("%Y%m%d") ,controller_path: controller_path, action_name: action_name, response_time: response.headers["X-Runtime"] })
   end
 
   def login?

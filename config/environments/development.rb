@@ -38,6 +38,9 @@ LifePhotos::Application.configure do
   config.assets.debug = true
 
   config.cache_store = :dalli_store
+
+  ActiveSupport::Dependencies.log_activity = true
+
 end
 
 #require 'pusher'
